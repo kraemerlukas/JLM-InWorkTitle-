@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8690191391167676052}
   - component: {fileID: 1524641470907258964}
   - component: {fileID: 2927016173530339368}
+  - component: {fileID: 6455078549386708404}
   m_Layer: 0
   m_Name: MainMenu
   m_TagString: Untagged
@@ -48,6 +49,7 @@ MonoBehaviour:
   playerNameInputField: {fileID: 0}
   playerListContainer: {fileID: 0}
   playerListItemPrefab: {fileID: 643285521179788768, guid: c16594621418270409da08dafe7bd5e9, type: 3}
+  driverToggle: {fileID: 0}
 --- !u!114 &2927016173530339368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,3 +66,16 @@ MonoBehaviour:
   OptionsPanel: {fileID: 0}
   InfoPanel: {fileID: 0}
   GamePanel: {fileID: 0}
+--- !u!114 &6455078549386708404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4399173281920955050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d881dd8a79d3f1c49aafa48fd73e9df8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roundsPlayedText: {fileID: 0}

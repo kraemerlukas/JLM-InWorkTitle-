@@ -31,8 +31,17 @@ public class TaskManager : MonoBehaviour
 
         if (gameEnded && Input.GetMouseButtonDown(0))
         {
+            EndRound();
             SceneManager.LoadScene("Menu"); // Lädt die Szene "Menu"
         }
+    }
+
+    private void EndRound()
+    {
+        int roundsPlayed = PlayerPrefs.GetInt("RoundsPlayed", 0);
+        roundsPlayed++;
+        PlayerPrefs.SetInt("RoundsPlayed", roundsPlayed);
+        PlayerPrefs.Save();
     }
 
     private void LoadPlayerData()

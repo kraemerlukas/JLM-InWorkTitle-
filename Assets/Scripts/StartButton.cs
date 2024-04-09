@@ -5,6 +5,6 @@ public class StartButton : MonoBehaviour
 {
     public void StartGame()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene(PlayerPrefs.GetString("mode"));
     }
 }
