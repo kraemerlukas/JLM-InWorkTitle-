@@ -13,7 +13,6 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
-        PlayerPrefs.DeleteAll();
         LoadPlayerNames();
         UpdatePlayerList();
     }
