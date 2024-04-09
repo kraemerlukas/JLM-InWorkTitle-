@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections.Generic;
-using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +10,7 @@ public class GameManager : MonoBehaviour
     {
         LoadPlayerData();
         CountPlayersAndDrivers();
+        RemoveDriversFromPlayerCount();
     }
 
     private void LoadPlayerData()
@@ -21,10 +21,13 @@ public class GameManager : MonoBehaviour
         {
             string playerName = PlayerPrefs.GetString("Player" + (i + 1));
             Debug.Log("Player " + (i + 1) + " loaded: " + playerName);
-            playerNames.Add(playerName);
 
-            bool isDriver = PlayerPrefs.GetInt("IsDriver" + (i + 1), 0) == 1;
-            if (isDriver)
+            bool isDriver = PlayerPrefs.GetInt(playerName + "_IsDriver", 0) == 1; // Überprüfe den Fahrerstatus des Spielers
+            if (!isDriver) // Fahrer ausfiltern
+            {
+                playerNames.Add(playerName);
+            }
+            else
             {
                 driverNames.Add(playerName);
             }
@@ -35,5 +38,27 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Total players: " + playerNames.Count);
         Debug.Log("Total drivers: " + driverNames.Count);
+
+        Debug.Log("Driver names:");
+        foreach (string driverName in driverNames)
+        {
+            Debug.Log(driverName);
+        }
+    }
+
+    private void RemoveDriversFromPlayerCount()
+    {
+        foreach (string driverName in driverNames)
+        {
+            playerNames.Remove(driverName);
+        }
+
+        // Aktualisieren des PlayerCounts nach dem Entfernen der Fahrer
+        PlayerPrefs.SetInt("PlayerCount", playerNames.Count);
+        for (int i = 0; i < playerNames.Count; i++)
+        {
+            PlayerPrefs.SetString("Player" + (i + 1), playerNames[i]);
+        }
+        PlayerPrefs.Save();
     }
 }

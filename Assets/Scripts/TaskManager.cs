@@ -9,9 +9,11 @@ public class TaskManager : MonoBehaviour
     public TextMeshProUGUI taskText;
 
     private List<string> playerNames = new List<string>();
+    private List<string> driverNames = new List<string>();
     private int tasksCompleted = 0;
     private int maxTasks; // Zufällige Anzahl von Aufgaben zwischen 30 und 50
     private bool gameEnded = false;
+    private bool hasDrivers = true;
 
     private void Start()
     {
@@ -41,8 +43,38 @@ public class TaskManager : MonoBehaviour
         {
             string playerName = PlayerPrefs.GetString("Player" + (i + 1));
             Debug.Log("Player " + (i + 1) + " loaded: " + playerName);
-            playerNames.Add(playerName);
+
+            bool isDriver = PlayerPrefs.GetInt(playerName + "_IsDriver", 0) == 1;
+            if (isDriver)
+            {
+                driverNames.Add(playerName);
+            }
+            else
+            {
+                playerNames.Add(playerName);
+            }
         }
+
+        if (driverNames.Count == 0)
+        {
+            hasDrivers = false;
+        }
+    }
+
+    private void RemoveDriversFromPlayerCount()
+    {
+        foreach (string driverName in driverNames)
+        {
+            playerNames.Remove(driverName);
+        }
+
+        // Aktualisieren des PlayerCounts nach dem Entfernen der Fahrer
+        PlayerPrefs.SetInt("PlayerCount", playerNames.Count);
+        for (int i = 0; i < playerNames.Count; i++)
+        {
+            PlayerPrefs.SetString("Player" + (i + 1), playerNames[i]);
+        }
+        PlayerPrefs.Save();
     }
 
     private void ShowNextTask()
@@ -68,17 +100,40 @@ public class TaskManager : MonoBehaviour
             taskDescription = randomTaskPrefab.GetComponentInChildren<TextMeshProUGUI>().text;
         }
 
-        List<string> selectedPlayers = new List<string>();
+        // Ersetze Platzhalter durch zufällig ausgewählte Spieler und Fahrer
+        HashSet<string> usedNames = new HashSet<string>(); // Um doppelte Namen zu verhindern
 
-        // Ersetze Platzhalter durch zufällig ausgewählte Spieler
         for (int i = 1; i <= 4; i++)
         {
             string placeholder = "{Spieler" + i + "}";
             if (taskDescription.Contains(placeholder) && i <= playerCount)
             {
-                string randomPlayer = GetRandomPlayer(selectedPlayers);
-                selectedPlayers.Add(randomPlayer);
+                string randomPlayer = GetRandomPlayer();
+                while (usedNames.Contains(randomPlayer)) // Überprüfe, ob der Name bereits verwendet wurde
+                {
+                    randomPlayer = GetRandomPlayer(); // Wenn ja, wähle einen neuen zufälligen Spieler aus
+                }
+                usedNames.Add(randomPlayer); // Füge den Namen zur Liste der verwendeten Namen hinzu
                 taskDescription = taskDescription.Replace(placeholder, randomPlayer);
+            }
+            else if (taskDescription.Contains("{Fahrer" + i + "}"))
+            {
+                if (hasDrivers)
+                {
+                    string randomDriver = GetRandomDriver();
+                    while (usedNames.Contains(randomDriver)) // Überprüfe, ob der Name bereits verwendet wurde
+                    {
+                        randomDriver = GetRandomDriver(); // Wenn ja, wähle einen neuen zufälligen Fahrer aus
+                    }
+                    usedNames.Add(randomDriver); // Füge den Namen zur Liste der verwendeten Namen hinzu
+                    taskDescription = taskDescription.Replace("{Fahrer" + i + "}", randomDriver);
+                }
+                else
+                {
+                    // Überspringe die Aufgabe mit {Fahrer}
+                    ShowNextTask();
+                    return;
+                }
             }
             else if (taskDescription.Contains("{Allgemein}"))
             {
@@ -104,22 +159,29 @@ public class TaskManager : MonoBehaviour
         return numPlaceholders <= playerCount;
     }
 
-    private string GetRandomPlayer(List<string> excludePlayers)
+    private string GetRandomPlayer()
     {
-        List<string> availablePlayers = new List<string>(playerNames);
-        foreach (string player in excludePlayers)
+        if (playerNames.Count > 0)
         {
-            availablePlayers.Remove(player);
-        }
-
-        if (availablePlayers.Count > 0)
-        {
-            int randomIndex = Random.Range(0, availablePlayers.Count);
-            return availablePlayers[randomIndex];
+            int randomIndex = Random.Range(0, playerNames.Count);
+            return playerNames[randomIndex];
         }
         else
         {
             return "Keine Spieler verfügbar";
+        }
+    }
+
+    private string GetRandomDriver()
+    {
+        if (driverNames.Count > 0)
+        {
+            int randomIndex = Random.Range(0, driverNames.Count);
+            return driverNames[randomIndex];
+        }
+        else
+        {
+            return "Kein Fahrer verfügbar";
         }
     }
 }

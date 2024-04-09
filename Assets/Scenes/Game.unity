@@ -254,7 +254,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6915440e2f94a6a4fbd8565239f13e2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNames: []
 --- !u!4 &872592079
 Transform:
   m_ObjectHideFlags: 0
@@ -609,7 +608,7 @@ PrefabInstance:
       objectReference: {fileID: 1623260294}
     - target: {fileID: 7330338080721203658, guid: 1c16476e182ad13438992fb2e35bdc7a, type: 3}
       propertyPath: taskPrefabs.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7330338080721203658, guid: 1c16476e182ad13438992fb2e35bdc7a, type: 3}
       propertyPath: taskPrefabs.Array.data[0]
@@ -635,6 +634,10 @@ PrefabInstance:
       propertyPath: taskPrefabs.Array.data[5]
       value: 
       objectReference: {fileID: 1844210475615526104, guid: 5488e5c7ad8f205439f7e6bf727cfdcb, type: 3}
+    - target: {fileID: 7330338080721203658, guid: 1c16476e182ad13438992fb2e35bdc7a, type: 3}
+      propertyPath: taskPrefabs.Array.data[6]
+      value: 
+      objectReference: {fileID: 1844210475615526104, guid: 1f251f9bbcf76664e9fb2810fb549e69, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
