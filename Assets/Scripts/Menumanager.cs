@@ -9,6 +9,7 @@ public class MainMenu : MonoBehaviour
     public Transform playerListContainer;
     public GameObject playerListItemPrefab;
     public Toggle driverToggle; // Der Toggle für alle Spieler
+    public Button teamModeButton;
 
     private List<string> playerNames = new List<string>();
 
@@ -103,4 +104,7 @@ public class MainMenu : MonoBehaviour
         string playerNamesString = string.Join(";", playerNames.ToArray());
         PlayerPrefs.SetString("PlayerNames", playerNamesString);
     }
+
+   
+ 
 }

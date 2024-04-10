@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 35883
+  controlID: 16926
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -67,7 +67,7 @@ MonoBehaviour:
   m_ShowGizmos: 0
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 1}
-  m_TargetSize: {x: 1170, y: 2532}
+  m_TargetSize: {x: 1284, y: 2778}
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
@@ -86,11 +86,11 @@ MonoBehaviour:
     pluginStates:
     - '{"m_SerializationStates":{"thermalFoldout":false,"performanceFoldout":false,"developerFoldout":false,"indexerFoldout":false,"scalersFoldout":false,"deviceSettingsFoldout":false}}'
     - '{}'
-    scale: 18
+    scale: 17
     fitToScreenEnabled: 0
     rotationDegree: 0
     highlightSafeAreaEnabled: 0
-    friendlyName: Apple iPhone 12
+    friendlyName: Apple iPhone 13 Pro Max
     screenIndex: 0
     networkReachability: 1
     systemLanguage: 10
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 35837
+  controlID: 16886
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 35781
+  controlID: 16854
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -209,7 +209,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 6251ffff9053ffff4e67ffff7268ffffe269ffffbe81ffffc681ffffc285ffff52adffffc0b4ffff3cb5ffffe4faffffecfaffff04fbffffd6860000e0860000e6860000d2870000ec9800003a99000068990000
+      m_ExpandedIDs: 368cffffccf0ffff54f1ffff16fbffffbe630000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -681,9 +681,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.6743875, y: -2.7858517, z: 160.735}
+    m_Target: {x: 1.8380432, y: -0.95364213, z: 3187.786}
     speed: 2
-    m_Value: {x: 0.6743875, y: -2.7858517, z: 160.735}
+    m_Value: {x: 1.8380432, y: -0.95364213, z: 3187.786}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -733,9 +733,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 10.295277
+    m_Target: 13.368688
     speed: 2
-    m_Value: 10.295277
+    m_Value: 13.368688
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -779,8 +779,8 @@ MonoBehaviour:
     y: 547
     width: 1454
     height: 376
-  m_MinSize: {x: 231, y: 271}
-  m_MaxSize: {x: 10001, y: 10021}
+  m_MinSize: {x: 230, y: 250}
+  m_MaxSize: {x: 10000, y: 10000}
   m_ActualView: {fileID: 10}
   m_Panes:
   - {fileID: 10}
@@ -848,9 +848,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: be640000
-    m_LastClickedID: 25790
-    m_ExpandedIDs: 00000000aa640000d6640000
+    m_SelectedIDs: 52650000
+    m_LastClickedID: 25938
+    m_ExpandedIDs: 000000003e65000062650000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -878,7 +878,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000aa640000be640000
+    m_ExpandedIDs: 000000003e65000062650000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -903,8 +903,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: c481ffff
-    m_LastClickedInstanceID: -32316
+    m_SelectedInstanceIDs: 56630000
+    m_LastClickedInstanceID: 25430
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000f6c1feff58a0000024a40000
     m_RenameOverlay:
@@ -1034,7 +1034,7 @@ MonoBehaviour:
     m_CachedPref: 160
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
-  m_LastInspectedObjectInstanceID: -32316
+  m_LastInspectedObjectInstanceID: 25430
   m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0

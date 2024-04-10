@@ -1,18 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class PlayerInfo : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public string playerName;
+
+    public void Initialize(string name)
     {
-        
+        playerName = name;
+        // Führe hier die Initialisierung für den Spieler durch
+        // Zum Beispiel: Setze den Namen des Spielers auf das entsprechende UI-Element
+        GetComponentInChildren<TextMeshProUGUI>().text = playerName;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    // Weitere Methoden und Eigenschaften für die Spielerinformationen
 }

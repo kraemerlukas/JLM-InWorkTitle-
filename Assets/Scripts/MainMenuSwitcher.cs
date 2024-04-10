@@ -8,6 +8,8 @@ public class MainMenuSwitcher : MonoBehaviour
     [SerializeField] private RectTransform OptionsPanel;
     [SerializeField] private RectTransform InfoPanel;
     [SerializeField] private RectTransform ModePanel;
+    [SerializeField] private RectTransform TeamPanel;
+
 
     public void StartButton()
     {
@@ -27,6 +29,14 @@ public class MainMenuSwitcher : MonoBehaviour
         ModePanel.gameObject.SetActive(false);
         InfoPanel.gameObject.SetActive(false);
         OptionsPanel.gameObject.SetActive(false);
+        TeamPanel.gameObject.SetActive(false);
+
+    }
+
+    public void TeamModus()
+    {
+        ModePanel.gameObject.SetActive(false);
+        TeamPanel.gameObject.SetActive(true);
     }
 
     public void InfoButton()
