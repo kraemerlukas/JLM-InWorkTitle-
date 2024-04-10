@@ -14,6 +14,7 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
+        Screen.orientation = ScreenOrientation.Portrait;
         LoadPlayerNames();
         UpdatePlayerList();
     }

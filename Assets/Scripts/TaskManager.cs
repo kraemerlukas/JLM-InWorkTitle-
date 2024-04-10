@@ -17,6 +17,7 @@ public class TaskManager : MonoBehaviour
 
     private void Start()
     {
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
         maxTasks = Random.Range(30, 51);
         LoadPlayerData();
         ShowNextTask();
@@ -32,6 +33,8 @@ public class TaskManager : MonoBehaviour
         if (gameEnded && Input.GetMouseButtonDown(0))
         {
             EndRound();
+            Screen.orientation = ScreenOrientation.Portrait;
+
             SceneManager.LoadScene("Menu"); // Lädt die Szene "Menu"
         }
     }

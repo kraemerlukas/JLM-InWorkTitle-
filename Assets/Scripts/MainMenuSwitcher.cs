@@ -7,7 +7,6 @@ public class MainMenuSwitcher : MonoBehaviour
     [SerializeField] private RectTransform StartPanel;
     [SerializeField] private RectTransform OptionsPanel;
     [SerializeField] private RectTransform InfoPanel;
-    [SerializeField] private RectTransform GamePanel;
     [SerializeField] private RectTransform ModePanel;
 
     public void StartButton()
@@ -20,14 +19,12 @@ public class MainMenuSwitcher : MonoBehaviour
     {
         ModePanel.gameObject.SetActive(false);
         PlayerPrefs.SetString("mode", _mode);
-        GamePanel.gameObject.SetActive(true);
     }
 
     public void BackButton()
     {
         StartPanel.gameObject.SetActive(true);
         ModePanel.gameObject.SetActive(false);
-        GamePanel.gameObject.SetActive(false);
         InfoPanel.gameObject.SetActive(false);
         OptionsPanel.gameObject.SetActive(false);
     }
