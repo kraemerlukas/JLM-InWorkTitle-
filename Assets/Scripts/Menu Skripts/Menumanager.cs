@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class MainMenu : MonoBehaviour
 {
-    public TMP_InputField playerNameInputField;
+    public InputField playerNameInputField;
     public Transform playerListContainer;
     public GameObject playerListItemPrefab;
     public Toggle driverToggle; // Der Toggle für alle Spieler

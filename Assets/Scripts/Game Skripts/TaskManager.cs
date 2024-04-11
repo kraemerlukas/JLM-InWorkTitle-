@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class TaskManager : MonoBehaviour
 {
-    public List<GameObject> taskPrefabs;
+    public GameObject taskPrefabGroup; // Referenz auf die Prefab-Gruppe
     public TextMeshProUGUI taskText;
 
     private List<string> playerNames = new List<string>();
@@ -89,30 +89,77 @@ public class TaskManager : MonoBehaviour
         PlayerPrefs.Save();
     }
 
+    private int skippedTasks = 0; // Zählvariable für übersprungene Aufgaben
+
     private void ShowNextTask()
     {
         int playerCount = playerNames.Count;
+        int driverCount = driverNames.Count;
 
-        if (tasksCompleted >= maxTasks)
+        if (tasksCompleted - skippedTasks >= maxTasks)
         {
             taskText.text = "Runde Beendet!";
             gameEnded = true;
             return;
         }
 
-        int randomTaskIndex = Random.Range(0, taskPrefabs.Count);
-        GameObject randomTaskPrefab = taskPrefabs[randomTaskIndex];
+        // Zugriff auf die Kindobjekte der Prefab-Gruppe
+        Transform[] childTransforms = taskPrefabGroup.GetComponentsInChildren<Transform>();
+        List<GameObject> childObjects = new List<GameObject>();
+        foreach (Transform child in childTransforms)
+        {
+            if (child.gameObject != taskPrefabGroup)
+            {
+                childObjects.Add(child.gameObject);
+            }
+        }
+
+        // Zufällige Auswahl einer Aufgabe aus den Kindobjekten der Prefab-Gruppe
+        int randomTaskIndex = Random.Range(0, childObjects.Count);
+        GameObject randomTaskPrefab = childObjects[randomTaskIndex];
 
         string taskDescription = randomTaskPrefab.GetComponentInChildren<TextMeshProUGUI>().text;
 
-        while (!HasEnoughPlayers(taskDescription, playerCount))
+        // Überprüfung, ob genügend Spieler und Fahrer für die Aufgabe vorhanden sind
+        if (!HasEnoughPlayersAndDriversForTask(taskDescription, playerCount, driverCount))
         {
-            randomTaskIndex = Random.Range(0, taskPrefabs.Count);
-            randomTaskPrefab = taskPrefabs[randomTaskIndex];
-            taskDescription = randomTaskPrefab.GetComponentInChildren<TextMeshProUGUI>().text;
+            skippedTasks++; // Erhöhe die Anzahl der übersprungenen Aufgaben
+            ShowNextTask(); // Aufgabe überspringen und neue anzeigen
+            return;
         }
 
         // Ersetze Platzhalter durch zufällig ausgewählte Spieler und Fahrer
+        ReplacePlaceholders(ref taskDescription, playerCount);
+
+        taskText.text = taskDescription;
+        tasksCompleted++;
+    }
+
+    private bool HasEnoughPlayersAndDriversForTask(string taskDescription, int playerCount, int driverCount)
+    {
+        int requiredPlayers = 0;
+        int requiredDrivers = 0;
+
+        for (int i = 1; i <= 4; i++)
+        {
+            string playerPlaceholder = "{Spieler" + i + "}";
+            string driverPlaceholder = "{Fahrer" + i + "}";
+
+            if (taskDescription.Contains(playerPlaceholder))
+            {
+                requiredPlayers++;
+            }
+            else if (taskDescription.Contains(driverPlaceholder))
+            {
+                requiredDrivers++;
+            }
+        }
+
+        return requiredPlayers <= playerCount && requiredDrivers <= driverCount;
+    }
+
+    private void ReplacePlaceholders(ref string taskDescription, int playerCount)
+    {
         HashSet<string> usedNames = new HashSet<string>(); // Um doppelte Namen zu verhindern
 
         for (int i = 1; i <= 4; i++)
@@ -152,23 +199,6 @@ public class TaskManager : MonoBehaviour
                 taskDescription = taskDescription.Replace("{Allgemein}", "Alle");
             }
         }
-
-        taskText.text = taskDescription;
-        tasksCompleted++;
-    }
-
-    private bool HasEnoughPlayers(string taskDescription, int playerCount)
-    {
-        int numPlaceholders = 0;
-        for (int i = 1; i <= 4; i++)
-        {
-            string placeholder = "{Spieler" + i + "}";
-            if (taskDescription.Contains(placeholder))
-            {
-                numPlaceholders++;
-            }
-        }
-        return numPlaceholders <= playerCount;
     }
 
     private string GetRandomPlayer()

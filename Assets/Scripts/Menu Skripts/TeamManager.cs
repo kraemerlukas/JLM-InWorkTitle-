@@ -6,11 +6,12 @@ using TMPro;
 
 public enum TeamName
 {
-    Alpha,
-    Bravo,
-    Charlie,
-    Delta,
-    Echo
+    Suffköppe,
+    Schlümpfe,
+    Blaumänner,
+    Mallegänger,
+    Kleinschwänzige,
+    Fettsäcke
 }
 
 public class TeamManager : MonoBehaviour
