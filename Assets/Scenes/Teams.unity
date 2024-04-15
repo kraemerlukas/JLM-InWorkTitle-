@@ -327,7 +327,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c0921f0eb60ab948a37e785805a804b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  taskPrefabGroup: {fileID: 658630349902108071, guid: a69e27893b99ddd428ec6f5e7cec57ea, type: 3}
+  easyTaskPrefabGroup: {fileID: 658630349902108071, guid: a69e27893b99ddd428ec6f5e7cec57ea, type: 3}
+  mediumTaskPrefabGroup: {fileID: 0}
+  hardTaskPrefabGroup: {fileID: 0}
   taskText: {fileID: 1623260294}
 --- !u!4 &1720251606
 Transform:

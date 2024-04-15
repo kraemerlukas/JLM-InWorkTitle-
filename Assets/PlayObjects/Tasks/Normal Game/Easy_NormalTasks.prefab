@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5856247561693206512}
   m_Layer: 0
-  m_Name: NormalTaskList
+  m_Name: Easy_NormalTasks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

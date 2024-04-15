@@ -5,7 +5,9 @@ using System.Collections.Generic;
 
 public class TaskManager : MonoBehaviour
 {
-    public GameObject taskPrefabGroup; // Referenz auf die Prefab-Gruppe
+    public GameObject taskPrefabGroupEasy; // Referenz auf die Prefab-Gruppe für leichte Aufgaben
+    public GameObject taskPrefabGroupMedium; // Referenz auf die Prefab-Gruppe für mittelschwere Aufgaben
+    public GameObject taskPrefabGroupHard; // Referenz auf die Prefab-Gruppe für schwere Aufgaben
     public TextMeshProUGUI taskText;
 
     private List<string> playerNames = new List<string>();
@@ -14,13 +16,18 @@ public class TaskManager : MonoBehaviour
     private int maxTasks; // Zufällige Anzahl von Aufgaben zwischen 30 und 50
     private bool gameEnded = false;
     private bool hasDrivers = true;
+    private GameObject selectedTaskPrefabGroup; // Ausgewählte Prefab-Gruppe für Aufgaben
 
     private void Start()
     {
         Screen.orientation = ScreenOrientation.LandscapeLeft;
         maxTasks = Random.Range(30, 51);
         LoadPlayerData();
+        SetSelectedTaskPrefab();
         ShowNextTask();
+
+        // Debug-Log für die aktuelle Schwierigkeitsstufe
+        Debug.Log("Aktuelle Schwierigkeitsstufe: " + PlayerPrefs.GetString("SelectedDifficulty", "Easy"));
     }
 
     private void Update()
@@ -34,7 +41,6 @@ public class TaskManager : MonoBehaviour
         {
             EndRound();
             Screen.orientation = ScreenOrientation.Portrait;
-
             SceneManager.LoadScene("Menu"); // Lädt die Szene "Menu"
         }
     }
@@ -50,12 +56,9 @@ public class TaskManager : MonoBehaviour
     private void LoadPlayerData()
     {
         int playerCount = PlayerPrefs.GetInt("PlayerCount", 0);
-        Debug.Log("Player count loaded: " + playerCount);
         for (int i = 0; i < playerCount; i++)
         {
             string playerName = PlayerPrefs.GetString("Player" + (i + 1));
-            Debug.Log("Player " + (i + 1) + " loaded: " + playerName);
-
             bool isDriver = PlayerPrefs.GetInt(playerName + "_IsDriver", 0) == 1;
             if (isDriver)
             {
@@ -73,94 +76,62 @@ public class TaskManager : MonoBehaviour
         }
     }
 
-    private void RemoveDriversFromPlayerCount()
+    private void SetSelectedTaskPrefab()
     {
-        foreach (string driverName in driverNames)
-        {
-            playerNames.Remove(driverName);
-        }
+        string selectedDifficulty = PlayerPrefs.GetString("SelectedDifficulty", "Easy");
 
-        // Aktualisieren des PlayerCounts nach dem Entfernen der Fahrer
-        PlayerPrefs.SetInt("PlayerCount", playerNames.Count);
-        for (int i = 0; i < playerNames.Count; i++)
+        switch (selectedDifficulty)
         {
-            PlayerPrefs.SetString("Player" + (i + 1), playerNames[i]);
+            case "Easy":
+                selectedTaskPrefabGroup = taskPrefabGroupEasy;
+                break;
+            case "Medium":
+                selectedTaskPrefabGroup = taskPrefabGroupMedium;
+                break;
+            case "Hard":
+                selectedTaskPrefabGroup = taskPrefabGroupHard;
+                break;
+            default:
+                selectedTaskPrefabGroup = taskPrefabGroupEasy; // Standardmäßig Easy verwenden
+                break;
         }
-        PlayerPrefs.Save();
     }
-
-    private int skippedTasks = 0; // Zählvariable für übersprungene Aufgaben
 
     private void ShowNextTask()
     {
         int playerCount = playerNames.Count;
-        int driverCount = driverNames.Count;
 
-        if (tasksCompleted - skippedTasks >= maxTasks)
+        if (tasksCompleted >= maxTasks)
         {
             taskText.text = "Runde Beendet!";
             gameEnded = true;
             return;
         }
 
-        // Zugriff auf die Kindobjekte der Prefab-Gruppe
-        Transform[] childTransforms = taskPrefabGroup.GetComponentsInChildren<Transform>();
+        Transform[] childTransforms = selectedTaskPrefabGroup.GetComponentsInChildren<Transform>();
         List<GameObject> childObjects = new List<GameObject>();
         foreach (Transform child in childTransforms)
         {
-            if (child.gameObject != taskPrefabGroup)
+            if (child.gameObject != selectedTaskPrefabGroup)
             {
                 childObjects.Add(child.gameObject);
             }
         }
 
-        // Zufällige Auswahl einer Aufgabe aus den Kindobjekten der Prefab-Gruppe
         int randomTaskIndex = Random.Range(0, childObjects.Count);
         GameObject randomTaskPrefab = childObjects[randomTaskIndex];
 
         string taskDescription = randomTaskPrefab.GetComponentInChildren<TextMeshProUGUI>().text;
 
-        // Überprüfung, ob genügend Spieler und Fahrer für die Aufgabe vorhanden sind
-        if (!HasEnoughPlayersAndDriversForTask(taskDescription, playerCount, driverCount))
-        {
-            skippedTasks++; // Erhöhe die Anzahl der übersprungenen Aufgaben
-            ShowNextTask(); // Aufgabe überspringen und neue anzeigen
-            return;
-        }
-
-        // Ersetze Platzhalter durch zufällig ausgewählte Spieler und Fahrer
         ReplacePlaceholders(ref taskDescription, playerCount);
 
         taskText.text = taskDescription;
         tasksCompleted++;
     }
 
-    private bool HasEnoughPlayersAndDriversForTask(string taskDescription, int playerCount, int driverCount)
-    {
-        int requiredPlayers = 0;
-        int requiredDrivers = 0;
-
-        for (int i = 1; i <= 4; i++)
-        {
-            string playerPlaceholder = "{Spieler" + i + "}";
-            string driverPlaceholder = "{Fahrer" + i + "}";
-
-            if (taskDescription.Contains(playerPlaceholder))
-            {
-                requiredPlayers++;
-            }
-            else if (taskDescription.Contains(driverPlaceholder))
-            {
-                requiredDrivers++;
-            }
-        }
-
-        return requiredPlayers <= playerCount && requiredDrivers <= driverCount;
-    }
-
     private void ReplacePlaceholders(ref string taskDescription, int playerCount)
     {
-        HashSet<string> usedNames = new HashSet<string>(); // Um doppelte Namen zu verhindern
+        HashSet<string> usedNames = new HashSet<string>();
 
         for (int i = 1; i <= 4; i++)
         {
@@ -168,11 +139,11 @@ public class TaskManager : MonoBehaviour
             if (taskDescription.Contains(placeholder) && i <= playerCount)
             {
                 string randomPlayer = GetRandomPlayer();
-                while (usedNames.Contains(randomPlayer)) // Überprüfe, ob der Name bereits verwendet wurde
+                while (usedNames.Contains(randomPlayer))
                 {
-                    randomPlayer = GetRandomPlayer(); // Wenn ja, wähle einen neuen zufälligen Spieler aus
+                    randomPlayer = GetRandomPlayer();
                 }
-                usedNames.Add(randomPlayer); // Füge den Namen zur Liste der verwendeten Namen hinzu
+                usedNames.Add(randomPlayer);
                 taskDescription = taskDescription.Replace(placeholder, randomPlayer);
             }
             else if (taskDescription.Contains("{Fahrer" + i + "}"))
@@ -180,16 +151,15 @@ public class TaskManager : MonoBehaviour
                 if (hasDrivers)
                 {
                     string randomDriver = GetRandomDriver();
-                    while (usedNames.Contains(randomDriver)) // Überprüfe, ob der Name bereits verwendet wurde
+                    while (usedNames.Contains(randomDriver))
                     {
-                        randomDriver = GetRandomDriver(); // Wenn ja, wähle einen neuen zufälligen Fahrer aus
+                        randomDriver = GetRandomDriver();
                     }
-                    usedNames.Add(randomDriver); // Füge den Namen zur Liste der verwendeten Namen hinzu
+                    usedNames.Add(randomDriver);
                     taskDescription = taskDescription.Replace("{Fahrer" + i + "}", randomDriver);
                 }
                 else
                 {
-                    // Überspringe die Aufgabe mit {Fahrer}
                     ShowNextTask();
                     return;
                 }

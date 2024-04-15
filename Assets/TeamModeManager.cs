@@ -5,8 +5,12 @@ using System.Collections.Generic;
 
 public class TeamTaskManager : MonoBehaviour
 {
-    public GameObject taskPrefabGroup; // Referenz auf die Prefab-Gruppe
+    public GameObject easyTaskPrefabGroup; // Referenz auf die Easy-Prefab-Gruppe
+    public GameObject mediumTaskPrefabGroup; // Referenz auf die Medium-Prefab-Gruppe
+    public GameObject hardTaskPrefabGroup; // Referenz auf die Hard-Prefab-Gruppe
     public TextMeshProUGUI taskText;
+
+    private GameObject selectedPrefabGroup; // Referenz auf die ausgewählte Prefab-Gruppe basierend auf dem Schwierigkeitsgrad
 
     private List<string> playerNames = new List<string>();
     private List<string> team1Players = new List<string>();
@@ -23,7 +27,9 @@ public class TeamTaskManager : MonoBehaviour
         Screen.orientation = ScreenOrientation.LandscapeLeft;
         maxTasks = Random.Range(30, 51);
         LoadPlayerData();
+        SetSelectedTaskPrefab();
         ShowNextTask();
+        Debug.Log("Aktuelle Schwierigkeitsstufe: " + PlayerPrefs.GetString("SelectedDifficulty", "Easy"));
     }
 
     private void Update()
@@ -71,6 +77,26 @@ public class TeamTaskManager : MonoBehaviour
         }
     }
 
+    private void SetSelectedTaskPrefab()
+    {
+        string selectedDifficulty = PlayerPrefs.GetString("SelectedDifficulty", "Easy");
+        switch (selectedDifficulty)
+        {
+            case "Easy":
+                selectedPrefabGroup = easyTaskPrefabGroup;
+                break;
+            case "Medium":
+                selectedPrefabGroup = mediumTaskPrefabGroup;
+                break;
+            case "Hard":
+                selectedPrefabGroup = hardTaskPrefabGroup;
+                break;
+            default:
+                selectedPrefabGroup = easyTaskPrefabGroup;
+                break;
+        }
+    }
+
     private void ShowNextTask()
     {
         int playerCount = playerNames.Count;
@@ -82,12 +108,12 @@ public class TeamTaskManager : MonoBehaviour
             return;
         }
 
-        // Zugriff auf die Kindobjekte der Prefab-Gruppe
-        Transform[] childTransforms = taskPrefabGroup.GetComponentsInChildren<Transform>();
+        // Zugriff auf die Kindobjekte der ausgewählten Prefab-Gruppe
+        Transform[] childTransforms = selectedPrefabGroup.GetComponentsInChildren<Transform>();
         List<GameObject> childObjects = new List<GameObject>();
         foreach (Transform child in childTransforms)
         {
-            if (child.gameObject != taskPrefabGroup)
+            if (child.gameObject != selectedPrefabGroup)
             {
                 childObjects.Add(child.gameObject);
             }
