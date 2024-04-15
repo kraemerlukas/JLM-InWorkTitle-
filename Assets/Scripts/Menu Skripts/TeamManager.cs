@@ -27,7 +27,7 @@ public class TeamManager : MonoBehaviour
 
     private void Start()
     {
-
+        InitializeTeams();
     }
 
     public void InitializeTeams()
@@ -38,6 +38,7 @@ public class TeamManager : MonoBehaviour
         AssignTeamNames();
         SetTeamTitles(); // Titel der Teams setzen
         DisplayTeams(); // Anzeigen der Teams nach der Initialisierung
+        SaveTeamsToPlayerPrefs(); // Teams und Spieler in PlayerPrefs speichern
         Debug.Log("Team 1 (" + team1Name + "): " + string.Join(", ", team1));
         Debug.Log("Team 2 (" + team2Name + "): " + string.Join(", ", team2));
     }

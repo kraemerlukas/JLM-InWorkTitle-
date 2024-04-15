@@ -298,6 +298,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1720251604
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1720251606}
+  - component: {fileID: 1720251605}
+  m_Layer: 0
+  m_Name: TeamTaskmanager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1720251605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720251604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c0921f0eb60ab948a37e785805a804b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  taskPrefabGroup: {fileID: 658630349902108071, guid: a69e27893b99ddd428ec6f5e7cec57ea, type: 3}
+  taskText: {fileID: 1623260294}
+--- !u!4 &1720251606
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720251604}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 90}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2026935533
 GameObject:
   m_ObjectHideFlags: 0
@@ -559,104 +605,3 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39d6b647e307f0c47997a40eb64863ea, type: 3}
---- !u!1001 &4320402581607652670
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 249981385904405611, guid: 1c16476e182ad13438992fb2e35bdc7a, type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 249981385904405611, guid: 1c16476e182ad13438992fb2e35bdc7a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 249981385904405611, guid: 1c16476e182ad13438992fb2e35bdc7a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 249981385904405611, guid: 1c16476e182ad13438992fb2e35bdc7a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 249981385904405611, guid: 1c16476e182ad13438992fb2e35bdc7a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 249981385904405611, guid: 1c16476e182ad13438992fb2e35bdc7a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 249981385904405611, guid: 1c16476e182ad13438992fb2e35bdc7a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 249981385904405611, guid: 1c16476e182ad13438992fb2e35bdc7a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 249981385904405611, guid: 1c16476e182ad13438992fb2e35bdc7a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 249981385904405611, guid: 1c16476e182ad13438992fb2e35bdc7a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 249981385904405611, guid: 1c16476e182ad13438992fb2e35bdc7a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6220319838789368175, guid: 1c16476e182ad13438992fb2e35bdc7a, type: 3}
-      propertyPath: m_Name
-      value: TaskManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 6220319838789368175, guid: 1c16476e182ad13438992fb2e35bdc7a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7330338080721203658, guid: 1c16476e182ad13438992fb2e35bdc7a, type: 3}
-      propertyPath: taskText
-      value: 
-      objectReference: {fileID: 1623260294}
-    - target: {fileID: 7330338080721203658, guid: 1c16476e182ad13438992fb2e35bdc7a, type: 3}
-      propertyPath: taskPrefabs.Array.size
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7330338080721203658, guid: 1c16476e182ad13438992fb2e35bdc7a, type: 3}
-      propertyPath: taskPrefabs.Array.data[0]
-      value: 
-      objectReference: {fileID: 1844210475615526104, guid: 39d6b647e307f0c47997a40eb64863ea, type: 3}
-    - target: {fileID: 7330338080721203658, guid: 1c16476e182ad13438992fb2e35bdc7a, type: 3}
-      propertyPath: taskPrefabs.Array.data[1]
-      value: 
-      objectReference: {fileID: 1844210475615526104, guid: 6d903428b8907b04c941052fd6ab071d, type: 3}
-    - target: {fileID: 7330338080721203658, guid: 1c16476e182ad13438992fb2e35bdc7a, type: 3}
-      propertyPath: taskPrefabs.Array.data[2]
-      value: 
-      objectReference: {fileID: 1844210475615526104, guid: 4095808a641702b4ca97e595cfc0eb23, type: 3}
-    - target: {fileID: 7330338080721203658, guid: 1c16476e182ad13438992fb2e35bdc7a, type: 3}
-      propertyPath: taskPrefabs.Array.data[3]
-      value: 
-      objectReference: {fileID: 1844210475615526104, guid: 2c0e28611375151449313f9fd00bf816, type: 3}
-    - target: {fileID: 7330338080721203658, guid: 1c16476e182ad13438992fb2e35bdc7a, type: 3}
-      propertyPath: taskPrefabs.Array.data[4]
-      value: 
-      objectReference: {fileID: 1844210475615526104, guid: 691f30abd01ebd9459fa010a63c95878, type: 3}
-    - target: {fileID: 7330338080721203658, guid: 1c16476e182ad13438992fb2e35bdc7a, type: 3}
-      propertyPath: taskPrefabs.Array.data[5]
-      value: 
-      objectReference: {fileID: 1844210475615526104, guid: 5488e5c7ad8f205439f7e6bf727cfdcb, type: 3}
-    - target: {fileID: 7330338080721203658, guid: 1c16476e182ad13438992fb2e35bdc7a, type: 3}
-      propertyPath: taskPrefabs.Array.data[6]
-      value: 
-      objectReference: {fileID: 1844210475615526104, guid: 1f251f9bbcf76664e9fb2810fb549e69, type: 3}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1c16476e182ad13438992fb2e35bdc7a, type: 3}
