@@ -9,7 +9,7 @@ public class TeamTaskManager : MonoBehaviour
     public GameObject mediumTaskPrefabGroup; // Referenz auf die Medium-Prefab-Gruppe
     public GameObject hardTaskPrefabGroup; // Referenz auf die Hard-Prefab-Gruppe
     public TextMeshProUGUI taskText;
-
+    public GameObject Ads;
     private GameObject selectedPrefabGroup; // Referenz auf die ausgewählte Prefab-Gruppe basierend auf dem Schwierigkeitsgrad
 
     private List<string> playerNames = new List<string>();
@@ -37,6 +37,11 @@ public class TeamTaskManager : MonoBehaviour
 
     private void Update()
     {
+        if (tasksCompleted == 13 || tasksCompleted == 27 || tasksCompleted == 40)
+        {
+            Ads.GetComponent<InterstitialAdExample>().ShowAd();
+        }
+
         if (Input.GetMouseButtonDown(0) && !gameEnded)
         {
             ShowNextTask();

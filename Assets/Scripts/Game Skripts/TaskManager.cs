@@ -8,6 +8,7 @@ public class TaskManager : MonoBehaviour
     public GameObject taskPrefabGroupEasy; // Referenz auf die Prefab-Gruppe für leichte Aufgaben
     public GameObject taskPrefabGroupMedium; // Referenz auf die Prefab-Gruppe für mittelschwere Aufgaben
     public GameObject taskPrefabGroupHard; // Referenz auf die Prefab-Gruppe für schwere Aufgaben
+    public GameObject Ads;
     public TextMeshProUGUI taskText;
 
     private List<string> playerNames = new List<string>();
@@ -21,7 +22,7 @@ public class TaskManager : MonoBehaviour
     private int maxDrinks; // Höchstanzahl an Schlücken
 
     private void Start()
-    {
+    {      
         Screen.orientation = ScreenOrientation.LandscapeLeft;
         maxTasks = Random.Range(30, 51);
         LoadPlayerData();
@@ -35,6 +36,10 @@ public class TaskManager : MonoBehaviour
 
     private void Update()
     {
+        if(tasksCompleted == 13 || tasksCompleted == 27 || tasksCompleted == 40)
+        {
+            Ads.GetComponent<InterstitialAdExample>().ShowAd();
+        }
         if (Input.GetMouseButtonDown(0) && !gameEnded)
         {
             ShowNextTask();
