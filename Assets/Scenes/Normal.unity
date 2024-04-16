@@ -930,6 +930,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 658630349902108071, guid: 3e23a2505f172ef4abc3f6c16bcea715, type: 3}
     - target: {fileID: 7330338080721203658, guid: 1c16476e182ad13438992fb2e35bdc7a, type: 3}
+      propertyPath: taskPrefabGroupHard
+      value: 
+      objectReference: {fileID: 658630349902108071, guid: 3e23a2505f172ef4abc3f6c16bcea715, type: 3}
+    - target: {fileID: 7330338080721203658, guid: 1c16476e182ad13438992fb2e35bdc7a, type: 3}
+      propertyPath: taskPrefabGroupMedium
+      value: 
+      objectReference: {fileID: 658630349902108071, guid: 3e23a2505f172ef4abc3f6c16bcea715, type: 3}
+    - target: {fileID: 7330338080721203658, guid: 1c16476e182ad13438992fb2e35bdc7a, type: 3}
       propertyPath: taskPrefabs.Array.size
       value: 1
       objectReference: {fileID: 0}

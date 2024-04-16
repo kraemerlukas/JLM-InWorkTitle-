@@ -13,9 +13,9 @@ public class TaskManager : MonoBehaviour
     private List<string> playerNames = new List<string>();
     private List<string> driverNames = new List<string>();
     private int tasksCompleted = 0;
+    private bool hasDrivers;
     private int maxTasks; // Zufällige Anzahl von Aufgaben zwischen 30 und 50
     private bool gameEnded = false;
-    private bool hasDrivers = true;
     private GameObject selectedTaskPrefabGroup; // Ausgewählte Prefab-Gruppe für Aufgaben
     private int minDrinks; // Mindestanzahl an Schlücken
     private int maxDrinks; // Höchstanzahl an Schlücken
@@ -73,10 +73,7 @@ public class TaskManager : MonoBehaviour
             }
         }
 
-        if (driverNames.Count == 0)
-        {
-            hasDrivers = false;
-        }
+        hasDrivers = driverNames.Count > 0; // Setze hasDrivers auf true, wenn Fahrer vorhanden sind
     }
 
     private void SetSelectedTaskPrefab()
@@ -146,15 +143,65 @@ public class TaskManager : MonoBehaviour
             }
         }
 
-        int randomTaskIndex = Random.Range(0, childObjects.Count);
-        GameObject randomTaskPrefab = childObjects[randomTaskIndex];
+        bool taskDisplayed = false;
+        while (!taskDisplayed)
+        {
+            int randomTaskIndex = Random.Range(0, childObjects.Count);
+            GameObject randomTaskPrefab = childObjects[randomTaskIndex];
 
-        string taskDescription = randomTaskPrefab.GetComponentInChildren<TextMeshProUGUI>().text;
+            string taskDescription = randomTaskPrefab.GetComponentInChildren<TextMeshProUGUI>().text;
 
-        ReplacePlaceholders(ref taskDescription, playerCount);
+            if (HasEnoughPlayers(taskDescription))
+            {
+                if (HasEnoughDrivers(taskDescription))
+                {
+                    ReplacePlaceholders(ref taskDescription, playerCount);
+                    taskText.text = taskDescription;
+                    tasksCompleted++;
+                    taskDisplayed = true;
+                }
+                else
+                {
+                    // Fahrer sind nicht verfügbar, überspringe diese Aufgabe
+                    continue;
+                }
+            }
+            else
+            {
+                // Nicht genügend Spieler für diese Aufgabe, überspringe sie
+                continue;
+            }
+        }
+    }
 
-        taskText.text = taskDescription;
-        tasksCompleted++;
+    private bool HasEnoughPlayers(string taskDescription)
+    {
+        int requiredPlayerCount = 0;
+        for (int i = 1; i <= 4; i++)
+        {
+            string placeholder = "{Spieler" + i + "}";
+            if (taskDescription.Contains(placeholder))
+            {
+                requiredPlayerCount++;
+            }
+        }
+
+        return requiredPlayerCount <= playerNames.Count;
+    }
+
+    private bool HasEnoughDrivers(string taskDescription)
+    {
+        int requiredDriverCount = 0;
+        for (int i = 1; i <= 4; i++)
+        {
+            string placeholder = "{Fahrer" + i + "}";
+            if (taskDescription.Contains(placeholder))
+            {
+                requiredDriverCount++;
+            }
+        }
+
+        return requiredDriverCount <= driverNames.Count;
     }
 
     private void ReplacePlaceholders(ref string taskDescription, int playerCount)
