@@ -49,6 +49,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5856247561693206512}
     m_Modifications:
+    - target: {fileID: 528052565406241452, guid: 4095808a641702b4ca97e595cfc0eb23, type: 3}
+      propertyPath: m_text
+      value: "{Spieler1} muss nacheinander das Alphabet r\xFCckw\xE4rts aufsagen,
+        bei jedem Fehler {Schl\xFCcke} rinken!"
+      objectReference: {fileID: 0}
     - target: {fileID: 1844210475615526104, guid: 4095808a641702b4ca97e595cfc0eb23, type: 3}
       propertyPath: m_Name
       value: Aufgabe 2
@@ -157,7 +162,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 528052565406241452, guid: 2c0e28611375151449313f9fd00bf816, type: 3}
       propertyPath: m_text
-      value: "{Spieler1} trinkt 5 schl\xFCcke aus dem Glas von {Spieler2}"
+      value: "{Spieler1} trinkt {Schl\xFCcke} aus dem Glas von {Spieler2}"
       objectReference: {fileID: 0}
     - target: {fileID: 1844210475615526104, guid: 2c0e28611375151449313f9fd00bf816, type: 3}
       propertyPath: m_Name
@@ -371,6 +376,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5856247561693206512}
     m_Modifications:
+    - target: {fileID: 528052565406241452, guid: 5488e5c7ad8f205439f7e6bf727cfdcb, type: 3}
+      propertyPath: m_text
+      value: "{Spieler1} gibt  {Spieler2}  {Schl\xFCcke} ab!"
+      objectReference: {fileID: 0}
     - target: {fileID: 1844210475615526104, guid: 5488e5c7ad8f205439f7e6bf727cfdcb, type: 3}
       propertyPath: m_Name
       value: Aufgabe 5
@@ -909,6 +918,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5856247561693206512}
     m_Modifications:
+    - target: {fileID: 528052565406241452, guid: 691f30abd01ebd9459fa010a63c95878, type: 3}
+      propertyPath: m_text
+      value: "{Spieler1} und {Spieler2} machen einen Sch\xF6nheitswettbewerb, {Spieler3}
+        entscheidet wer gewinnt. Dieser verteilt {Schl\xFCcke}"
+      objectReference: {fileID: 0}
     - target: {fileID: 1844210475615526104, guid: 691f30abd01ebd9459fa010a63c95878, type: 3}
       propertyPath: m_Name
       value: Aufgabe 4

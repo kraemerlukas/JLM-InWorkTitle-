@@ -17,6 +17,8 @@ public class TaskManager : MonoBehaviour
     private bool gameEnded = false;
     private bool hasDrivers = true;
     private GameObject selectedTaskPrefabGroup; // Ausgewählte Prefab-Gruppe für Aufgaben
+    private int minDrinks; // Mindestanzahl an Schlücken
+    private int maxDrinks; // Höchstanzahl an Schlücken
 
     private void Start()
     {
@@ -24,6 +26,7 @@ public class TaskManager : MonoBehaviour
         maxTasks = Random.Range(30, 51);
         LoadPlayerData();
         SetSelectedTaskPrefab();
+        SetDrinkRange();
         ShowNextTask();
 
         // Debug-Log für die aktuelle Schwierigkeitsstufe
@@ -93,6 +96,31 @@ public class TaskManager : MonoBehaviour
                 break;
             default:
                 selectedTaskPrefabGroup = taskPrefabGroupEasy; // Standardmäßig Easy verwenden
+                break;
+        }
+    }
+
+    private void SetDrinkRange()
+    {
+        string selectedDifficulty = PlayerPrefs.GetString("SelectedDifficulty", "Easy");
+
+        switch (selectedDifficulty)
+        {
+            case "Easy":
+                minDrinks = 1;
+                maxDrinks = 5;
+                break;
+            case "Medium":
+                minDrinks = 2;
+                maxDrinks = 7;
+                break;
+            case "Hard":
+                minDrinks = 3;
+                maxDrinks = 9;
+                break;
+            default:
+                minDrinks = 1;
+                maxDrinks = 5;
                 break;
         }
     }
@@ -167,6 +195,11 @@ public class TaskManager : MonoBehaviour
             else if (taskDescription.Contains("{Allgemein}"))
             {
                 taskDescription = taskDescription.Replace("{Allgemein}", "Alle");
+            }
+            else if (taskDescription.Contains("{Schlücke}"))
+            {
+                int randomDrinks = Random.Range(minDrinks, maxDrinks + 1);
+                taskDescription = taskDescription.Replace("{Schlücke}", randomDrinks.ToString());
             }
         }
     }

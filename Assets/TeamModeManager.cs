@@ -21,6 +21,8 @@ public class TeamTaskManager : MonoBehaviour
     private int maxTasks; // Zufällige Anzahl von Aufgaben zwischen 30 und 50
     private bool gameEnded = false;
     private bool lastTeamWasTeam1 = false; // Variable, um das zuletzt gewählte Team zu verfolgen
+    private int minDrinks; // Mindestanzahl an Schlücken
+    private int maxDrinks; // Höchstanzahl an Schlücken
 
     private void Start()
     {
@@ -28,6 +30,7 @@ public class TeamTaskManager : MonoBehaviour
         maxTasks = Random.Range(30, 51);
         LoadPlayerData();
         SetSelectedTaskPrefab();
+        SetDrinkRange();
         ShowNextTask();
         Debug.Log("Aktuelle Schwierigkeitsstufe: " + PlayerPrefs.GetString("SelectedDifficulty", "Easy"));
     }
@@ -97,6 +100,30 @@ public class TeamTaskManager : MonoBehaviour
         }
     }
 
+    private void SetDrinkRange()
+    {
+        string selectedDifficulty = PlayerPrefs.GetString("SelectedDifficulty", "Easy");
+        switch (selectedDifficulty)
+        {
+            case "Easy":
+                minDrinks = 1;
+                maxDrinks = 5;
+                break;
+            case "Medium":
+                minDrinks = 2;
+                maxDrinks = 7;
+                break;
+            case "Hard":
+                minDrinks = 3;
+                maxDrinks = 9;
+                break;
+            default:
+                minDrinks = 1;
+                maxDrinks = 5;
+                break;
+        }
+    }
+
     private void ShowNextTask()
     {
         int playerCount = playerNames.Count;
@@ -130,8 +157,8 @@ public class TeamTaskManager : MonoBehaviour
         string otherTeamName = selectedTeamName == team1Name ? team2Name : team1Name;
         lastTeamWasTeam1 = selectedTeamName == team1Name; // Aktualisiere das zuletzt gewählte Team
 
-        // Ersetze Platzhalter durch zufällig ausgewählte Spieler und Teams
-        ReplaceTeamPlaceholders(ref taskDescription, selectedTeamName, otherTeamName);
+        // Ersetze Platzhalter durch zufällig ausgewählte Spieler, Teams und Schlücke
+        ReplacePlaceholders(ref taskDescription, selectedTeamName, otherTeamName);
 
         taskText.text = taskDescription;
         tasksCompleted++;
@@ -142,7 +169,7 @@ public class TeamTaskManager : MonoBehaviour
         return Random.Range(0, 2) == 0 ? team1Name : team2Name;
     }
 
-    private void ReplaceTeamPlaceholders(ref string taskDescription, string selectedTeamName, string otherTeamName)
+    private void ReplacePlaceholders(ref string taskDescription, string selectedTeamName, string otherTeamName)
     {
         // Ersetze {Team1} oder {Team2} durch den ausgewählten Teamnamen
         taskDescription = taskDescription.Replace("{Team1}", selectedTeamName);
@@ -160,6 +187,13 @@ public class TeamTaskManager : MonoBehaviour
         {
             string randomPlayer = GetRandomPlayer(selectedTeamName == team2Name ? team1Players : team2Players);
             taskDescription = taskDescription.Replace("{Team2:Spieler}", randomPlayer);
+        }
+
+        // Ersetze {Schlücke} durch eine zufällige Anzahl von Schlücken
+        if (taskDescription.Contains("{Schlücke}"))
+        {
+            int randomDrinks = Random.Range(minDrinks, maxDrinks + 1);
+            taskDescription = taskDescription.Replace("{Schlücke}", randomDrinks.ToString());
         }
     }
 

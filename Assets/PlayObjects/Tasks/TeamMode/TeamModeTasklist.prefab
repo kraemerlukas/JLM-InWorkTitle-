@@ -45,7 +45,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 528052565406241452, guid: 6d903428b8907b04c941052fd6ab071d, type: 3}
       propertyPath: m_text
-      value: '{Team1} ist {Team2:Spieler} Doof? Wenn ja trinkt er 5!'
+      value: "{Team1} ist {Team2:Spieler} Doof? Wenn ja trinkt er {Schl\xFCcke}!"
       objectReference: {fileID: 0}
     - target: {fileID: 1844210475615526104, guid: 6d903428b8907b04c941052fd6ab071d, type: 3}
       propertyPath: m_Name
@@ -155,7 +155,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 528052565406241452, guid: 6d903428b8907b04c941052fd6ab071d, type: 3}
       propertyPath: m_text
-      value: "{Team1} gibt einem Spieler von {Team2} 6 Schl\xFCcke aus"
+      value: "{Team1} gibt einem Spieler von {Team2}  {Schl\xFCcke} aus"
       objectReference: {fileID: 0}
     - target: {fileID: 1844210475615526104, guid: 6d903428b8907b04c941052fd6ab071d, type: 3}
       propertyPath: m_Name
@@ -376,7 +376,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 528052565406241452, guid: 39d6b647e307f0c47997a40eb64863ea, type: 3}
       propertyPath: m_text
-      value: '{Team1} trinkt leer'
+      value: "{Team1} trinkt jeder {Schl\xFCcke}"
       objectReference: {fileID: 0}
     - target: {fileID: 1844210475615526104, guid: 39d6b647e307f0c47997a40eb64863ea, type: 3}
       propertyPath: m_Name
