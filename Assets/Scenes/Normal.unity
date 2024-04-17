@@ -919,6 +919,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ads
       objectReference: {fileID: 0}
+    - target: {fileID: 8266140336659177150, guid: 45307757c14ab724ab03ed4f06e49894, type: 3}
+      propertyPath: _testMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
