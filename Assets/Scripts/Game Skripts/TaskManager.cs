@@ -2,15 +2,31 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using System.Collections.Generic;
+using UnityEngine.UIElements;
+
+public enum SpecialTaskType
+{
+    None,
+    Exen,
+    Regel,
+    Runde,
+    Duell,
+    Lieber
+}
 
 public class TaskManager : MonoBehaviour
 {
     public GameObject taskPrefabGroupEasy; // Referenz auf die Prefab-Gruppe für leichte Aufgaben
     public GameObject taskPrefabGroupMedium; // Referenz auf die Prefab-Gruppe für mittelschwere Aufgaben
     public GameObject taskPrefabGroupHard; // Referenz auf die Prefab-Gruppe für schwere Aufgaben
-    public GameObject Ads;
+    public GameObject exTaskGroup; // Referenz auf die Prefab-Gruppe für "Exen" Aufgaben
+    public GameObject RoundTaskGroup; // Referenz auf die Prefab-Gruppe für "Exen" Aufgaben
+    public GameObject DuelTaskGroup;
+    public GameObject RatherTaskGroup;
+    public GameObject mainCamera; // Referenz auf die Hauptkamera
     public TextMeshProUGUI taskText;
-
+    public GameObject Ads;
+    public TextMeshProUGUI title;
     private List<string> playerNames = new List<string>();
     private List<string> driverNames = new List<string>();
     private int tasksCompleted = 0;
@@ -20,11 +36,16 @@ public class TaskManager : MonoBehaviour
     private GameObject selectedTaskPrefabGroup; // Ausgewählte Prefab-Gruppe für Aufgaben
     private int minDrinks; // Mindestanzahl an Schlücken
     private int maxDrinks; // Höchstanzahl an Schlücken
+    private Color32 StandartColor;
+    private bool isEx;
 
     private void Start()
-    {      
+    {
+        StandartColor = new Color32(6,190,149,0);
+        mainCamera.GetComponent<Camera>().backgroundColor = StandartColor;
+
         Screen.orientation = ScreenOrientation.LandscapeLeft;
-        maxTasks = Random.Range(30, 51);
+        maxTasks = Random.Range(60, 81);
         LoadPlayerData();
         SetSelectedTaskPrefab();
         SetDrinkRange();
@@ -33,13 +54,14 @@ public class TaskManager : MonoBehaviour
         // Debug-Log für die aktuelle Schwierigkeitsstufe
         Debug.Log("Aktuelle Schwierigkeitsstufe: " + PlayerPrefs.GetString("SelectedDifficulty", "Easy"));
     }
-
+    
     private void Update()
     {
-        if(tasksCompleted == 13 || tasksCompleted == 27 || tasksCompleted == 40)
+        if (tasksCompleted == 15 || tasksCompleted == 35 || tasksCompleted == 60)
         {
             Ads.GetComponent<InterstitialAdExample>().ShowAd();
         }
+
         if (Input.GetMouseButtonDown(0) && !gameEnded)
         {
             ShowNextTask();
@@ -138,6 +160,16 @@ public class TaskManager : MonoBehaviour
             return;
         }
 
+        // Überprüfen, ob eine Special-Aufgabe angezeigt werden soll
+        if (ShouldShowSpecialTask())
+        {
+            ShowSpecialTask();
+            return;
+        }
+
+        mainCamera.GetComponent<Camera>().backgroundColor = StandartColor;
+        title.gameObject.SetActive(false);
+
         Transform[] childTransforms = selectedTaskPrefabGroup.GetComponentsInChildren<Transform>();
         List<GameObject> childObjects = new List<GameObject>();
         foreach (Transform child in childTransforms)
@@ -179,6 +211,174 @@ public class TaskManager : MonoBehaviour
         }
     }
 
+    private bool ShouldShowSpecialTask()
+    {
+        // Zufällig entscheiden, ob eine Special-Aufgabe angezeigt werden soll
+        int randomNumber = Random.Range(0, 500); // Eine größere Reichweite für die Genauigkeit
+        Debug.Log(randomNumber);
+        if (randomNumber < 15) // Zum Beispiel nur 0,5% Wahrscheinlichkeit für "EX"
+        {
+            isEx = true;          
+            return true;
+
+        }
+        else if (randomNumber <= 100) 
+        {
+            isEx = false;
+
+            return true;
+        }
+        return false;
+    }
+
+    private void ShowSpecialTask()
+    {
+        SpecialTaskType specialType;
+        
+        if (!isEx)
+        {
+          specialType = (SpecialTaskType)Random.Range(2, 6); 
+
+        }
+        else
+        {
+            specialType = SpecialTaskType.Exen;
+        }
+        
+
+        // Je nach Spezialaufgaben-Typ die entsprechende Aufgabe anzeigen
+        switch (specialType)
+        {
+            case SpecialTaskType.Exen:
+                title.gameObject.SetActive(true);
+                title.text = "EX";
+                mainCamera.GetComponent<Camera>().backgroundColor = Color.red;
+                ShowExenTask();
+                break;
+            case SpecialTaskType.Regel:
+                mainCamera.GetComponent<Camera>().backgroundColor = StandartColor;               
+                ShowNextTask();
+                // Implementiere die Anzeige einer "Regel" Aufgabe hier
+                break;
+            case SpecialTaskType.Runde:
+                title.gameObject.SetActive(true);
+                title.text = "RUNDE";
+                mainCamera.GetComponent<Camera>().backgroundColor = Color.blue;
+                ShowGameTask();
+                // Implementiere die Anzeige einer "Spiel" Aufgabe hier
+                break;
+            case SpecialTaskType.Duell:
+                title.gameObject.SetActive(true);
+                title.text = "Duell";
+                mainCamera.GetComponent<Camera>().backgroundColor = Color.magenta;
+                ShowDuelTask();
+                // Implementiere die Anzeige einer "Spiel" Aufgabe hier
+                break;
+            case SpecialTaskType.Lieber:
+                title.gameObject.SetActive(true);
+                title.text = "Entweder..";
+                mainCamera.GetComponent<Camera>().backgroundColor = Color.green;
+                ShowRatherTask();
+                // Implementiere die Anzeige einer "Spiel" Aufgabe hier
+                break;
+            default:
+                mainCamera.GetComponent<Camera>().backgroundColor = StandartColor;
+
+                ShowNextTask();
+                break;
+        }
+    }
+
+    private void ShowExenTask()
+    {
+        // Eine zufällige Aufgabe aus der "ExTaskGroup" auswählen und anzeigen
+        Transform[] exTaskTransforms = exTaskGroup.GetComponentsInChildren<Transform>();
+        List<GameObject> exTasks = new List<GameObject>();
+        foreach (Transform child in exTaskTransforms)
+        {
+            if (child.gameObject != exTaskGroup)
+            {
+                exTasks.Add(child.gameObject);
+            }
+        }
+
+        int randomExTaskIndex = Random.Range(0, exTasks.Count);
+        GameObject randomExTaskPrefab = exTasks[randomExTaskIndex];
+
+        string exTaskDescription = randomExTaskPrefab.GetComponentInChildren<TextMeshProUGUI>().text;
+
+        ReplacePlaceholders(ref exTaskDescription, playerNames.Count);
+
+        taskText.text = exTaskDescription;
+    }
+
+    private void ShowGameTask()
+    {
+        // Eine zufällige Aufgabe aus der "ExTaskGroup" auswählen und anzeigen
+        Transform[] RoundTaskTransforms = RoundTaskGroup.GetComponentsInChildren<Transform>();
+        List<GameObject> RoundTasks = new List<GameObject>();
+        foreach (Transform child in RoundTaskTransforms)
+        {
+            if (child.gameObject != exTaskGroup)
+            {
+                RoundTasks.Add(child.gameObject);
+            }
+        }
+
+        int randomExTaskIndex = Random.Range(0, RoundTasks.Count);
+        GameObject randomGameTaskPrefab = RoundTasks[randomExTaskIndex];
+
+        string RoundTaskDescription = randomGameTaskPrefab.GetComponentInChildren<TextMeshProUGUI>().text;
+
+        ReplacePlaceholders(ref RoundTaskDescription, playerNames.Count);
+
+        taskText.text = RoundTaskDescription;
+    }
+
+    private void ShowDuelTask()
+    {
+        // Eine zufällige Aufgabe aus der "ExTaskGroup" auswählen und anzeigen
+        Transform[] DuelTaskTransforms = DuelTaskGroup.GetComponentsInChildren<Transform>();
+        List<GameObject> DuelTasks = new List<GameObject>();
+        foreach (Transform child in DuelTaskTransforms)
+        {
+            if (child.gameObject != exTaskGroup)
+            {
+                DuelTasks.Add(child.gameObject);
+            }
+        }
+
+        int randomExTaskIndex = Random.Range(0, DuelTasks.Count);
+        GameObject randomDuelTaskPrefab = DuelTasks[randomExTaskIndex];
+
+        string DuelTaskDescription = randomDuelTaskPrefab.GetComponentInChildren<TextMeshProUGUI>().text;
+
+        ReplacePlaceholders(ref DuelTaskDescription, playerNames.Count);
+
+        taskText.text = DuelTaskDescription;
+    }
+    private void ShowRatherTask()
+    {
+        // Eine zufällige Aufgabe aus der "ExTaskGroup" auswählen und anzeigen
+        Transform[] RatherTaskTransforms = RatherTaskGroup.GetComponentsInChildren<Transform>();
+        List<GameObject> RatherTasks = new List<GameObject>();
+        foreach (Transform child in RatherTaskTransforms)
+        {
+            if (child.gameObject != exTaskGroup)
+            {
+                RatherTasks.Add(child.gameObject);
+            }
+        }
+
+        int randomExTaskIndex = Random.Range(0, RatherTasks.Count);
+        GameObject randomRatherTaskPrefab = RatherTasks[randomExTaskIndex];
+
+        string RatherTaskDescription = randomRatherTaskPrefab.GetComponentInChildren<TextMeshProUGUI>().text;
+
+        ReplacePlaceholders(ref RatherTaskDescription, playerNames.Count);
+
+        taskText.text = RatherTaskDescription;
+    }
     private bool HasEnoughPlayers(string taskDescription)
     {
         int requiredPlayerCount = 0;
