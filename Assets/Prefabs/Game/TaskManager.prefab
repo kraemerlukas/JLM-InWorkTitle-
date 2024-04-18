@@ -44,10 +44,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c55a19312345b284488ab09d78fd0c0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  taskPrefabs:
-  - {fileID: 1844210475615526104, guid: b3cc7c223f078864a9723d9d8eb7e9ed, type: 3}
-  - {fileID: 1844210475615526104, guid: 595773aacf9e58f44bd4d65552edfca8, type: 3}
-  - {fileID: 1844210475615526104, guid: d17ab1651fca7bc45b6463e023b604f8, type: 3}
-  - {fileID: 1844210475615526104, guid: 013fdb028d6048d4493664bc051d559a, type: 3}
-  - {fileID: 1844210475615526104, guid: c804716be85e80149b5c168ba9167432, type: 3}
+  taskPrefabGroupNormal: {fileID: 0}
+  taskPrefabGroupHardcore: {fileID: 0}
+  taskPrefabGroupBar: {fileID: 0}
+  exTaskGroup: {fileID: 1042253838470341358, guid: 0795c97a20ba65f4e90d87f5d75c08c4, type: 3}
+  RoundTaskGroup: {fileID: 3720236588449971189, guid: b4c541eca57b7784f92504a8bff2b10e, type: 3}
+  DuelTaskGroup: {fileID: 3720236588449971189, guid: 3eb732c3a9ce9074c85db75bd1d66dd2, type: 3}
+  rulePTaskGroup: {fileID: 5845790697322728960, guid: 20bfba9f4597e11499f0425d21a5cd2a, type: 3}
+  RatherTaskGroup: {fileID: 3720236588449971189, guid: c273c51c45d4ed54d82a332cf1d251fd, type: 3}
+  mainCamera: {fileID: 0}
   taskText: {fileID: 0}
+  title: {fileID: 0}
+  Ads: {fileID: 0}
+  currentRulePlayer: 

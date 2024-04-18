@@ -17,32 +17,45 @@ public enum SpecialTaskType
 
 public class TaskManager : MonoBehaviour
 {
-    public GameObject taskPrefabGroupEasy; // Referenz auf die Prefab-Gruppe für leichte Aufgaben
-    public GameObject taskPrefabGroupMedium; // Referenz auf die Prefab-Gruppe für mittelschwere Aufgaben
-    public GameObject taskPrefabGroupHard; // Referenz auf die Prefab-Gruppe für schwere Aufgaben
+
+    public GameObject taskPrefabGroupNormal; // Referenz auf die Prefab-Gruppe für leichte Aufgaben
+    public GameObject taskPrefabGroupHardcore; // Referenz auf die Prefab-Gruppe für mittelschwere Aufgaben
+    public GameObject taskPrefabGroupBar; // Referenz auf die Prefab-Gruppe für schwere Aufgaben
+
+
     public GameObject exTaskGroup; // Referenz auf die Prefab-Gruppe für "Exen" Aufgaben
     public GameObject RoundTaskGroup; // Referenz auf die Prefab-Gruppe für "Exen" Aufgaben
     public GameObject DuelTaskGroup;
     public GameObject rulePTaskGroup;
     public GameObject RatherTaskGroup;
+
+
     public GameObject mainCamera; // Referenz auf die Hauptkamera
     public TextMeshProUGUI taskText;
-    public GameObject Ads;
     public TextMeshProUGUI title;
+    public GameObject Ads;
+ 
+
     private List<string> playerNames = new List<string>();
     private List<string> driverNames = new List<string>();
     private int tasksCompleted = 0;
     private bool hasDrivers;
     private int maxTasks; // Zufällige Anzahl von Aufgaben zwischen 30 und 50
     private bool gameEnded = false;
+
     private GameObject selectedTaskPrefabGroup; // Ausgewählte Prefab-Gruppe für Aufgaben
+
     private int minDrinks; // Mindestanzahl an Schlücken
     private int maxDrinks; // Höchstanzahl an Schlücken
+
     private Color32 StandartColor;
+
     private bool isEx;
     private bool ruleActive = false; // Gibt an, ob eine Regel aktiv ist
-    private string currentRulePlayer;
+    public string currentRulePlayer;
+    private int taskCounter = 0; // Zähler für die Anzahl der Regel-Aufgaben
 
+    private bool isTest = true;
 
     private void Start()
     {
@@ -50,7 +63,7 @@ public class TaskManager : MonoBehaviour
         mainCamera.GetComponent<Camera>().backgroundColor = StandartColor;
 
         Screen.orientation = ScreenOrientation.LandscapeLeft;
-        maxTasks = Random.Range(60, 81);
+        maxTasks = Random.Range(80, 111);
         LoadPlayerData();
         SetSelectedTaskPrefab();
         SetDrinkRange();
@@ -62,17 +75,32 @@ public class TaskManager : MonoBehaviour
 
     private void Update()
     {
-        if (tasksCompleted == 15 || tasksCompleted == 35 || tasksCompleted == 60)
+        if (!isTest)
         {
-            Ads.GetComponent<InterstitialAdExample>().ShowAd();
-        
+
+            if (tasksCompleted == 20 || tasksCompleted == 35 || tasksCompleted == 60 || tasksCompleted == 70)
+            {
+                Ads.GetComponent<InterstitialAdExample>().ShowAd();
+
+            }
+
         }
 
         if (Input.GetMouseButtonDown(0) && !gameEnded && Ads.GetComponent<InterstitialAdExample>().isAd == false)
         {
             Ads.GetComponent<InterstitialAdExample>().WasTrue = false;
             ShowNextTask();
-            Debug.Log(tasksCompleted);
+
+            if (taskCounter >= 10 && taskCounter <= 13 && ruleActive)
+            {
+                taskCounter = 0;
+                ShowRuleEnd();
+            }
+
+            if(ruleActive)
+            {
+                taskCounter++;
+            }
         }
 
         if (gameEnded && Input.GetMouseButtonDown(0) == Ads.GetComponent<InterstitialAdExample>().isAd == false)
@@ -115,22 +143,24 @@ public class TaskManager : MonoBehaviour
 
     private void SetSelectedTaskPrefab()
     {
-        string selectedDifficulty = PlayerPrefs.GetString("SelectedDifficulty", "Easy");
-
+        string selectedDifficulty = PlayerPrefs.GetString("SelectedMode", "Normal");
+        Debug.Log(PlayerPrefs.GetString("SelectedMode", "Normal"));
         switch (selectedDifficulty)
         {
-            case "Easy":
-                selectedTaskPrefabGroup = taskPrefabGroupEasy;
+            case "Normal":
+                selectedTaskPrefabGroup = taskPrefabGroupNormal;
                 break;
-            case "Medium":
-                selectedTaskPrefabGroup = taskPrefabGroupMedium;
+            case "Harcore":
+                selectedTaskPrefabGroup = taskPrefabGroupHardcore;
                 break;
-            case "Hard":
-                selectedTaskPrefabGroup = taskPrefabGroupHard;
+            case "Bar":
+                selectedTaskPrefabGroup = taskPrefabGroupBar;
                 break;
             default:
-                selectedTaskPrefabGroup = taskPrefabGroupEasy; // Standardmäßig Easy verwenden
+                selectedTaskPrefabGroup = taskPrefabGroupNormal; // Standardmäßig Easy verwenden
                 break;
+
+               
         }
     }
 
@@ -267,12 +297,20 @@ public class TaskManager : MonoBehaviour
                 break;
             case SpecialTaskType.Regel:
 
-
-                title.gameObject.SetActive(true);
-                title.text = "REGEL";
-                mainCamera.GetComponent<Camera>().backgroundColor = Color.yellow;
-                ShowRuleTask();
-                break;
+                if(!ruleActive)
+                {
+                    title.gameObject.SetActive(true);
+                    title.text = "REGEL";
+                    mainCamera.GetComponent<Camera>().backgroundColor = Color.yellow;
+                    ShowRuleTask();
+                    break;
+                }
+                 else
+                {
+                    ShowNextTask();
+                    break;
+                }
+             
 
 
             case SpecialTaskType.Runde:
@@ -304,9 +342,47 @@ public class TaskManager : MonoBehaviour
         }
     }
 
+ 
     private void ShowRuleTask()
+        {
+            // Eine zufällige Aufgabe aus der "rulePTaskGroup" auswählen und anzeigen
+            Transform[] ruleTaskTransforms = rulePTaskGroup.GetComponentsInChildren<Transform>();
+            List<GameObject> ruleTasks = new List<GameObject>();
+            foreach (Transform child in ruleTaskTransforms)
+            {
+                if (child.gameObject != rulePTaskGroup)
+                {
+                    ruleTasks.Add(child.gameObject);
+                }
+            }
+
+            int randomRuleTaskIndex = Random.Range(0, ruleTasks.Count);
+            GameObject randomRuleTaskPrefab = ruleTasks[randomRuleTaskIndex];
+
+            string ruleTaskDescription = randomRuleTaskPrefab.GetComponentInChildren<TextMeshProUGUI>().text;
+        currentRulePlayer = GetRandomPlayer();
+        // Direkt den ausgewählten Spieler in die Regel einsetzen
+        ruleTaskDescription = ruleTaskDescription.Replace("{Spieler1}", currentRulePlayer);
+
+            taskText.text = ruleTaskDescription;
+
+            ruleActive = true; // Aktiviere das Flag, dass eine Regel aktiv ist
+
+            tasksCompleted++;
+        }
+
+    private void ShowRuleEnd()
     {
-        
+        title.gameObject.SetActive(true);
+        title.text = "REGELENDE";
+        mainCamera.GetComponent<Camera>().backgroundColor = Color.yellow;
+
+        // Text für das Ende der Regel-Aufgaben anzeigen
+        string ruleEndText = "{Spieler1}, deine Regel ist vorbei!";
+        ruleEndText = ruleEndText.Replace("{Spieler1}", currentRulePlayer);
+        taskText.text = ruleEndText;
+
+        ruleActive = false; // Deaktiviere das Flag, dass eine Regel aktiv ist
     }
 
 
@@ -422,6 +498,12 @@ public class TaskManager : MonoBehaviour
 
     private bool HasEnoughDrivers(string taskDescription)
     {
+        if (!taskDescription.Contains("{Fahrer"))
+        {
+            // Die Aufgabe enthält keine Fahrer-Platzhalter, daher wird davon ausgegangen, dass genug Fahrer vorhanden sind
+            return true;
+        }
+
         int requiredDriverCount = 0;
         for (int i = 1; i <= 4; i++)
         {

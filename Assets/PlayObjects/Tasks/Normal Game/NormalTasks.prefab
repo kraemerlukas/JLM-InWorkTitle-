@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5856247561693206512}
   m_Layer: 0
-  m_Name: Easy_NormalTasks
+  m_Name: NormalTasks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1286,7 +1286,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 528052565406241452, guid: 4095808a641702b4ca97e595cfc0eb23, type: 3}
       propertyPath: m_text
-      value: "{Fahrer} bestimmt, wer den n\xE4chsten Witz erz\xE4hlen muss.\r\n"
+      value: "{Fahrer1} bestimmt, wer den n\xE4chsten Witz erz\xE4hlen muss.\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 1844210475615526104, guid: 4095808a641702b4ca97e595cfc0eb23, type: 3}
       propertyPath: m_Name
@@ -1840,7 +1840,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 528052565406241452, guid: 4095808a641702b4ca97e595cfc0eb23, type: 3}
       propertyPath: m_text
-      value: "{Fahrer} w\xE4hlt einen Spieler aus, der ein Lied singen muss.\r\n"
+      value: "{Fahrer1} w\xE4hlt einen Spieler aus, der ein Lied singen muss.\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 1844210475615526104, guid: 4095808a641702b4ca97e595cfc0eb23, type: 3}
       propertyPath: m_Name
@@ -2284,7 +2284,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 528052565406241452, guid: 4095808a641702b4ca97e595cfc0eb23, type: 3}
       propertyPath: m_text
-      value: "{Fahrer} entscheidet, welcher Spieler {Schl\xFCcke} trinken muss.\r\n"
+      value: "{Fahrer1} entscheidet, welcher Spieler {Schl\xFCcke} trinken muss.\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 1844210475615526104, guid: 4095808a641702b4ca97e595cfc0eb23, type: 3}
       propertyPath: m_Name
@@ -2394,7 +2394,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 528052565406241452, guid: 4095808a641702b4ca97e595cfc0eb23, type: 3}
       propertyPath: m_text
-      value: "{Fahrer} w\xE4hlt einen Spieler aus, der einen Witz erz\xE4hlen muss.\r\n"
+      value: "{Fahrer1} w\xE4hlt einen Spieler aus, der einen Witz erz\xE4hlen muss.\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 1844210475615526104, guid: 4095808a641702b4ca97e595cfc0eb23, type: 3}
       propertyPath: m_Name
@@ -2615,7 +2615,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 528052565406241452, guid: 4095808a641702b4ca97e595cfc0eb23, type: 3}
       propertyPath: m_text
-      value: "{Fahrer} w\xE4hlt einen Spieler aus, der die n\xE4chste Frage beantworten
+      value: "{Fahrer1} w\xE4hlt einen Spieler aus, der die n\xE4chste Frage beantworten
         muss.\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 1844210475615526104, guid: 4095808a641702b4ca97e595cfc0eb23, type: 3}

@@ -6,12 +6,15 @@ using System.Collections.Generic;
 public class MainMenu : MonoBehaviour
 {
     public InputField playerNameInputField;
-    public Transform playerListContainer;
+    public Transform playerListContainer1;
+    public Transform playerListContainer2;
     public GameObject playerListItemPrefab;
     public Toggle driverToggle; // Der Toggle für alle Spieler
     public Button teamModeButton;
 
     private List<string> playerNames = new List<string>();
+
+    private bool addToFirstContainer = true; // Flag, um zu entscheiden, welcher Container verwendet werden soll
 
     private void Start()
     {
@@ -58,23 +61,28 @@ public class MainMenu : MonoBehaviour
 
         UpdatePlayerList();
     }
+
     private void UpdatePlayerList()
     {
         // Clear existing player list items
-        foreach (Transform child in playerListContainer)
+        foreach (Transform child in playerListContainer1)
+        {
+            Destroy(child.gameObject);
+        }
+        foreach (Transform child in playerListContainer2)
         {
             Destroy(child.gameObject);
         }
 
-        // Create new player list items
-        foreach (string playerName in playerNames)
+        // Create new player list items, alternating between containers
+        for (int i = 0; i < playerNames.Count; i++)
         {
-            GameObject playerListItem = Instantiate(playerListItemPrefab, playerListContainer);
+            GameObject playerListItem = Instantiate(playerListItemPrefab, addToFirstContainer ? playerListContainer1 : playerListContainer2);
             TextMeshProUGUI playerNameText = playerListItem.GetComponentInChildren<TextMeshProUGUI>();
-            playerNameText.text = playerName;
+            playerNameText.text = playerNames[i];
 
             // Set text color based on driver status
-            int isDriver = PlayerPrefs.GetInt(playerName + "_IsDriver", 0);
+            int isDriver = PlayerPrefs.GetInt(playerNames[i] + "_IsDriver", 0);
             if (isDriver == 1)
             {
                 playerNameText.color = Color.blue; // Fahrer in Blau anzeigen
@@ -86,7 +94,10 @@ public class MainMenu : MonoBehaviour
 
             // Set up remove button callback
             Button removeButton = playerListItem.GetComponentInChildren<Button>();
-            removeButton.onClick.AddListener(() => RemovePlayer(playerName));
+            int index = i; // Speichere den aktuellen Index in einer lokalen Variable
+            removeButton.onClick.AddListener(() => RemovePlayer(playerNames[index]));
+
+            addToFirstContainer = !addToFirstContainer; // Wechseln zwischen den Containern
         }
     }
 
@@ -104,7 +115,4 @@ public class MainMenu : MonoBehaviour
         string playerNamesString = string.Join(";", playerNames.ToArray());
         PlayerPrefs.SetString("PlayerNames", playerNamesString);
     }
-
-   
- 
 }

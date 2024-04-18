@@ -201,19 +201,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2611689339007950259, guid: 39d6b647e307f0c47997a40eb64863ea, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2611689339007950259, guid: 39d6b647e307f0c47997a40eb64863ea, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2611689339007950259, guid: 39d6b647e307f0c47997a40eb64863ea, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2611689339007950259, guid: 39d6b647e307f0c47997a40eb64863ea, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2611689339007950259, guid: 39d6b647e307f0c47997a40eb64863ea, type: 3}
       propertyPath: m_SizeDelta.x
@@ -253,11 +253,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2611689339007950259, guid: 39d6b647e307f0c47997a40eb64863ea, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 100
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2611689339007950259, guid: 39d6b647e307f0c47997a40eb64863ea, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -25
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 2611689339007950259, guid: 39d6b647e307f0c47997a40eb64863ea, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -389,11 +389,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
+  m_ReferenceResolution: {x: 1080, y: 1920}
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -553,7 +553,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 178447180647303353, guid: 1bec9276f2743ea478cf60b9dfea0e66, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 178447180647303353, guid: 1bec9276f2743ea478cf60b9dfea0e66, type: 3}
       propertyPath: m_AnchorMax.y
@@ -561,7 +561,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 178447180647303353, guid: 1bec9276f2743ea478cf60b9dfea0e66, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 178447180647303353, guid: 1bec9276f2743ea478cf60b9dfea0e66, type: 3}
       propertyPath: m_AnchorMin.y
@@ -613,7 +613,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 178447180647303353, guid: 1bec9276f2743ea478cf60b9dfea0e66, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1175
+      value: -136
       objectReference: {fileID: 0}
     - target: {fileID: 178447180647303353, guid: 1bec9276f2743ea478cf60b9dfea0e66, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1037,27 +1037,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2082412102}
     - target: {fileID: 7330338080721203658, guid: 1c16476e182ad13438992fb2e35bdc7a, type: 3}
-      propertyPath: exTaskGroup
-      value: 
-      objectReference: {fileID: 1042253838470341358, guid: 0795c97a20ba65f4e90d87f5d75c08c4, type: 3}
-    - target: {fileID: 7330338080721203658, guid: 1c16476e182ad13438992fb2e35bdc7a, type: 3}
-      propertyPath: DuelTaskGroup
-      value: 
-      objectReference: {fileID: 3720236588449971189, guid: 3eb732c3a9ce9074c85db75bd1d66dd2, type: 3}
-    - target: {fileID: 7330338080721203658, guid: 1c16476e182ad13438992fb2e35bdc7a, type: 3}
       propertyPath: GameTaskGroup
       value: 
       objectReference: {fileID: 3720236588449971189, guid: b4c541eca57b7784f92504a8bff2b10e, type: 3}
     - target: {fileID: 7330338080721203658, guid: 1c16476e182ad13438992fb2e35bdc7a, type: 3}
-      propertyPath: RoundTaskGroup
-      value: 
-      objectReference: {fileID: 3720236588449971189, guid: b4c541eca57b7784f92504a8bff2b10e, type: 3}
-    - target: {fileID: 7330338080721203658, guid: 1c16476e182ad13438992fb2e35bdc7a, type: 3}
-      propertyPath: RatherTaskGroup
-      value: 
-      objectReference: {fileID: 3720236588449971189, guid: c273c51c45d4ed54d82a332cf1d251fd, type: 3}
-    - target: {fileID: 7330338080721203658, guid: 1c16476e182ad13438992fb2e35bdc7a, type: 3}
       propertyPath: taskPrefabGroup
+      value: 
+      objectReference: {fileID: 658630349902108071, guid: 3e23a2505f172ef4abc3f6c16bcea715, type: 3}
+    - target: {fileID: 7330338080721203658, guid: 1c16476e182ad13438992fb2e35bdc7a, type: 3}
+      propertyPath: taskPrefabGroupBar
       value: 
       objectReference: {fileID: 658630349902108071, guid: 3e23a2505f172ef4abc3f6c16bcea715, type: 3}
     - target: {fileID: 7330338080721203658, guid: 1c16476e182ad13438992fb2e35bdc7a, type: 3}
@@ -1073,9 +1061,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 658630349902108071, guid: 3e23a2505f172ef4abc3f6c16bcea715, type: 3}
     - target: {fileID: 7330338080721203658, guid: 1c16476e182ad13438992fb2e35bdc7a, type: 3}
+      propertyPath: taskPrefabGroupNormal
+      value: 
+      objectReference: {fileID: 658630349902108071, guid: 3e23a2505f172ef4abc3f6c16bcea715, type: 3}
+    - target: {fileID: 7330338080721203658, guid: 1c16476e182ad13438992fb2e35bdc7a, type: 3}
       propertyPath: taskPrefabs.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7330338080721203658, guid: 1c16476e182ad13438992fb2e35bdc7a, type: 3}
+      propertyPath: taskPrefabGroupHardcore
+      value: 
+      objectReference: {fileID: 658630349902108071, guid: 3e23a2505f172ef4abc3f6c16bcea715, type: 3}
     - target: {fileID: 7330338080721203658, guid: 1c16476e182ad13438992fb2e35bdc7a, type: 3}
       propertyPath: taskPrefabs.Array.data[0]
       value: 

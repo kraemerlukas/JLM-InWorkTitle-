@@ -51,4 +51,9 @@ public class MainMenuSwitcher : MonoBehaviour
         OptionsPanel.gameObject.SetActive(true);
     }
 
+    public void ModeChoose(string _Mode)
+    {
+        PlayerPrefs.SetString("SelectedMode", _Mode);
+    }
+
 }
