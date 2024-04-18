@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using System.Collections.Generic;
 using UnityEngine.UIElements;
+using Unity.VisualScripting;
 
 public enum SpecialTaskType
 {
@@ -22,6 +23,7 @@ public class TaskManager : MonoBehaviour
     public GameObject exTaskGroup; // Referenz auf die Prefab-Gruppe für "Exen" Aufgaben
     public GameObject RoundTaskGroup; // Referenz auf die Prefab-Gruppe für "Exen" Aufgaben
     public GameObject DuelTaskGroup;
+    public GameObject rulePTaskGroup;
     public GameObject RatherTaskGroup;
     public GameObject mainCamera; // Referenz auf die Hauptkamera
     public TextMeshProUGUI taskText;
@@ -38,10 +40,13 @@ public class TaskManager : MonoBehaviour
     private int maxDrinks; // Höchstanzahl an Schlücken
     private Color32 StandartColor;
     private bool isEx;
+    private bool ruleActive = false; // Gibt an, ob eine Regel aktiv ist
+    private string currentRulePlayer;
+
 
     private void Start()
     {
-        StandartColor = new Color32(6,190,149,0);
+        StandartColor = new Color32(6, 190, 149, 0);
         mainCamera.GetComponent<Camera>().backgroundColor = StandartColor;
 
         Screen.orientation = ScreenOrientation.LandscapeLeft;
@@ -54,25 +59,30 @@ public class TaskManager : MonoBehaviour
         // Debug-Log für die aktuelle Schwierigkeitsstufe
         Debug.Log("Aktuelle Schwierigkeitsstufe: " + PlayerPrefs.GetString("SelectedDifficulty", "Easy"));
     }
-    
+
     private void Update()
     {
         if (tasksCompleted == 15 || tasksCompleted == 35 || tasksCompleted == 60)
         {
             Ads.GetComponent<InterstitialAdExample>().ShowAd();
+        
         }
 
-        if (Input.GetMouseButtonDown(0) && !gameEnded)
+        if (Input.GetMouseButtonDown(0) && !gameEnded && Ads.GetComponent<InterstitialAdExample>().isAd == false)
         {
+            Ads.GetComponent<InterstitialAdExample>().WasTrue = false;
             ShowNextTask();
+            Debug.Log(tasksCompleted);
         }
 
-        if (gameEnded && Input.GetMouseButtonDown(0))
+        if (gameEnded && Input.GetMouseButtonDown(0) == Ads.GetComponent<InterstitialAdExample>().isAd == false)
         {
             EndRound();
             Screen.orientation = ScreenOrientation.Portrait;
             SceneManager.LoadScene("Menu"); // Lädt die Szene "Menu"
         }
+
+
     }
 
     private void EndRound()
@@ -151,6 +161,7 @@ public class TaskManager : MonoBehaviour
 
     private void ShowNextTask()
     {
+        Debug.Log(tasksCompleted);
         int playerCount = playerNames.Count;
 
         if (tasksCompleted >= maxTasks)
@@ -215,14 +226,13 @@ public class TaskManager : MonoBehaviour
     {
         // Zufällig entscheiden, ob eine Special-Aufgabe angezeigt werden soll
         int randomNumber = Random.Range(0, 500); // Eine größere Reichweite für die Genauigkeit
-        Debug.Log(randomNumber);
         if (randomNumber < 15) // Zum Beispiel nur 0,5% Wahrscheinlichkeit für "EX"
         {
-            isEx = true;          
+            isEx = true;
             return true;
 
         }
-        else if (randomNumber <= 100) 
+        else if (randomNumber <= 100)
         {
             isEx = false;
 
@@ -234,17 +244,17 @@ public class TaskManager : MonoBehaviour
     private void ShowSpecialTask()
     {
         SpecialTaskType specialType;
-        
+
         if (!isEx)
         {
-          specialType = (SpecialTaskType)Random.Range(2, 6); 
+            specialType = (SpecialTaskType)Random.Range(2, 6);
 
         }
         else
         {
             specialType = SpecialTaskType.Exen;
         }
-        
+
 
         // Je nach Spezialaufgaben-Typ die entsprechende Aufgabe anzeigen
         switch (specialType)
@@ -256,10 +266,15 @@ public class TaskManager : MonoBehaviour
                 ShowExenTask();
                 break;
             case SpecialTaskType.Regel:
-                mainCamera.GetComponent<Camera>().backgroundColor = StandartColor;               
-                ShowNextTask();
-                // Implementiere die Anzeige einer "Regel" Aufgabe hier
+
+
+                title.gameObject.SetActive(true);
+                title.text = "REGEL";
+                mainCamera.GetComponent<Camera>().backgroundColor = Color.yellow;
+                ShowRuleTask();
                 break;
+
+
             case SpecialTaskType.Runde:
                 title.gameObject.SetActive(true);
                 title.text = "RUNDE";
@@ -289,6 +304,12 @@ public class TaskManager : MonoBehaviour
         }
     }
 
+    private void ShowRuleTask()
+    {
+        
+    }
+
+
     private void ShowExenTask()
     {
         // Eine zufällige Aufgabe aus der "ExTaskGroup" auswählen und anzeigen
@@ -310,6 +331,8 @@ public class TaskManager : MonoBehaviour
         ReplacePlaceholders(ref exTaskDescription, playerNames.Count);
 
         taskText.text = exTaskDescription;
+        isEx = false;
+        tasksCompleted++;
     }
 
     private void ShowGameTask()
@@ -333,6 +356,7 @@ public class TaskManager : MonoBehaviour
         ReplacePlaceholders(ref RoundTaskDescription, playerNames.Count);
 
         taskText.text = RoundTaskDescription;
+        tasksCompleted++;
     }
 
     private void ShowDuelTask()
@@ -356,6 +380,7 @@ public class TaskManager : MonoBehaviour
         ReplacePlaceholders(ref DuelTaskDescription, playerNames.Count);
 
         taskText.text = DuelTaskDescription;
+        tasksCompleted++;
     }
     private void ShowRatherTask()
     {
@@ -378,6 +403,7 @@ public class TaskManager : MonoBehaviour
         ReplacePlaceholders(ref RatherTaskDescription, playerNames.Count);
 
         taskText.text = RatherTaskDescription;
+        tasksCompleted++;
     }
     private bool HasEnoughPlayers(string taskDescription)
     {

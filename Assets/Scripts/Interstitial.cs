@@ -6,6 +6,8 @@ public class InterstitialAdExample : MonoBehaviour, IUnityAdsLoadListener, IUnit
     [SerializeField] string _androidAdUnitId = "Interstitial_Android";
     [SerializeField] string _iOsAdUnitId = "Interstitial_iOS";
     string _adUnitId;
+    public bool isAd;
+    public bool WasTrue;
 
     void Awake()
     {
@@ -29,6 +31,13 @@ public class InterstitialAdExample : MonoBehaviour, IUnityAdsLoadListener, IUnit
         // Note that if the ad content wasn't previously loaded, this method will fail
         Debug.Log("Showing Ad: " + _adUnitId);
         Advertisement.Show(_adUnitId, this);
+
+        if(WasTrue == false)
+        {
+            isAd = true;
+            WasTrue = true;
+        }
+       
     }
 
     // Implement Load Listener and Show Listener interface methods: 
@@ -50,6 +59,11 @@ public class InterstitialAdExample : MonoBehaviour, IUnityAdsLoadListener, IUnit
     }
 
     public void OnUnityAdsShowStart(string _adUnitId) { }
-    public void OnUnityAdsShowClick(string _adUnitId) { }
-    public void OnUnityAdsShowComplete(string _adUnitId, UnityAdsShowCompletionState showCompletionState) { }
+    public void OnUnityAdsShowClick(string _adUnitId) {
+        isAd = false;
+    }
+    public void OnUnityAdsShowComplete(string _adUnitId, UnityAdsShowCompletionState showCompletionState) {
+
+        isAd = false;
+    }
 }
