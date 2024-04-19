@@ -871,6 +871,10 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: -4668815492213683804, guid: f7236831783ea2148a5cd8aa04d48279, type: 2}
+    - target: {fileID: 528052565406241452, guid: 39d6b647e307f0c47997a40eb64863ea, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1844210475615526104, guid: 39d6b647e307f0c47997a40eb64863ea, type: 3}
       propertyPath: m_Name
       value: Aufgabe

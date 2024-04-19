@@ -89,7 +89,7 @@ public class MainMenu : MonoBehaviour
             }
             else
             {
-                playerNameText.color = Color.green; // Normale Spieler in Grün anzeigen
+                playerNameText.color = Color.black; // Normale Spieler in Grün anzeigen
             }
 
             // Set up remove button callback
