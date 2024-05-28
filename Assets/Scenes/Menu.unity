@@ -934,7 +934,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 48ff01314765b244b9b8e9406108f9e7, type: 3}
+  m_Texture: {fileID: 2800000, guid: fdd10e056d9ba694b846b84868dd1c3b, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -1184,6 +1184,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4866904189570472345, guid: b3fe4919ef886e24c928fae1b98c4b13, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6428056614829343654, guid: b3fe4919ef886e24c928fae1b98c4b13, type: 3}
+      propertyPath: m_Interactable
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6428056614829343654, guid: b3fe4919ef886e24c928fae1b98c4b13, type: 3}
@@ -1796,7 +1800,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 915154925421852364, guid: be670788c1f32f04c9b4793584462e68, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 850
+      value: 935
       objectReference: {fileID: 0}
     - target: {fileID: 915154925421852364, guid: be670788c1f32f04c9b4793584462e68, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3459,7 +3463,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4527157142714754858, guid: 52ff26b98a4adee4eaed6c09693ffc3c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 850
+      value: 943
       objectReference: {fileID: 0}
     - target: {fileID: 4527157142714754858, guid: 52ff26b98a4adee4eaed6c09693ffc3c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4265,6 +4269,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4866904189570472345, guid: b3fe4919ef886e24c928fae1b98c4b13, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6428056614829343654, guid: b3fe4919ef886e24c928fae1b98c4b13, type: 3}
+      propertyPath: m_Interactable
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6428056614829343654, guid: b3fe4919ef886e24c928fae1b98c4b13, type: 3}
