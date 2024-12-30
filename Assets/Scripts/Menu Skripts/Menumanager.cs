@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class MainMenu : MonoBehaviour
 {
@@ -80,16 +81,18 @@ public class MainMenu : MonoBehaviour
             GameObject playerListItem = Instantiate(playerListItemPrefab, addToFirstContainer ? playerListContainer1 : playerListContainer2);
             TextMeshProUGUI playerNameText = playerListItem.GetComponentInChildren<TextMeshProUGUI>();
             playerNameText.text = playerNames[i];
-
+            IconController Iconcontroller = playerListItem.GetComponent<IconController>();
             // Set text color based on driver status
             int isDriver = PlayerPrefs.GetInt(playerNames[i] + "_IsDriver", 0);
             if (isDriver == 1)
             {
-                playerNameText.color = Color.blue; // Fahrer in Blau anzeigen
+                
+                Iconcontroller.isDriver = true;
             }
             else
             {
-                playerNameText.color = Color.black; // Normale Spieler in Grün anzeigen
+       
+                Iconcontroller.isDriver = false;
             }
 
             // Set up remove button callback
