@@ -75,15 +75,12 @@ public class TaskManager : MonoBehaviour
 
     private void Update()
     {
-        if (!isTest)
+        if (isTest)
         {
-
             if (tasksCompleted == 20 || tasksCompleted == 35 || tasksCompleted == 60 || tasksCompleted == 70)
             {
                 Ads.GetComponent<InterstitialAdExample>().ShowAd();
-
             }
-
         }
 
         if (Input.GetMouseButtonDown(0) && !gameEnded && Ads.GetComponent<InterstitialAdExample>().isAd == false)

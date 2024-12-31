@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 9
+  serializedVersion: 10
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -38,13 +38,12 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 12
-  m_GIWorkflowMode: 1
+  serializedVersion: 13
+  m_BakeOnSceneLoad: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -67,9 +66,6 @@ LightmapSettings:
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
-    m_FinalGather: 0
-    m_FinalGatherFiltering: 1
-    m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
     m_MixedBakeMode: 2
     m_BakeBackend: 1
@@ -308,7 +304,6 @@ RectTransform:
   - {fileID: 160652014}
   - {fileID: 1623260293}
   m_Father: {fileID: 352015842}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -417,6 +412,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -437,7 +433,6 @@ RectTransform:
   - {fileID: 1576734773}
   - {fileID: 292738767}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -480,13 +475,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 872592077}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1525146864 stripped
 GameObject:
@@ -731,13 +726,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2026935533}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2082412102
 GameObject:
@@ -823,13 +818,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2082412102}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2931603395216293005
 PrefabInstance:
@@ -1077,31 +1072,31 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 658630349902108071, guid: 3e23a2505f172ef4abc3f6c16bcea715, type: 3}
     - target: {fileID: 7330338080721203658, guid: 1c16476e182ad13438992fb2e35bdc7a, type: 3}
-      propertyPath: taskPrefabs.Array.data[0]
+      propertyPath: 'taskPrefabs.Array.data[0]'
       value: 
       objectReference: {fileID: 658630349902108071, guid: 3e23a2505f172ef4abc3f6c16bcea715, type: 3}
     - target: {fileID: 7330338080721203658, guid: 1c16476e182ad13438992fb2e35bdc7a, type: 3}
-      propertyPath: taskPrefabs.Array.data[1]
+      propertyPath: 'taskPrefabs.Array.data[1]'
       value: 
       objectReference: {fileID: 1844210475615526104, guid: 6d903428b8907b04c941052fd6ab071d, type: 3}
     - target: {fileID: 7330338080721203658, guid: 1c16476e182ad13438992fb2e35bdc7a, type: 3}
-      propertyPath: taskPrefabs.Array.data[2]
+      propertyPath: 'taskPrefabs.Array.data[2]'
       value: 
       objectReference: {fileID: 1844210475615526104, guid: 4095808a641702b4ca97e595cfc0eb23, type: 3}
     - target: {fileID: 7330338080721203658, guid: 1c16476e182ad13438992fb2e35bdc7a, type: 3}
-      propertyPath: taskPrefabs.Array.data[3]
+      propertyPath: 'taskPrefabs.Array.data[3]'
       value: 
       objectReference: {fileID: 1844210475615526104, guid: 2c0e28611375151449313f9fd00bf816, type: 3}
     - target: {fileID: 7330338080721203658, guid: 1c16476e182ad13438992fb2e35bdc7a, type: 3}
-      propertyPath: taskPrefabs.Array.data[4]
+      propertyPath: 'taskPrefabs.Array.data[4]'
       value: 
       objectReference: {fileID: 1844210475615526104, guid: 691f30abd01ebd9459fa010a63c95878, type: 3}
     - target: {fileID: 7330338080721203658, guid: 1c16476e182ad13438992fb2e35bdc7a, type: 3}
-      propertyPath: taskPrefabs.Array.data[5]
+      propertyPath: 'taskPrefabs.Array.data[5]'
       value: 
       objectReference: {fileID: 1844210475615526104, guid: 5488e5c7ad8f205439f7e6bf727cfdcb, type: 3}
     - target: {fileID: 7330338080721203658, guid: 1c16476e182ad13438992fb2e35bdc7a, type: 3}
-      propertyPath: taskPrefabs.Array.data[6]
+      propertyPath: 'taskPrefabs.Array.data[6]'
       value: 
       objectReference: {fileID: 1844210475615526104, guid: 1f251f9bbcf76664e9fb2810fb549e69, type: 3}
     m_RemovedComponents: []
@@ -1169,8 +1164,22 @@ PrefabInstance:
       propertyPath: _testMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8266140336659177150, guid: 45307757c14ab724ab03ed4f06e49894, type: 3}
+      propertyPath: _androidGameId
+      value: 5598821
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45307757c14ab724ab03ed4f06e49894, type: 3}
+--- !u!1660057539 &9223372036854775807
+SceneRoots:
+  m_ObjectHideFlags: 0
+  m_Roots:
+  - {fileID: 2082412105}
+  - {fileID: 872592079}
+  - {fileID: 352015842}
+  - {fileID: 2026935536}
+  - {fileID: 4320402581607652670}
+  - {fileID: 8871846417020027772}
