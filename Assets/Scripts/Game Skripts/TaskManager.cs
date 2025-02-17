@@ -79,13 +79,13 @@ public class TaskManager : MonoBehaviour
         {
             if (tasksCompleted == 20 || tasksCompleted == 35 || tasksCompleted == 60 || tasksCompleted == 70)
             {
-                Ads.GetComponent<InterstitialAdExample>().ShowAd();
+                //Ads.GetComponent<InterstitialAdExample>().ShowAd();
             }
         }
 
-        if (Input.GetMouseButtonDown(0) && !gameEnded && Ads.GetComponent<InterstitialAdExample>().isAd == false)
+        if (Input.GetMouseButtonDown(0) && !gameEnded)
         {
-            Ads.GetComponent<InterstitialAdExample>().WasTrue = false;
+            //Ads.GetComponent<InterstitialAdExample>().WasTrue = false;
             ShowNextTask();
 
             if (taskCounter >= 10 && taskCounter <= 13 && ruleActive)
@@ -100,7 +100,7 @@ public class TaskManager : MonoBehaviour
             }
         }
 
-        if (gameEnded && Input.GetMouseButtonDown(0) == Ads.GetComponent<InterstitialAdExample>().isAd == false)
+        if (gameEnded && Input.GetMouseButtonDown(0))
         {
             EndRound();
             Screen.orientation = ScreenOrientation.Portrait;

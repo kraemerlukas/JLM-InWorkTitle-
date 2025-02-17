@@ -39,7 +39,7 @@ public class TeamTaskManager : MonoBehaviour
     {
         if (tasksCompleted == 13 || tasksCompleted == 27 || tasksCompleted == 40)
         {
-            Ads.GetComponent<InterstitialAdExample>().ShowAd();
+           // Ads.GetComponent<InterstitialAdExample>().ShowAd();
         }
 
         if (Input.GetMouseButtonDown(0) && !gameEnded)
