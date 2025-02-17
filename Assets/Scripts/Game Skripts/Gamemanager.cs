@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
@@ -10,29 +10,61 @@ public class GameManager : MonoBehaviour
     {
         LoadPlayerData();
         CountPlayersAndDrivers();
+
+        Debug.Log("Direkt nach dem Laden:");
+        for (int i = 1; i <= PlayerPrefs.GetInt("PlayerCount", 0); i++)
+        {
+            string playerName = PlayerPrefs.GetString("Player" + i, "UNKNOWN");
+            int isDriver = PlayerPrefs.GetInt(playerName + "_IsDriver", -1);
+            Debug.Log($"Spieler {playerName}, Fahrer: {isDriver}");
+        }
+
         RemoveDriversFromPlayerCount();
     }
 
+
     private void LoadPlayerData()
     {
-        int playerCount = PlayerPrefs.GetInt("PlayerCount", 0);
-        Debug.Log("Player count loaded: " + playerCount);
-        for (int i = 0; i < playerCount; i++)
-        {
-            string playerName = PlayerPrefs.GetString("Player" + (i + 1));
-            Debug.Log("Player " + (i + 1) + " loaded: " + playerName);
+        playerNames.Clear();
+        driverNames.Clear();
+        HashSet<string> addedPlayers = new HashSet<string>(); // Verhindert doppelte Spieler
+        HashSet<string> addedDrivers = new HashSet<string>(); // Verhindert doppelte Fahrer
 
-            bool isDriver = PlayerPrefs.GetInt(playerName + "_IsDriver", 0) == 1; // �berpr�fe den Fahrerstatus des Spielers
-            if (!isDriver) // Fahrer ausfiltern
+        int playerCount = PlayerPrefs.GetInt("PlayerCount", 0);
+        for (int i = 1; i <= playerCount; i++)
+        {
+            string playerName = PlayerPrefs.GetString("Player" + i, "").Trim();
+            int isDriver = PlayerPrefs.GetInt(playerName + "_IsDriver", 0);
+
+            if (!string.IsNullOrEmpty(playerName))
             {
-                playerNames.Add(playerName);
-            }
-            else
-            {
-                driverNames.Add(playerName);
+                // Falls der Name schon existiert, hänge eine Nummer an
+                int count = 1;
+                string newPlayerName = playerName;
+                while (addedPlayers.Contains(newPlayerName))
+                {
+                    count++;
+                    newPlayerName = playerName + "(" + count + ")";
+                }
+
+                addedPlayers.Add(newPlayerName);
+                playerNames.Add(newPlayerName);
+
+                if (isDriver == 1 && !addedDrivers.Contains(newPlayerName))
+                {
+                    driverNames.Add(newPlayerName);
+                    addedDrivers.Add(newPlayerName);
+                }
             }
         }
+
+        Debug.Log("✅ Geladene Spieler: " + string.Join(", ", playerNames));
+        Debug.Log("✅ Geladene Fahrer: " + string.Join(", ", driverNames));
     }
+
+
+
+
 
     private void CountPlayersAndDrivers()
     {
@@ -48,17 +80,36 @@ public class GameManager : MonoBehaviour
 
     private void RemoveDriversFromPlayerCount()
     {
-        foreach (string driverName in driverNames)
+        HashSet<string> uniquePlayers = new HashSet<string>(playerNames); // Speichert Spieler ohne Duplikate
+        HashSet<string> uniqueDrivers = new HashSet<string>(driverNames); // Speichert Fahrer ohne Duplikate
+
+        // Speichere alle Spieler erneut mit Fahrerstatus
+        PlayerPrefs.SetInt("PlayerCount", uniquePlayers.Count + uniqueDrivers.Count);
+
+        int index = 1;
+        foreach (string player in uniquePlayers)
         {
-            playerNames.Remove(driverName);
+            PlayerPrefs.SetString("Player" + index, player);
+            int isDriver = PlayerPrefs.GetInt(player + "_IsDriver", 0);
+            PlayerPrefs.SetInt(player + "_IsDriver", isDriver);
+            index++;
         }
 
-        // Aktualisieren des PlayerCounts nach dem Entfernen der Fahrer
-        PlayerPrefs.SetInt("PlayerCount", playerNames.Count);
-        for (int i = 0; i < playerNames.Count; i++)
+        // Fahrer separat speichern, aber doppelte vermeiden
+        foreach (string driver in uniqueDrivers)
         {
-            PlayerPrefs.SetString("Player" + (i + 1), playerNames[i]);
+            if (!uniquePlayers.Contains(driver))  // Nur speichern, wenn nicht bereits als Spieler vorhanden
+            {
+                PlayerPrefs.SetString("Player" + index, driver);
+                PlayerPrefs.SetInt(driver + "_IsDriver", 1);
+                index++;
+            }
         }
+
         PlayerPrefs.Save();
     }
+
+
+
+
 }

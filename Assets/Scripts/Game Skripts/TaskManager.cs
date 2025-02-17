@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using System.Collections.Generic;
@@ -18,13 +18,13 @@ public enum SpecialTaskType
 public class TaskManager : MonoBehaviour
 {
 
-    public GameObject taskPrefabGroupNormal; // Referenz auf die Prefab-Gruppe für leichte Aufgaben
-    public GameObject taskPrefabGroupHardcore; // Referenz auf die Prefab-Gruppe für mittelschwere Aufgaben
-    public GameObject taskPrefabGroupBar; // Referenz auf die Prefab-Gruppe für schwere Aufgaben
+    public GameObject taskPrefabGroupNormal; // Referenz auf die Prefab-Gruppe fÃ¼r leichte Aufgaben
+    public GameObject taskPrefabGroupHardcore; // Referenz auf die Prefab-Gruppe fÃ¼r mittelschwere Aufgaben
+    public GameObject taskPrefabGroupBar; // Referenz auf die Prefab-Gruppe fÃ¼r schwere Aufgaben
 
 
-    public GameObject exTaskGroup; // Referenz auf die Prefab-Gruppe für "Exen" Aufgaben
-    public GameObject RoundTaskGroup; // Referenz auf die Prefab-Gruppe für "Exen" Aufgaben
+    public GameObject exTaskGroup; // Referenz auf die Prefab-Gruppe fÃ¼r "Exen" Aufgaben
+    public GameObject RoundTaskGroup; // Referenz auf die Prefab-Gruppe fÃ¼r "Exen" Aufgaben
     public GameObject DuelTaskGroup;
     public GameObject rulePTaskGroup;
     public GameObject RatherTaskGroup;
@@ -40,20 +40,20 @@ public class TaskManager : MonoBehaviour
     private List<string> driverNames = new List<string>();
     private int tasksCompleted = 0;
     private bool hasDrivers;
-    private int maxTasks; // Zufällige Anzahl von Aufgaben zwischen 30 und 50
+    private int maxTasks; // ZufÃ¤llige Anzahl von Aufgaben zwischen 30 und 50
     private bool gameEnded = false;
 
-    private GameObject selectedTaskPrefabGroup; // Ausgewählte Prefab-Gruppe für Aufgaben
+    private GameObject selectedTaskPrefabGroup; // AusgewÃ¤hlte Prefab-Gruppe fÃ¼r Aufgaben
 
-    private int minDrinks; // Mindestanzahl an Schlücken
-    private int maxDrinks; // Höchstanzahl an Schlücken
+    private int minDrinks; // Mindestanzahl an SchlÃ¼cken
+    private int maxDrinks; // HÃ¶chstanzahl an SchlÃ¼cken
 
     private Color32 StandartColor;
 
     private bool isEx;
     private bool ruleActive = false; // Gibt an, ob eine Regel aktiv ist
     public string currentRulePlayer;
-    private int taskCounter = 0; // Zähler für die Anzahl der Regel-Aufgaben
+    private int taskCounter = 0; // ZÃ¤hler fÃ¼r die Anzahl der Regel-Aufgaben
 
     private bool isTest = true;
 
@@ -63,18 +63,19 @@ public class TaskManager : MonoBehaviour
         mainCamera.GetComponent<Camera>().backgroundColor = StandartColor;
 
         Screen.orientation = ScreenOrientation.LandscapeLeft;
-        maxTasks = Random.Range(80, 111);
+        maxTasks = Random.Range(80,120);
         LoadPlayerData();
         SetSelectedTaskPrefab();
         SetDrinkRange();
         ShowNextTask();
 
-        // Debug-Log für die aktuelle Schwierigkeitsstufe
+        // Debug-Log fÃ¼r die aktuelle Schwierigkeitsstufe
         Debug.Log("Aktuelle Schwierigkeitsstufe: " + PlayerPrefs.GetString("SelectedDifficulty", "Easy"));
     }
 
     private void Update()
     {
+      
         if (isTest)
         {
             if (tasksCompleted == 20 || tasksCompleted == 35 || tasksCompleted == 60 || tasksCompleted == 70)
@@ -104,7 +105,7 @@ public class TaskManager : MonoBehaviour
         {
             EndRound();
             Screen.orientation = ScreenOrientation.Portrait;
-            SceneManager.LoadScene("Menu"); // Lädt die Szene "Menu"
+            SceneManager.LoadScene("Menu"); // LÃ¤dt die Szene "Menu"
         }
 
 
@@ -115,28 +116,64 @@ public class TaskManager : MonoBehaviour
         int roundsPlayed = PlayerPrefs.GetInt("RoundsPlayed", 0);
         roundsPlayed++;
         PlayerPrefs.SetInt("RoundsPlayed", roundsPlayed);
+
+        Debug.Log("ðŸš— Speichern der Fahrer vor dem Szenenwechsel:");
+        int playerCount = PlayerPrefs.GetInt("PlayerCount", 0);
+        for (int i = 1; i <= playerCount; i++)
+        {
+            string playerName = PlayerPrefs.GetString("Player" + i, "UNKNOWN");
+            int isDriver = PlayerPrefs.GetInt(playerName + "_IsDriver", -1);
+            Debug.Log($"âž¡ {playerName}, Fahrer: {isDriver}");
+        }
+
         PlayerPrefs.Save();
+        SceneManager.LoadScene("Menu"); // ZurÃ¼ck ins MenÃ¼
     }
+
 
     private void LoadPlayerData()
     {
+        playerNames.Clear();
+        driverNames.Clear();
+        HashSet<string> addedPlayers = new HashSet<string>(); // Verhindert doppelte Spieler
+        HashSet<string> addedDrivers = new HashSet<string>(); // Verhindert doppelte Fahrer
+
         int playerCount = PlayerPrefs.GetInt("PlayerCount", 0);
-        for (int i = 0; i < playerCount; i++)
+        for (int i = 1; i <= playerCount; i++)
         {
-            string playerName = PlayerPrefs.GetString("Player" + (i + 1));
-            bool isDriver = PlayerPrefs.GetInt(playerName + "_IsDriver", 0) == 1;
-            if (isDriver)
+            string playerName = PlayerPrefs.GetString("Player" + i, "").Trim();
+            int isDriver = PlayerPrefs.GetInt(playerName + "_IsDriver", 0);
+
+            if (!string.IsNullOrEmpty(playerName))
             {
-                driverNames.Add(playerName);
-            }
-            else
-            {
-                playerNames.Add(playerName);
+                // Falls der Name schon existiert, hÃ¤nge eine Nummer an
+                int count = 1;
+                string newPlayerName = playerName;
+                while (addedPlayers.Contains(newPlayerName))
+                {
+                    count++;
+                    newPlayerName = playerName + "(" + count + ")";
+                }
+
+                addedPlayers.Add(newPlayerName);
+                playerNames.Add(newPlayerName);
+
+                if (isDriver == 1 && !addedDrivers.Contains(newPlayerName))
+                {
+                    driverNames.Add(newPlayerName);
+                    addedDrivers.Add(newPlayerName);
+                }
             }
         }
 
-        hasDrivers = driverNames.Count > 0; // Setze hasDrivers auf true, wenn Fahrer vorhanden sind
+        Debug.Log("âœ… Geladene Spieler: " + string.Join(", ", playerNames));
+        Debug.Log("âœ… Geladene Fahrer: " + string.Join(", ", driverNames));
     }
+
+
+
+
+
 
     private void SetSelectedTaskPrefab()
     {
@@ -154,7 +191,7 @@ public class TaskManager : MonoBehaviour
                 selectedTaskPrefabGroup = taskPrefabGroupBar;
                 break;
             default:
-                selectedTaskPrefabGroup = taskPrefabGroupNormal; // Standardmäßig Easy verwenden
+                selectedTaskPrefabGroup = taskPrefabGroupNormal; // StandardmÃ¤ÃŸig Easy verwenden
                 break;
 
                
@@ -188,7 +225,14 @@ public class TaskManager : MonoBehaviour
 
     private void ShowNextTask()
     {
-        Debug.Log(tasksCompleted);
+        Debug.Log("ðŸ“Œ NÃ¤chste Aufgabe wird geladen â€“ ÃœberprÃ¼fung des Fahrerstatus:");
+        for (int i = 1; i <= PlayerPrefs.GetInt("PlayerCount", 0); i++)
+        {
+            string playerName = PlayerPrefs.GetString("Player" + i, "UNKNOWN");
+            int isDriver = PlayerPrefs.GetInt(playerName + "_IsDriver", -1);
+            Debug.Log($"ðŸš— Spieler {playerName}, Fahrer: {isDriver}");
+        }
+
         int playerCount = playerNames.Count;
 
         if (tasksCompleted >= maxTasks)
@@ -198,32 +242,11 @@ public class TaskManager : MonoBehaviour
             return;
         }
 
-        // Überprüfen, ob eine Special-Aufgabe angezeigt werden soll
-        if (ShouldShowSpecialTask())
-        {
-            ShowSpecialTask();
-            return;
-        }
-
-        mainCamera.GetComponent<Camera>().backgroundColor = StandartColor;
-        title.gameObject.SetActive(false);
-
-        Transform[] childTransforms = selectedTaskPrefabGroup.GetComponentsInChildren<Transform>();
-        List<GameObject> childObjects = new List<GameObject>();
-        foreach (Transform child in childTransforms)
-        {
-            if (child.gameObject != selectedTaskPrefabGroup)
-            {
-                childObjects.Add(child.gameObject);
-            }
-        }
-
         bool taskDisplayed = false;
         while (!taskDisplayed)
         {
-            int randomTaskIndex = Random.Range(0, childObjects.Count);
-            GameObject randomTaskPrefab = childObjects[randomTaskIndex];
-
+            int randomTaskIndex = Random.Range(0, selectedTaskPrefabGroup.transform.childCount);
+            GameObject randomTaskPrefab = selectedTaskPrefabGroup.transform.GetChild(randomTaskIndex).gameObject;
             string taskDescription = randomTaskPrefab.GetComponentInChildren<TextMeshProUGUI>().text;
 
             if (HasEnoughPlayers(taskDescription))
@@ -237,23 +260,23 @@ public class TaskManager : MonoBehaviour
                 }
                 else
                 {
-                    // Fahrer sind nicht verfügbar, überspringe diese Aufgabe
-                    continue;
+                    continue; // Fahrer fehlen? Dann neue Aufgabe suchen
                 }
             }
             else
             {
-                // Nicht genügend Spieler für diese Aufgabe, überspringe sie
-                continue;
+                continue; // Nicht genug Spieler? Neue Aufgabe suchen
             }
         }
+
+        Debug.Log("âœ… Fahrerstatus nach dem Laden der Aufgabe bleibt erhalten!");
     }
 
     private bool ShouldShowSpecialTask()
     {
-        // Zufällig entscheiden, ob eine Special-Aufgabe angezeigt werden soll
-        int randomNumber = Random.Range(0, 500); // Eine größere Reichweite für die Genauigkeit
-        if (randomNumber < 15) // Zum Beispiel nur 0,5% Wahrscheinlichkeit für "EX"
+        // ZufÃ¤llig entscheiden, ob eine Special-Aufgabe angezeigt werden soll
+        int randomNumber = Random.Range(0, 500); // Eine grÃ¶ÃŸere Reichweite fÃ¼r die Genauigkeit
+        if (randomNumber < 15) // Zum Beispiel nur 0,5% Wahrscheinlichkeit fÃ¼r "EX"
         {
             isEx = true;
             return true;
@@ -342,7 +365,7 @@ public class TaskManager : MonoBehaviour
  
     private void ShowRuleTask()
         {
-            // Eine zufällige Aufgabe aus der "rulePTaskGroup" auswählen und anzeigen
+            // Eine zufÃ¤llige Aufgabe aus der "rulePTaskGroup" auswÃ¤hlen und anzeigen
             Transform[] ruleTaskTransforms = rulePTaskGroup.GetComponentsInChildren<Transform>();
             List<GameObject> ruleTasks = new List<GameObject>();
             foreach (Transform child in ruleTaskTransforms)
@@ -358,7 +381,7 @@ public class TaskManager : MonoBehaviour
 
             string ruleTaskDescription = randomRuleTaskPrefab.GetComponentInChildren<TextMeshProUGUI>().text;
         currentRulePlayer = GetRandomPlayer();
-        // Direkt den ausgewählten Spieler in die Regel einsetzen
+        // Direkt den ausgewÃ¤hlten Spieler in die Regel einsetzen
         ruleTaskDescription = ruleTaskDescription.Replace("{Spieler1}", currentRulePlayer);
 
             taskText.text = ruleTaskDescription;
@@ -374,7 +397,7 @@ public class TaskManager : MonoBehaviour
         title.text = "REGELENDE";
         mainCamera.GetComponent<Camera>().backgroundColor = Color.yellow;
 
-        // Text für das Ende der Regel-Aufgaben anzeigen
+        // Text fÃ¼r das Ende der Regel-Aufgaben anzeigen
         string ruleEndText = "{Spieler1}, deine Regel ist vorbei!";
         ruleEndText = ruleEndText.Replace("{Spieler1}", currentRulePlayer);
         taskText.text = ruleEndText;
@@ -385,7 +408,7 @@ public class TaskManager : MonoBehaviour
 
     private void ShowExenTask()
     {
-        // Eine zufällige Aufgabe aus der "ExTaskGroup" auswählen und anzeigen
+        // Eine zufÃ¤llige Aufgabe aus der "ExTaskGroup" auswÃ¤hlen und anzeigen
         Transform[] exTaskTransforms = exTaskGroup.GetComponentsInChildren<Transform>();
         List<GameObject> exTasks = new List<GameObject>();
         foreach (Transform child in exTaskTransforms)
@@ -410,7 +433,7 @@ public class TaskManager : MonoBehaviour
 
     private void ShowGameTask()
     {
-        // Eine zufällige Aufgabe aus der "ExTaskGroup" auswählen und anzeigen
+        // Eine zufÃ¤llige Aufgabe aus der "ExTaskGroup" auswÃ¤hlen und anzeigen
         Transform[] RoundTaskTransforms = RoundTaskGroup.GetComponentsInChildren<Transform>();
         List<GameObject> RoundTasks = new List<GameObject>();
         foreach (Transform child in RoundTaskTransforms)
@@ -434,7 +457,7 @@ public class TaskManager : MonoBehaviour
 
     private void ShowDuelTask()
     {
-        // Eine zufällige Aufgabe aus der "ExTaskGroup" auswählen und anzeigen
+        // Eine zufÃ¤llige Aufgabe aus der "ExTaskGroup" auswÃ¤hlen und anzeigen
         Transform[] DuelTaskTransforms = DuelTaskGroup.GetComponentsInChildren<Transform>();
         List<GameObject> DuelTasks = new List<GameObject>();
         foreach (Transform child in DuelTaskTransforms)
@@ -457,7 +480,7 @@ public class TaskManager : MonoBehaviour
     }
     private void ShowRatherTask()
     {
-        // Eine zufällige Aufgabe aus der "ExTaskGroup" auswählen und anzeigen
+        // Eine zufÃ¤llige Aufgabe aus der "ExTaskGroup" auswÃ¤hlen und anzeigen
         Transform[] RatherTaskTransforms = RatherTaskGroup.GetComponentsInChildren<Transform>();
         List<GameObject> RatherTasks = new List<GameObject>();
         foreach (Transform child in RatherTaskTransforms)
@@ -497,7 +520,7 @@ public class TaskManager : MonoBehaviour
     {
         if (!taskDescription.Contains("{Fahrer"))
         {
-            // Die Aufgabe enthält keine Fahrer-Platzhalter, daher wird davon ausgegangen, dass genug Fahrer vorhanden sind
+            // Die Aufgabe enthÃ¤lt keine Fahrer-Platzhalter, daher wird davon ausgegangen, dass genug Fahrer vorhanden sind
             return true;
         }
 
@@ -531,9 +554,14 @@ public class TaskManager : MonoBehaviour
                 usedNames.Add(randomPlayer);
                 taskDescription = taskDescription.Replace(placeholder, randomPlayer);
             }
-            else if (taskDescription.Contains("{Fahrer" + i + "}"))
+        }
+
+        for (int i = 1; i <= 4; i++)
+        {
+            string driverPlaceholder = "{Fahrer" + i + "}";
+            if (taskDescription.Contains(driverPlaceholder))
             {
-                if (hasDrivers)
+                if (driverNames.Count > 0)
                 {
                     string randomDriver = GetRandomDriver();
                     while (usedNames.Contains(randomDriver))
@@ -541,25 +569,28 @@ public class TaskManager : MonoBehaviour
                         randomDriver = GetRandomDriver();
                     }
                     usedNames.Add(randomDriver);
-                    taskDescription = taskDescription.Replace("{Fahrer" + i + "}", randomDriver);
+                    taskDescription = taskDescription.Replace(driverPlaceholder, randomDriver);
                 }
                 else
                 {
-                    ShowNextTask();
-                    return;
+                    taskDescription = taskDescription.Replace(driverPlaceholder, "Kein Fahrer verfÃ¼gbar");
                 }
             }
-            else if (taskDescription.Contains("{Allgemein}"))
+        }
+
+        if (taskDescription.Contains("{SchlÃ¼cke}"))
+        {
+            if (minDrinks <= 0 || maxDrinks <= 0)  // Falls nicht initialisiert, Standardwerte setzen
             {
-                taskDescription = taskDescription.Replace("{Allgemein}", "Alle");
+                minDrinks = 1;
+                maxDrinks = 5;
             }
-            else if (taskDescription.Contains("{Schlücke}"))
-            {
-                int randomDrinks = Random.Range(minDrinks, maxDrinks + 1);
-                taskDescription = taskDescription.Replace("{Schlücke}", randomDrinks.ToString());
-            }
+            int randomDrinks = Random.Range(minDrinks, maxDrinks + 1);
+            taskDescription = taskDescription.Replace("{SchlÃ¼cke}", randomDrinks.ToString());
         }
     }
+
+
 
     private string GetRandomPlayer()
     {
@@ -570,7 +601,7 @@ public class TaskManager : MonoBehaviour
         }
         else
         {
-            return "Keine Spieler verfügbar";
+            return "Keine Spieler verfÃ¼gbar";
         }
     }
 
@@ -583,7 +614,7 @@ public class TaskManager : MonoBehaviour
         }
         else
         {
-            return "Kein Fahrer verfügbar";
+            return "Kein Fahrer verfÃ¼gbar";
         }
     }
 }
