@@ -1,0 +1,6 @@
+Jeder in der Runde trinkt {Schlucke}, ausser {Fahrer1}!
+Alle mit einem Getraenk in der linken Hand trinken {Schlucke}!
+Die Runde bestimmt eine neue Regel. Wer sie bricht, trinkt {Schlucke}!
+Alle, die heute Socken tragen, trinken {Schlucke}!
+Alle, die heute in der Stadt waren, trinken {Schlucke}!
+Alle, die eine Smartwatch haben, trinken {Schlucke}!

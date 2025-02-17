@@ -1,142 +1,72 @@
-﻿using UnityEngine;
-using UnityEngine.SceneManagement;
-using TMPro;
+﻿using System.IO;
+using System.Linq;
 using System.Collections.Generic;
-using UnityEngine.UIElements;
-using Unity.VisualScripting;
-
-public enum SpecialTaskType
-{
-    None,
-    Exen,
-    Regel,
-    Runde,
-    Duell,
-    Lieber
-}
+using UnityEngine;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class TaskManager : MonoBehaviour
 {
-
-    public GameObject taskPrefabGroupNormal; // Referenz auf die Prefab-Gruppe für leichte Aufgaben
-    public GameObject taskPrefabGroupHardcore; // Referenz auf die Prefab-Gruppe für mittelschwere Aufgaben
-    public GameObject taskPrefabGroupBar; // Referenz auf die Prefab-Gruppe für schwere Aufgaben
-
-
-    public GameObject exTaskGroup; // Referenz auf die Prefab-Gruppe für "Exen" Aufgaben
-    public GameObject RoundTaskGroup; // Referenz auf die Prefab-Gruppe für "Exen" Aufgaben
-    public GameObject DuelTaskGroup;
-    public GameObject rulePTaskGroup;
-    public GameObject RatherTaskGroup;
-
-
-    public GameObject mainCamera; // Referenz auf die Hauptkamera
     public TextMeshProUGUI taskText;
     public TextMeshProUGUI title;
-    public GameObject Ads;
- 
+    public Camera mainCamera;
+
+    private List<string> normalTasks = new List<string>();
+    private List<string> exTasks = new List<string>();
+    private List<string> duellTasks = new List<string>();
+    private List<string> regelTasks = new List<string>();
+    private List<string> rundeTasks = new List<string>();
+    private List<string> lieberTasks = new List<string>();
+
+    private Color defaultColor;
+    private int tasksCompleted = 0;
+    private bool isEx = false;
+    private int maxTasks;
+    private bool gameEnded = false;
+
+    private int minDrinks;
+    private int maxDrinks;
 
     private List<string> playerNames = new List<string>();
     private List<string> driverNames = new List<string>();
-    private int tasksCompleted = 0;
-    private bool hasDrivers;
-    private int maxTasks; // Zufällige Anzahl von Aufgaben zwischen 30 und 50
-    private bool gameEnded = false;
+    private List<string> nonDriverPlayers = new List<string>();
+    private HashSet<string> usedPlayers = new HashSet<string>();
 
-    private GameObject selectedTaskPrefabGroup; // Ausgewählte Prefab-Gruppe für Aufgaben
+    private bool ruleActive = false;
+    private int ruleCountdown = 0;
+    private string currentRulePlayer = "";
 
-    private int minDrinks; // Mindestanzahl an Schlücken
-    private int maxDrinks; // Höchstanzahl an Schlücken
-
-    private Color32 StandartColor;
-
-    private bool isEx;
-    private bool ruleActive = false; // Gibt an, ob eine Regel aktiv ist
-    public string currentRulePlayer;
-    private int taskCounter = 0; // Zähler für die Anzahl der Regel-Aufgaben
-
-    private bool isTest = true;
+    private enum SpecialTaskType { Exen, Regel, Runde, Duell, Lieber }
 
     private void Start()
     {
-        StandartColor = new Color32(6, 190, 149, 0);
-        mainCamera.GetComponent<Camera>().backgroundColor = StandartColor;
-
-        Screen.orientation = ScreenOrientation.LandscapeLeft;
-        maxTasks = Random.Range(80,120);
-        LoadPlayerData();
-        SetSelectedTaskPrefab();
+        defaultColor = mainCamera.backgroundColor;
+        LoadPlayers();
+        LoadAllTasks();
         SetDrinkRange();
+        maxTasks = Random.Range(30, 50);
         ShowNextTask();
-
-        // Debug-Log für die aktuelle Schwierigkeitsstufe
-        Debug.Log("Aktuelle Schwierigkeitsstufe: " + PlayerPrefs.GetString("SelectedDifficulty", "Easy"));
     }
 
     private void Update()
     {
-      
-        if (isTest)
-        {
-            if (tasksCompleted == 20 || tasksCompleted == 35 || tasksCompleted == 60 || tasksCompleted == 70)
-            {
-                //Ads.GetComponent<InterstitialAdExample>().ShowAd();
-            }
-        }
-
         if (Input.GetMouseButtonDown(0) && !gameEnded)
         {
-            //Ads.GetComponent<InterstitialAdExample>().WasTrue = false;
             ShowNextTask();
-
-            if (taskCounter >= 10 && taskCounter <= 13 && ruleActive)
-            {
-                taskCounter = 0;
-                ShowRuleEnd();
-            }
-
-            if(ruleActive)
-            {
-                taskCounter++;
-            }
         }
 
         if (gameEnded && Input.GetMouseButtonDown(0))
         {
             EndRound();
-            Screen.orientation = ScreenOrientation.Portrait;
-            SceneManager.LoadScene("Menu"); // Lädt die Szene "Menu"
         }
-
-
     }
 
-    private void EndRound()
-    {
-        int roundsPlayed = PlayerPrefs.GetInt("RoundsPlayed", 0);
-        roundsPlayed++;
-        PlayerPrefs.SetInt("RoundsPlayed", roundsPlayed);
-
-        Debug.Log("🚗 Speichern der Fahrer vor dem Szenenwechsel:");
-        int playerCount = PlayerPrefs.GetInt("PlayerCount", 0);
-        for (int i = 1; i <= playerCount; i++)
-        {
-            string playerName = PlayerPrefs.GetString("Player" + i, "UNKNOWN");
-            int isDriver = PlayerPrefs.GetInt(playerName + "_IsDriver", -1);
-            Debug.Log($"➡ {playerName}, Fahrer: {isDriver}");
-        }
-
-        PlayerPrefs.Save();
-        SceneManager.LoadScene("Menu"); // Zurück ins Menü
-    }
-
-
-    private void LoadPlayerData()
+    private void LoadPlayers()
     {
         playerNames.Clear();
         driverNames.Clear();
-        HashSet<string> addedPlayers = new HashSet<string>(); // Verhindert doppelte Spieler
-        HashSet<string> addedDrivers = new HashSet<string>(); // Verhindert doppelte Fahrer
+        nonDriverPlayers.Clear();
+        usedPlayers.Clear();
 
         int playerCount = PlayerPrefs.GetInt("PlayerCount", 0);
         for (int i = 1; i <= playerCount; i++)
@@ -146,63 +76,40 @@ public class TaskManager : MonoBehaviour
 
             if (!string.IsNullOrEmpty(playerName))
             {
-                // Falls der Name schon existiert, hänge eine Nummer an
-                int count = 1;
-                string newPlayerName = playerName;
-                while (addedPlayers.Contains(newPlayerName))
+                playerNames.Add(playerName);
+                if (isDriver == 1)
                 {
-                    count++;
-                    newPlayerName = playerName + "(" + count + ")";
+                    driverNames.Add(playerName);
                 }
-
-                addedPlayers.Add(newPlayerName);
-                playerNames.Add(newPlayerName);
-
-                if (isDriver == 1 && !addedDrivers.Contains(newPlayerName))
+                else
                 {
-                    driverNames.Add(newPlayerName);
-                    addedDrivers.Add(newPlayerName);
+                    nonDriverPlayers.Add(playerName);
                 }
             }
         }
-
-        Debug.Log("✅ Geladene Spieler: " + string.Join(", ", playerNames));
-        Debug.Log("✅ Geladene Fahrer: " + string.Join(", ", driverNames));
     }
 
-
-
-
-
-
-    private void SetSelectedTaskPrefab()
+    private void LoadAllTasks()
     {
-        string selectedDifficulty = PlayerPrefs.GetString("SelectedMode", "Normal");
-        Debug.Log(PlayerPrefs.GetString("SelectedMode", "Normal"));
-        switch (selectedDifficulty)
-        {
-            case "Normal":
-                selectedTaskPrefabGroup = taskPrefabGroupNormal;
-                break;
-            case "Harcore":
-                selectedTaskPrefabGroup = taskPrefabGroupHardcore;
-                break;
-            case "Bar":
-                selectedTaskPrefabGroup = taskPrefabGroupBar;
-                break;
-            default:
-                selectedTaskPrefabGroup = taskPrefabGroupNormal; // Standardmäßig Easy verwenden
-                break;
+        normalTasks = LoadTasksFromFile("normal.txt");
+        exTasks = LoadTasksFromFile("ex.txt");
+        duellTasks = LoadTasksFromFile("duell.txt");
+        regelTasks = LoadTasksFromFile("regel.txt");
+        rundeTasks = LoadTasksFromFile("runde.txt");
+        lieberTasks = LoadTasksFromFile("lieber.txt");
+    }
 
-               
-        }
+    private List<string> LoadTasksFromFile(string fileName)
+    {
+        string filePath = Path.Combine(Application.streamingAssetsPath, fileName);
+        return File.Exists(filePath) ? File.ReadAllLines(filePath).ToList() : new List<string>();
     }
 
     private void SetDrinkRange()
     {
-        string selectedDifficulty = PlayerPrefs.GetString("SelectedDifficulty", "Easy");
+        string difficulty = PlayerPrefs.GetString("SelectedDifficulty", "Easy");
 
-        switch (selectedDifficulty)
+        switch (difficulty)
         {
             case "Easy":
                 minDrinks = 1;
@@ -214,7 +121,7 @@ public class TaskManager : MonoBehaviour
                 break;
             case "Hard":
                 minDrinks = 3;
-                maxDrinks = 9;
+                maxDrinks = 10;
                 break;
             default:
                 minDrinks = 1;
@@ -223,398 +130,173 @@ public class TaskManager : MonoBehaviour
         }
     }
 
-    private void ShowNextTask()
+    public void ShowNextTask()
     {
-        Debug.Log("📌 Nächste Aufgabe wird geladen – Überprüfung des Fahrerstatus:");
-        for (int i = 1; i <= PlayerPrefs.GetInt("PlayerCount", 0); i++)
-        {
-            string playerName = PlayerPrefs.GetString("Player" + i, "UNKNOWN");
-            int isDriver = PlayerPrefs.GetInt(playerName + "_IsDriver", -1);
-            Debug.Log($"🚗 Spieler {playerName}, Fahrer: {isDriver}");
-        }
-
-        int playerCount = playerNames.Count;
+        usedPlayers.Clear();
 
         if (tasksCompleted >= maxTasks)
         {
-            taskText.text = "Runde Beendet!";
+            taskText.text = "🎉 Runde Beendet! Tippe zum Beenden.";
             gameEnded = true;
             return;
         }
 
-        bool taskDisplayed = false;
-        while (!taskDisplayed)
-        {
-            int randomTaskIndex = Random.Range(0, selectedTaskPrefabGroup.transform.childCount);
-            GameObject randomTaskPrefab = selectedTaskPrefabGroup.transform.GetChild(randomTaskIndex).gameObject;
-            string taskDescription = randomTaskPrefab.GetComponentInChildren<TextMeshProUGUI>().text;
+        title.gameObject.SetActive(false);
+        mainCamera.backgroundColor = defaultColor;
 
-            if (HasEnoughPlayers(taskDescription))
+        if (ruleActive)
+        {
+            ruleCountdown--;
+            if (ruleCountdown <= 0)
             {
-                if (HasEnoughDrivers(taskDescription))
-                {
-                    ReplacePlaceholders(ref taskDescription, playerCount);
-                    taskText.text = taskDescription;
-                    tasksCompleted++;
-                    taskDisplayed = true;
-                }
-                else
-                {
-                    continue; // Fahrer fehlen? Dann neue Aufgabe suchen
-                }
-            }
-            else
-            {
-                continue; // Nicht genug Spieler? Neue Aufgabe suchen
+                ShowRuleEnd();
+                return;
             }
         }
 
-        Debug.Log("✅ Fahrerstatus nach dem Laden der Aufgabe bleibt erhalten!");
-    }
-
-    private bool ShouldShowSpecialTask()
-    {
-        // Zufällig entscheiden, ob eine Special-Aufgabe angezeigt werden soll
-        int randomNumber = Random.Range(0, 500); // Eine größere Reichweite für die Genauigkeit
-        if (randomNumber < 15) // Zum Beispiel nur 0,5% Wahrscheinlichkeit für "EX"
+        if (Random.value < 0.25f) // 25% Chance für Special-Aufgabe
         {
-            isEx = true;
-            return true;
-
+            ShowSpecialTask();
+            return;
         }
-        else if (randomNumber <= 100)
+
+        if (normalTasks.Count == 0)
         {
-            isEx = false;
-
-            return true;
+            taskText.text = "❌ Keine Aufgaben verfügbar!";
+            return;
         }
-        return false;
+
+        string selectedTask = normalTasks[Random.Range(0, normalTasks.Count)];
+        ReplacePlaceholders(ref selectedTask);
+        taskText.text = selectedTask;
+        tasksCompleted++;
     }
 
     private void ShowSpecialTask()
     {
-        SpecialTaskType specialType;
+        SpecialTaskType specialType = isEx ? SpecialTaskType.Exen : (SpecialTaskType)Random.Range(1, 5);
 
-        if (!isEx)
+        if (specialType == SpecialTaskType.Regel && ruleActive)
         {
-            specialType = (SpecialTaskType)Random.Range(2, 6);
-
-        }
-        else
-        {
-            specialType = SpecialTaskType.Exen;
+            ShowNextTask(); // Falls eine Regel aktiv ist, keine neue Regel starten
+            return;
         }
 
+        List<string> taskPool;
+        string titleText = "";
+        Color backgroundColor = defaultColor;
 
-        // Je nach Spezialaufgaben-Typ die entsprechende Aufgabe anzeigen
         switch (specialType)
         {
             case SpecialTaskType.Exen:
-                title.gameObject.SetActive(true);
-                title.text = "EX";
-                mainCamera.GetComponent<Camera>().backgroundColor = Color.red;
-                ShowExenTask();
-                break;
-            case SpecialTaskType.Regel:
-
-                if(!ruleActive)
-                {
-                    title.gameObject.SetActive(true);
-                    title.text = "REGEL";
-                    mainCamera.GetComponent<Camera>().backgroundColor = Color.yellow;
-                    ShowRuleTask();
-                    break;
-                }
-                 else
+                if (Random.value > 0.01f) // 1% Wahrscheinlichkeit für EX
                 {
                     ShowNextTask();
-                    break;
+                    return;
                 }
-             
-
-
+                taskPool = exTasks;
+                titleText = "EX";
+                backgroundColor = Color.red;
+                break;
+            case SpecialTaskType.Regel:
+                taskPool = regelTasks;
+                titleText = "REGEL";
+                backgroundColor = Color.yellow;
+                ruleActive = true;
+                ruleCountdown = Random.Range(10, 20);
+                currentRulePlayer = GetUniqueNonDriver();
+                break;
             case SpecialTaskType.Runde:
-                title.gameObject.SetActive(true);
-                title.text = "RUNDE";
-                mainCamera.GetComponent<Camera>().backgroundColor = Color.blue;
-                ShowGameTask();
-                // Implementiere die Anzeige einer "Spiel" Aufgabe hier
+                taskPool = rundeTasks;
+                titleText = "RUNDE";
+                backgroundColor = Color.blue;
                 break;
             case SpecialTaskType.Duell:
-                title.gameObject.SetActive(true);
-                title.text = "Duell";
-                mainCamera.GetComponent<Camera>().backgroundColor = Color.magenta;
-                ShowDuelTask();
-                // Implementiere die Anzeige einer "Spiel" Aufgabe hier
+                taskPool = duellTasks;
+                titleText = "DUELL";
+                backgroundColor = Color.magenta;
                 break;
             case SpecialTaskType.Lieber:
-                title.gameObject.SetActive(true);
-                title.text = "Entweder..";
-                mainCamera.GetComponent<Camera>().backgroundColor = Color.green;
-                ShowRatherTask();
-                // Implementiere die Anzeige einer "Spiel" Aufgabe hier
+                taskPool = lieberTasks;
+                titleText = "ENTWEDER/ODER";
+                backgroundColor = Color.green;
                 break;
             default:
-                mainCamera.GetComponent<Camera>().backgroundColor = StandartColor;
-
                 ShowNextTask();
-                break;
+                return;
         }
-    }
 
- 
-    private void ShowRuleTask()
+        if (taskPool.Count == 0)
         {
-            // Eine zufällige Aufgabe aus der "rulePTaskGroup" auswählen und anzeigen
-            Transform[] ruleTaskTransforms = rulePTaskGroup.GetComponentsInChildren<Transform>();
-            List<GameObject> ruleTasks = new List<GameObject>();
-            foreach (Transform child in ruleTaskTransforms)
-            {
-                if (child.gameObject != rulePTaskGroup)
-                {
-                    ruleTasks.Add(child.gameObject);
-                }
-            }
-
-            int randomRuleTaskIndex = Random.Range(0, ruleTasks.Count);
-            GameObject randomRuleTaskPrefab = ruleTasks[randomRuleTaskIndex];
-
-            string ruleTaskDescription = randomRuleTaskPrefab.GetComponentInChildren<TextMeshProUGUI>().text;
-        currentRulePlayer = GetRandomPlayer();
-        // Direkt den ausgewählten Spieler in die Regel einsetzen
-        ruleTaskDescription = ruleTaskDescription.Replace("{Spieler1}", currentRulePlayer);
-
-            taskText.text = ruleTaskDescription;
-
-            ruleActive = true; // Aktiviere das Flag, dass eine Regel aktiv ist
-
-            tasksCompleted++;
+            ShowNextTask();
+            return;
         }
+
+        title.gameObject.SetActive(true);
+        title.text = titleText;
+        mainCamera.backgroundColor = backgroundColor;
+
+        string selectedTask = taskPool[Random.Range(0, taskPool.Count)];
+        ReplacePlaceholders(ref selectedTask);
+        taskText.text = selectedTask;
+        tasksCompleted++;
+    }
 
     private void ShowRuleEnd()
     {
         title.gameObject.SetActive(true);
-        title.text = "REGELENDE";
-        mainCamera.GetComponent<Camera>().backgroundColor = Color.yellow;
+        title.text = "REGEL ENDE";
+        mainCamera.backgroundColor = Color.yellow;
 
-        // Text für das Ende der Regel-Aufgaben anzeigen
-        string ruleEndText = "{Spieler1}, deine Regel ist vorbei!";
-        ruleEndText = ruleEndText.Replace("{Spieler1}", currentRulePlayer);
+        string ruleEndText = $"{currentRulePlayer}, deine Regel ist vorbei!";
         taskText.text = ruleEndText;
 
-        ruleActive = false; // Deaktiviere das Flag, dass eine Regel aktiv ist
+        ruleActive = false;
     }
 
-
-    private void ShowExenTask()
+    private void ReplacePlaceholders(ref string taskDescription)
     {
-        // Eine zufällige Aufgabe aus der "ExTaskGroup" auswählen und anzeigen
-        Transform[] exTaskTransforms = exTaskGroup.GetComponentsInChildren<Transform>();
-        List<GameObject> exTasks = new List<GameObject>();
-        foreach (Transform child in exTaskTransforms)
+        if (taskDescription.Contains("{Spieler1}"))
+            taskDescription = taskDescription.Replace("{Spieler1}", GetUniqueNonDriver());
+
+        if (taskDescription.Contains("{Spieler2}"))
+            taskDescription = taskDescription.Replace("{Spieler2}", GetUniqueNonDriver());
+
+        if (taskDescription.Contains("{Fahrer1}"))
+            taskDescription = taskDescription.Replace("{Fahrer1}", GetUniqueDriver());
+
+        if (taskDescription.Contains("{Schlucke}"))
         {
-            if (child.gameObject != exTaskGroup)
-            {
-                exTasks.Add(child.gameObject);
-            }
-        }
-
-        int randomExTaskIndex = Random.Range(0, exTasks.Count);
-        GameObject randomExTaskPrefab = exTasks[randomExTaskIndex];
-
-        string exTaskDescription = randomExTaskPrefab.GetComponentInChildren<TextMeshProUGUI>().text;
-
-        ReplacePlaceholders(ref exTaskDescription, playerNames.Count);
-
-        taskText.text = exTaskDescription;
-        isEx = false;
-        tasksCompleted++;
-    }
-
-    private void ShowGameTask()
-    {
-        // Eine zufällige Aufgabe aus der "ExTaskGroup" auswählen und anzeigen
-        Transform[] RoundTaskTransforms = RoundTaskGroup.GetComponentsInChildren<Transform>();
-        List<GameObject> RoundTasks = new List<GameObject>();
-        foreach (Transform child in RoundTaskTransforms)
-        {
-            if (child.gameObject != exTaskGroup)
-            {
-                RoundTasks.Add(child.gameObject);
-            }
-        }
-
-        int randomExTaskIndex = Random.Range(0, RoundTasks.Count);
-        GameObject randomGameTaskPrefab = RoundTasks[randomExTaskIndex];
-
-        string RoundTaskDescription = randomGameTaskPrefab.GetComponentInChildren<TextMeshProUGUI>().text;
-
-        ReplacePlaceholders(ref RoundTaskDescription, playerNames.Count);
-
-        taskText.text = RoundTaskDescription;
-        tasksCompleted++;
-    }
-
-    private void ShowDuelTask()
-    {
-        // Eine zufällige Aufgabe aus der "ExTaskGroup" auswählen und anzeigen
-        Transform[] DuelTaskTransforms = DuelTaskGroup.GetComponentsInChildren<Transform>();
-        List<GameObject> DuelTasks = new List<GameObject>();
-        foreach (Transform child in DuelTaskTransforms)
-        {
-            if (child.gameObject != exTaskGroup)
-            {
-                DuelTasks.Add(child.gameObject);
-            }
-        }
-
-        int randomExTaskIndex = Random.Range(0, DuelTasks.Count);
-        GameObject randomDuelTaskPrefab = DuelTasks[randomExTaskIndex];
-
-        string DuelTaskDescription = randomDuelTaskPrefab.GetComponentInChildren<TextMeshProUGUI>().text;
-
-        ReplacePlaceholders(ref DuelTaskDescription, playerNames.Count);
-
-        taskText.text = DuelTaskDescription;
-        tasksCompleted++;
-    }
-    private void ShowRatherTask()
-    {
-        // Eine zufällige Aufgabe aus der "ExTaskGroup" auswählen und anzeigen
-        Transform[] RatherTaskTransforms = RatherTaskGroup.GetComponentsInChildren<Transform>();
-        List<GameObject> RatherTasks = new List<GameObject>();
-        foreach (Transform child in RatherTaskTransforms)
-        {
-            if (child.gameObject != exTaskGroup)
-            {
-                RatherTasks.Add(child.gameObject);
-            }
-        }
-
-        int randomExTaskIndex = Random.Range(0, RatherTasks.Count);
-        GameObject randomRatherTaskPrefab = RatherTasks[randomExTaskIndex];
-
-        string RatherTaskDescription = randomRatherTaskPrefab.GetComponentInChildren<TextMeshProUGUI>().text;
-
-        ReplacePlaceholders(ref RatherTaskDescription, playerNames.Count);
-
-        taskText.text = RatherTaskDescription;
-        tasksCompleted++;
-    }
-    private bool HasEnoughPlayers(string taskDescription)
-    {
-        int requiredPlayerCount = 0;
-        for (int i = 1; i <= 4; i++)
-        {
-            string placeholder = "{Spieler" + i + "}";
-            if (taskDescription.Contains(placeholder))
-            {
-                requiredPlayerCount++;
-            }
-        }
-
-        return requiredPlayerCount <= playerNames.Count;
-    }
-
-    private bool HasEnoughDrivers(string taskDescription)
-    {
-        if (!taskDescription.Contains("{Fahrer"))
-        {
-            // Die Aufgabe enthält keine Fahrer-Platzhalter, daher wird davon ausgegangen, dass genug Fahrer vorhanden sind
-            return true;
-        }
-
-        int requiredDriverCount = 0;
-        for (int i = 1; i <= 4; i++)
-        {
-            string placeholder = "{Fahrer" + i + "}";
-            if (taskDescription.Contains(placeholder))
-            {
-                requiredDriverCount++;
-            }
-        }
-
-        return requiredDriverCount <= driverNames.Count;
-    }
-
-    private void ReplacePlaceholders(ref string taskDescription, int playerCount)
-    {
-        HashSet<string> usedNames = new HashSet<string>();
-
-        for (int i = 1; i <= 4; i++)
-        {
-            string placeholder = "{Spieler" + i + "}";
-            if (taskDescription.Contains(placeholder) && i <= playerCount)
-            {
-                string randomPlayer = GetRandomPlayer();
-                while (usedNames.Contains(randomPlayer))
-                {
-                    randomPlayer = GetRandomPlayer();
-                }
-                usedNames.Add(randomPlayer);
-                taskDescription = taskDescription.Replace(placeholder, randomPlayer);
-            }
-        }
-
-        for (int i = 1; i <= 4; i++)
-        {
-            string driverPlaceholder = "{Fahrer" + i + "}";
-            if (taskDescription.Contains(driverPlaceholder))
-            {
-                if (driverNames.Count > 0)
-                {
-                    string randomDriver = GetRandomDriver();
-                    while (usedNames.Contains(randomDriver))
-                    {
-                        randomDriver = GetRandomDriver();
-                    }
-                    usedNames.Add(randomDriver);
-                    taskDescription = taskDescription.Replace(driverPlaceholder, randomDriver);
-                }
-                else
-                {
-                    taskDescription = taskDescription.Replace(driverPlaceholder, "Kein Fahrer verfügbar");
-                }
-            }
-        }
-
-        if (taskDescription.Contains("{Schlücke}"))
-        {
-            if (minDrinks <= 0 || maxDrinks <= 0)  // Falls nicht initialisiert, Standardwerte setzen
-            {
-                minDrinks = 1;
-                maxDrinks = 5;
-            }
             int randomDrinks = Random.Range(minDrinks, maxDrinks + 1);
-            taskDescription = taskDescription.Replace("{Schlücke}", randomDrinks.ToString());
+            taskDescription = taskDescription.Replace("{Schlucke}", randomDrinks.ToString());
         }
     }
-
-
-
-    private string GetRandomPlayer()
+          private string GetUniqueNonDriver()
     {
-        if (playerNames.Count > 0)
-        {
-            int randomIndex = Random.Range(0, playerNames.Count);
-            return playerNames[randomIndex];
-        }
-        else
-        {
-            return "Keine Spieler verfügbar";
-        }
+        if (nonDriverPlayers.Count == 0) return "Niemand";
+
+        List<string> availablePlayers = nonDriverPlayers.Except(usedPlayers).ToList();
+        if (availablePlayers.Count == 0) availablePlayers = new List<string>(nonDriverPlayers);
+
+        string selectedPlayer = availablePlayers[Random.Range(0, availablePlayers.Count)];
+        usedPlayers.Add(selectedPlayer);
+        return selectedPlayer;
     }
 
-    private string GetRandomDriver()
+    private string GetUniqueDriver()
     {
-        if (driverNames.Count > 0)
-        {
-            int randomIndex = Random.Range(0, driverNames.Count);
-            return driverNames[randomIndex];
-        }
-        else
-        {
-            return "Kein Fahrer verfügbar";
-        }
+        if (driverNames.Count == 0) return "Kein Fahrer";
+
+        List<string> availableDrivers = driverNames.Except(usedPlayers).ToList();
+        if (availableDrivers.Count == 0) availableDrivers = new List<string>(driverNames);
+
+        string selectedDriver = availableDrivers[Random.Range(0, availableDrivers.Count)];
+        usedPlayers.Add(selectedDriver);
+        return selectedDriver;
+    }
+
+    private void EndRound()
+    {
+        SceneManager.LoadScene("Menu");
     }
 }

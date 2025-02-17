@@ -1,0 +1,8 @@
+{Spieler1} muss tanzen! Falls nicht, trinkt {Spieler2} {Schlucke}!
+{Spieler1} muss {Spieler2} ein Kompliment machen. Falls es schlecht ist, trinkt {Spieler1} {Schlucke}!
+{Spieler1} muss ein Tiergeraeusch machen. Erkennt {Spieler2} es nicht, trinkt {Spieler2} {Schlucke}!
+{Fahrer1} verteilt {Schlucke} an zwei Spieler seiner Wahl!
+Wer hat zuletzt eine WhatsApp-Nachricht geschrieben? Diese Person trinkt {Schlucke}!
+Wer einen schwarzen Gegenstand traegt, trinkt {Schlucke}!
+{Spieler1} darf bestimmen, wer trinken muss!
+Wer sich zuletzt versprochen hat, trinkt {Schlucke}!

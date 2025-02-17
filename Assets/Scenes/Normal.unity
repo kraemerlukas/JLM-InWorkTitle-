@@ -1034,7 +1034,7 @@ PrefabInstance:
     - target: {fileID: 7330338080721203658, guid: 1c16476e182ad13438992fb2e35bdc7a, type: 3}
       propertyPath: mainCamera
       value: 
-      objectReference: {fileID: 2082412102}
+      objectReference: {fileID: 2082412104}
     - target: {fileID: 7330338080721203658, guid: 1c16476e182ad13438992fb2e35bdc7a, type: 3}
       propertyPath: GameTaskGroup
       value: 

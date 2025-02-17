@@ -1,0 +1,5 @@
+Alle ausser {Fahrer1} muessen ihr Getraenk exen!
+{Spieler1} darf entscheiden, wer aus der Runde exen muss (ausser {Fahrer1})!
+{Spieler1} und {Spieler2} machen ein Ex-Battle. Wer langsamer ist, exed noch ein Glas!
+Die letzte Person, die ihr Glas auf den Tisch stellt, exed ihr Getraenk!
+{Spieler1} wuerfelt eine Zahl von 1 bis 6. So viele Spieler muessen exen (ausser {Fahrer1})!

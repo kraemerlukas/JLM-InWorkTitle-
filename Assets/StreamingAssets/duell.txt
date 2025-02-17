@@ -1,0 +1,5 @@
+{Spieler1} und {Spieler2} spielen Schere-Stein-Papier. Der Verlierer trinkt {Schlucke}!
+{Spieler1} und {Spieler2} muessen eine Minute lang Augenkontakt halten. Wer zuerst lacht, trinkt {Schlucke}!
+{Spieler1} und {Spieler2} muessen einen Handstand versuchen. Wer es nicht schafft, trinkt {Schlucke}!
+{Spieler1} und {Spieler2} rufen einen Zungenbrecher auf Zeit. Der Langsamere trinkt {Schlucke}!
+{Spieler1} und {Spieler2} muessen sich in die Augen sehen und so lange "Miau" sagen, bis einer lacht. Der Verlierer trinkt {Schlucke}!

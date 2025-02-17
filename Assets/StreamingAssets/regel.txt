@@ -1,0 +1,5 @@
+{Spieler1} darf eine neue Regel einfuehren. Wer sie bricht, trinkt {Schlucke}!
+Ab jetzt darf niemand mehr das Wort "trinken" sagen. Wer es sagt, trinkt {Schlucke}!
+Niemand darf mehr mit dem Finger auf jemanden zeigen. Wer es macht, trinkt {Schlucke}!
+Wer jetzt seine Haare beruehrt, trinkt {Schlucke}!
+Jedes Mal, wenn jemand lacht, muss er {Schlucke} trinken!
