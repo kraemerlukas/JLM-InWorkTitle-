@@ -1,0 +1,111 @@
+{Spieler1} darf eine neue Regel einfuehren. Wer sie bricht, trinkt {Schlucke}!
+Ab jetzt darf niemand mehr das Wort "trinken" sagen. Wer es sagt, trinkt {Schlucke}!
+Niemand darf mehr mit dem Finger auf jemanden zeigen. Wer es macht, trinkt {Schlucke}!
+Wer jetzt seine Haare beruehrt, trinkt {Schlucke}!
+Jedes Mal, wenn jemand lacht, muss er {Schlucke} trinken!
+{Spieler1} darf eine neue Regel einführen. Wer sie bricht, trinkt {Schlucke}!
+Ab jetzt darf niemand mehr das Wort "trinken" sagen. Wer es sagt, trinkt {Schlucke}!
+Niemand darf mehr mit dem Finger auf jemanden zeigen. Wer es macht, trinkt {Schlucke}!
+Wer jetzt seine Haare berührt, trinkt {Schlucke}!
+Jedes Mal, wenn jemand lacht, muss er {Schlucke} trinken!
+Ab jetzt darf niemand mehr "ja" sagen. Wer es sagt, trinkt {Schlucke}!
+Keiner darf mehr die Hände in die Taschen stecken. Wer es tut, trinkt {Schlucke}!
+Niemand darf mehr auf seinem Stuhl wackeln. Wer es tut, trinkt {Schlucke}!
+Alle müssen jetzt in Reimen sprechen. Wer aufhört, trinkt {Schlucke}!
+Wer das Wort „ich“ sagt, trinkt {Schlucke}!
+Ab jetzt müssen alle im Kreis sprechen, wenn sie reden. Wer sich äußert, ohne im Kreis zu sprechen, trinkt {Schlucke}!
+Niemand darf jetzt seinen Platz verlassen. Wer es tut, trinkt {Schlucke}!
+Wenn jemand seinen Namen sagt, muss er {Schlucke} trinken!
+Jeder, der mit den Augen rollt, muss {Schlucke} trinken!
+Ab jetzt darf niemand mehr das Wort „mir“ sagen. Wer es sagt, trinkt {Schlucke}!
+Wer jetzt von seinem Stuhl aufsteht, muss {Schlucke} trinken!
+Keiner darf mehr „nein“ sagen. Wer es sagt, trinkt {Schlucke}!
+Wenn jemand einen Fehler bei einer Zahl macht, muss er {Schlucke} trinken!
+Jeder muss jetzt mindestens einmal pro Runde etwas über seinen Tag erzählen. Wer es nicht tut, trinkt {Schlucke}!
+Niemand darf mehr an den Fingern spielen. Wer es tut, trinkt {Schlucke}!
+Wer jetzt eine Pause macht, muss {Schlucke} trinken!
+Niemand darf jetzt mehr seufzen. Wer es tut, trinkt {Schlucke}!
+Ab jetzt müssen alle mit der linken Hand sprechen. Wer es mit der rechten Hand tut, trinkt {Schlucke}!
+Wer jetzt aufsteht, muss {Schlucke} trinken!
+Ab jetzt dürfen keine Fragen mehr gestellt werden. Wer eine stellt, trinkt {Schlucke}!
+Wenn jemand das Wort „lustig“ sagt, muss er {Schlucke} trinken!
+Jeder, der jetzt seinen Kopf dreht, muss {Schlucke} trinken!
+Ab jetzt darf niemand mehr mit den Füßen wackeln. Wer es tut, trinkt {Schlucke}!
+Wenn jemand das Wort „jetzt“ sagt, muss er {Schlucke} trinken!
+Wer mit den Fingern schnipst, muss {Schlucke} trinken!
+Niemand darf mehr auf die Uhr schauen. Wer es tut, trinkt {Schlucke}!
+Ab jetzt darf niemand mehr mit den Armen verschränken. Wer es tut, trinkt {Schlucke}!
+Jeder, der ein Getränk in der Hand hält, muss {Schlucke} trinken!
+Ab jetzt müssen alle in der dritten Person über sich sprechen. Wer das nicht tut, trinkt {Schlucke}!
+Wer lacht, muss {Schlucke} trinken!
+Ab jetzt darf niemand mehr das Wort "später" sagen. Wer es sagt, trinkt {Schlucke}!
+Wer den Raum betritt, muss {Schlucke} trinken!
+Ab jetzt darf niemand mehr mit dem Kopf wackeln. Wer es tut, trinkt {Schlucke}!
+Jeder, der das Wort „dann“ sagt, muss {Schlucke} trinken!
+Wer jetzt seinen Kopf senkt, muss {Schlucke} trinken!
+Ab jetzt darf niemand mehr auf den Boden schauen. Wer es tut, trinkt {Schlucke}!
+Wer "bitte" sagt, muss {Schlucke} trinken!
+Ab jetzt muss jeder in Versen sprechen. Wer es nicht tut, trinkt {Schlucke}!
+Wer jetzt nach etwas fragt, muss {Schlucke} trinken!
+Ab jetzt darf niemand mehr „und“ sagen. Wer es sagt, trinkt {Schlucke}!
+Jeder, der jetzt an seinem Drink nippt, muss {Schlucke} trinken!
+Ab jetzt muss jeder beim Reden die Arme verschränken. Wer das nicht tut, trinkt {Schlucke}!
+Wer einen anderen anstarrt, muss {Schlucke} trinken!
+Wenn jemand etwas auf den Tisch klopft, muss er {Schlucke} trinken!
+Jeder, der ein Geräusch macht, muss {Schlucke} trinken!
+Ab jetzt muss jeder mit geschlossenen Augen sprechen. Wer es öffnet, trinkt {Schlucke}!
+Niemand darf mehr "Achso" sagen. Wer es sagt, trinkt {Schlucke}!
+Wer jetzt im Kreis springt, muss {Schlucke} trinken!
+Ab jetzt darf niemand mehr auf die Beine klopfen. Wer es tut, trinkt {Schlucke}!
+Wer beim Spiel zu viel redet, muss {Schlucke} trinken!
+Ab jetzt muss jeder, der aufsteht, auch um den Tisch gehen. Wer es nicht tut, trinkt {Schlucke}!
+{Spieler1} muss jetzt jedes Mal vor einem Satz bellen, wenn nicht, trinkt er {Schlucke}!
+{Spieler1} muss den nächsten Satz rückwärts sagen, ansonsten trinkt er {Schlucke}!
+{Spieler1} muss jetzt für 2 Minuten in der Rolle eines berühmten Charakters sprechen, wer lacht, trinkt {Schlucke}!
+{Spieler1} muss jedes Mal, wenn er spricht, ein Handzeichen machen, ansonsten trinkt er {Schlucke}!
+{Spieler1} muss jetzt jeden Satz mit „Oh mein Gott!“ anfangen, andernfalls trinkt er {Schlucke}!
+{Spieler1} muss jedes Mal, wenn er sich bewegt, eine Pirouette drehen, andernfalls trinkt er {Schlucke}!
+{Spieler1} muss so tun, als ob er ein Vogel ist und „zwitschern“, ansonsten trinkt er {Schlucke}!
+{Spieler1} muss für 1 Minute wie ein Roboter sprechen, andernfalls trinkt er {Schlucke}!
+{Spieler1} muss ab jetzt jedes Wort mit einem englischen Akzent sagen, andernfalls trinkt er {Schlucke}!
+{Spieler1} muss alle Fragen mit „Vielleicht“ beantworten, andernfalls trinkt er {Schlucke}!
+{Spieler1} muss jetzt bei jeder Antwort ein Geräusch machen, ansonsten trinkt er {Schlucke}!
+{Spieler1} muss jetzt für den Rest des Spiels in der dritten Person sprechen, andernfalls trinkt er {Schlucke}!
+{Spieler1} muss jeden Satz mit einem "Woohoo!" beenden, andernfalls trinkt er {Schlucke}!
+{Spieler1} muss für 2 Minuten lang „ich bin der König der Welt“ rufen, andernfalls trinkt er {Schlucke}!
+{Spieler1} muss einen Handstand versuchen, andernfalls trinkt er {Schlucke}!
+{Spieler1} muss für 3 Minuten lang in einem Gedicht sprechen, andernfalls trinkt er {Schlucke}!
+{Spieler1} muss jetzt jedes Mal, wenn er lacht, 5 Sekunden lang still sein, andernfalls trinkt er {Schlucke}!
+{Spieler1} muss den nächsten Satz mit „Ich kann fliegen!“ sagen, andernfalls trinkt er {Schlucke}!
+{Spieler1} muss jeden Satz mit „Es tut mir leid, aber...“ anfangen, andernfalls trinkt er {Schlucke}!
+{Spieler1} muss bei jeder Antwort ein Tiergeräusch machen, andernfalls trinkt er {Schlucke}!
+{Spieler1} muss 10 Sekunden lang „Ich bin ein Superstar!“ singen, andernfalls trinkt er {Schlucke}!
+{Spieler1} muss jedes Mal in der dritten Person von sich selbst sprechen, andernfalls trinkt er {Schlucke}!
+{Spieler1} muss mit den Augen zwinkern, wenn er etwas sagt, andernfalls trinkt er {Schlucke}!
+{Spieler1} muss ein Theaterstück nachspielen, wenn er spricht, andernfalls trinkt er {Schlucke}!
+{Spieler1} muss sich bei jedem Satz verbeugen, andernfalls trinkt er {Schlucke}!
+{Spieler1} muss jetzt jedes Mal, wenn er spricht, einen Stift hochhalten, andernfalls trinkt er {Schlucke}!
+{Spieler1} muss „Ich bin die beste Person hier“ schreien, wenn er etwas sagt, andernfalls trinkt er {Schlucke}!
+{Spieler1} muss beim Sprechen eine Grimasse ziehen, andernfalls trinkt er {Schlucke}!
+{Spieler1} muss ab sofort immer mit den Händen klatschen, wenn er spricht, andernfalls trinkt er {Schlucke}!
+{Spieler1} muss immer auf einem Bein stehen, wenn er spricht, andernfalls trinkt er {Schlucke}!
+{Spieler1} muss während des Spiels immer einen Scherz erzählen, andernfalls trinkt er {Schlucke}!
+{Spieler1} muss jetzt bei jedem Satz einen Witz machen, andernfalls trinkt er {Schlucke}!
+{Spieler1} muss bei jeder Antwort ein Tiergeräusch machen, andernfalls trinkt er {Schlucke}!
+{Spieler1} muss bei jeder Antwort „Na klar!“ sagen, andernfalls trinkt er {Schlucke}!
+{Spieler1} muss jedes Mal ein High-Five machen, wenn er spricht, andernfalls trinkt er {Schlucke}!
+{Spieler1} muss jetzt für den Rest des Spiels in Reimen sprechen, andernfalls trinkt er {Schlucke}!
+{Spieler1} muss jedes Mal „Schwupps!“ sagen, wenn er spricht, andernfalls trinkt er {Schlucke}!
+{Spieler1} muss für 30 Sekunden ein Tier imitieren, andernfalls trinkt er {Schlucke}!
+{Spieler1} muss jetzt immer die Hände in die Hüften stützen, wenn er spricht, andernfalls trinkt er {Schlucke}!
+{Spieler1} muss jetzt immer ein Stück Pappe hochhalten, wenn er spricht, andernfalls trinkt er {Schlucke}!
+{Spieler1} muss bei jeder Antwort „Ich liebe es!“ sagen, andernfalls trinkt er {Schlucke}!
+{Spieler1} muss jedes Mal, wenn er spricht, einen Tanzschritt machen, andernfalls trinkt er {Schlucke}!
+{Spieler1} muss jetzt mit einem Zirkus-Akzent sprechen, andernfalls trinkt er {Schlucke}!
+{Spieler1} muss jedes Mal, wenn er spricht, ein Geräusch machen, andernfalls trinkt er {Schlucke}!
+{Spieler1} muss jetzt jedes Mal, wenn er spricht, „Woohoo!“ rufen, andernfalls trinkt er {Schlucke}!
+{Spieler1} muss bei jedem Satz laut „Yesss!“ sagen, andernfalls trinkt er {Schlucke}!
+{Spieler1} muss sich immer auf die Zehenspitzen stellen, wenn er spricht, andernfalls trinkt er {Schlucke}!
+{Spieler1} muss beim Sprechen immer mit den Händen wackeln, andernfalls trinkt er {Schlucke}!
+{Spieler1} muss jedes Mal mit den Armen winken, wenn er spricht, andernfalls trinkt er {Schlucke}!
+{Spieler1} muss ab sofort immer „Ich bin der Boss“ sagen, wenn er spricht, andernfalls trinkt er {Schlucke}!
