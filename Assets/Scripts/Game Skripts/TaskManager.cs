@@ -10,6 +10,7 @@ public class TaskManager : MonoBehaviour
     public TextMeshProUGUI taskText;
     public TextMeshProUGUI title;
     public Camera mainCamera;
+    private List<string> lastDrinkTasks = new List<string>(); // Speichert die letzten Schluck-Aufgaben
 
     private List<string> normalTasks = new List<string>();
     private List<string> exTasks = new List<string>();
@@ -35,6 +36,8 @@ public class TaskManager : MonoBehaviour
     private bool ruleActive = false;
     private int ruleCountdown = 0;
     private string currentRulePlayer = "";
+    private List<string> usedTasks = new List<string>(); // Liste für bereits gespielte Aufgaben
+    private bool lastDrinkEventShown = false; // Prüft, ob das letzte Event bereits angezeigt wurde
 
     private enum SpecialTaskType { Exen, Regel, Runde, Duell, Lieber }
 
@@ -44,20 +47,23 @@ public class TaskManager : MonoBehaviour
         LoadPlayers();
         LoadAllTasks();
         SetDrinkRange();
-        maxTasks = Random.Range(80, 150);
+        maxTasks = Random.Range(80, 120);
         ShowNextTask();
+        LoadLastDrinkTasks();
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !gameEnded)
+        if (Input.GetMouseButtonDown(0))
         {
-            ShowNextTask();
-        }
-
-        if (gameEnded && Input.GetMouseButtonDown(0))
-        {
-            EndRound();
+            if (gameEnded)
+            {
+                EndRound(); // Jetzt wird das Menü geöffnet
+            }
+            else
+            {
+                ShowNextTask();
+            }
         }
     }
 
@@ -107,9 +113,9 @@ public class TaskManager : MonoBehaviour
 
     private void SetDrinkRange()
     {
-        string difficulty = PlayerPrefs.GetString("SelectedDifficulty", "Easy");
+        string selectedDifficulty = PlayerPrefs.GetString("SelectedDifficulty", "Easy");
 
-        switch (difficulty)
+        switch (selectedDifficulty)
         {
             case "Easy":
                 minDrinks = 1;
@@ -128,15 +134,32 @@ public class TaskManager : MonoBehaviour
                 maxDrinks = 5;
                 break;
         }
+
+        Debug.Log($"📌 Schwierigkeitsstufe: {selectedDifficulty} | Min: {minDrinks}, Max: {maxDrinks}");
     }
 
     public void ShowNextTask()
     {
         usedPlayers.Clear();
 
-        if (tasksCompleted >= maxTasks)
+        // Falls die Runde beendet wurde und das letzte Event bereits gezeigt wurde, Menü öffnen
+        if (gameEnded && lastDrinkEventShown)
         {
-            taskText.text = "🎉 Runde Beendet! Tippe zum Beenden.";
+            EndRound();
+            return;
+        }
+
+        // Falls die maximale Anzahl an Aufgaben erreicht ist, Letzter-Schluck-Event auslösen
+        if (tasksCompleted >= maxTasks && !lastDrinkEventShown)
+        {
+            ShowLastDrinkEvent();
+            lastDrinkEventShown = true;
+            return;
+        }
+
+        // Falls die letzte Aufgabe bereits gezeigt wurde, jetzt auf den finalen Klick warten
+        if (lastDrinkEventShown)
+        {
             gameEnded = true;
             return;
         }
@@ -144,17 +167,7 @@ public class TaskManager : MonoBehaviour
         title.gameObject.SetActive(false);
         mainCamera.backgroundColor = defaultColor;
 
-        if (ruleActive)
-        {
-            ruleCountdown--;
-            if (ruleCountdown <= 0)
-            {
-                ShowRuleEnd();
-                return;
-            }
-        }
-
-        if (Random.value < 0.10f) // 10% Chance für Special-Aufgabe
+        if (Random.value < 0.25f) // 25% Chance für Special-Aufgabe
         {
             ShowSpecialTask();
             return;
@@ -166,11 +179,33 @@ public class TaskManager : MonoBehaviour
             return;
         }
 
-        string selectedTask = normalTasks[Random.Range(0, normalTasks.Count)];
+        // Wähle eine einzigartige Aufgabe aus der Liste
+        string selectedTask = GetNextUniqueTask(normalTasks);
         ReplacePlaceholders(ref selectedTask);
         taskText.text = selectedTask;
         tasksCompleted++;
     }
+
+
+
+    private string GetNextUniqueTask(List<string> taskPool)
+    {
+        if (taskPool.Count == 0)
+            return "Keine Aufgaben verfügbar!";
+
+        if (usedTasks.Count >= taskPool.Count)
+            usedTasks.Clear(); // Falls alle Aufgaben schon dran waren, Liste zurücksetzen
+
+        string selectedTask;
+        do
+        {
+            selectedTask = taskPool[Random.Range(0, taskPool.Count)];
+        } while (usedTasks.Contains(selectedTask)); // Stelle sicher, dass Aufgabe noch nicht kam
+
+        usedTasks.Add(selectedTask);
+        return selectedTask;
+    }
+
 
     private void ShowSpecialTask()
     {
@@ -287,22 +322,61 @@ public class TaskManager : MonoBehaviour
 
     private void ReplacePlaceholders(ref string taskDescription)
     {
+        int totalPlayers = playerNames.Count;    // Alle Spieler inkl. Fahrer
+        int normalPlayers = nonDriverPlayers.Count; // Nur Spieler ohne Fahrer
+        int driverCount = driverNames.Count;
+        string player1 = GetUniqueNonDriver();
+        string player2;
+        do
+        {
+            player2 = GetUniqueNonDriver();
+        } while (player1 == player2); // Sicherstellen, dass Spieler1 ≠ Spieler2
+
+        taskDescription = taskDescription.Replace("{Spieler1}", player1);
+        taskDescription = taskDescription.Replace("{Spieler2}", player2);
+
+        // Falls nicht genug normale Spieler für die Aufgabe vorhanden sind, skippen
+        if ((taskDescription.Contains("{Spieler3}") && normalPlayers < 3) ||
+            (taskDescription.Contains("{Spieler4}") && normalPlayers < 4))
+        {
+            ShowNextTask();
+            return;
+        }
+
+        // Falls eine Fahrer-Aufgabe kommt, aber keine Fahrer existieren, skippen
+        if (taskDescription.Contains("{Fahrer1}") && driverCount == 0)
+        {
+            ShowNextTask();
+            return;
+        }
+
+        // Ersetze Spieler-Platzhalter mit tatsächlichen normalen Spielern (keine Fahrer)
         if (taskDescription.Contains("{Spieler1}"))
             taskDescription = taskDescription.Replace("{Spieler1}", GetUniqueNonDriver());
 
         if (taskDescription.Contains("{Spieler2}"))
             taskDescription = taskDescription.Replace("{Spieler2}", GetUniqueNonDriver());
 
-        if (taskDescription.Contains("{Fahrer1}"))
+        if (taskDescription.Contains("{Spieler3}") && normalPlayers >= 3)
+            taskDescription = taskDescription.Replace("{Spieler3}", GetUniqueNonDriver());
+
+        if (taskDescription.Contains("{Spieler4}") && normalPlayers >= 4)
+            taskDescription = taskDescription.Replace("{Spieler4}", GetUniqueNonDriver());
+
+        // Ersetze Fahrer-Platzhalter mit tatsächlichen Fahrern
+        if (taskDescription.Contains("{Fahrer1}") && driverCount > 0)
             taskDescription = taskDescription.Replace("{Fahrer1}", GetUniqueDriver());
 
+        // Ersetze {Schlucke} mit einer zufälligen Anzahl
         if (taskDescription.Contains("{Schlucke}"))
         {
             int randomDrinks = Random.Range(minDrinks, maxDrinks + 1);
             taskDescription = taskDescription.Replace("{Schlucke}", randomDrinks.ToString());
         }
     }
-          private string GetUniqueNonDriver()
+
+
+    private string GetUniqueNonDriver()
     {
         if (nonDriverPlayers.Count == 0) return "Niemand";
 
@@ -330,4 +404,28 @@ public class TaskManager : MonoBehaviour
     {
         SceneManager.LoadScene("Menu");
     }
+    private void LoadLastDrinkTasks()
+    {
+        lastDrinkTasks = LoadTasksFromFile("letzterschluck.txt"); // Lädt die Datei
+    }
+    private void ShowLastDrinkEvent()
+    {
+        if (lastDrinkTasks.Count == 0)
+        {
+            taskText.text = "🎉 Die Runde ist vorbei!";
+            return;
+        }
+
+        string selectedTask = lastDrinkTasks[Random.Range(0, lastDrinkTasks.Count)];
+        ReplacePlaceholders(ref selectedTask);
+
+        // Setze den Titel auf SPIELENDE und ändere die Hintergrundfarbe
+        title.gameObject.SetActive(true);
+        title.text = "SPIELENDE";
+        mainCamera.backgroundColor = Color.black; // Farbe anpassen (z. B. Schwarz für das Finale)
+
+        taskText.text = selectedTask;
+    }
+
+
 }
