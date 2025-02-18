@@ -6,3 +6,342 @@ Wer hat zuletzt eine WhatsApp-Nachricht geschrieben? Diese Person trinkt {Schluc
 Wer einen schwarzen Gegenstand traegt, trinkt {Schlucke}!
 {Spieler1} darf bestimmen, wer trinken muss!
 Wer sich zuletzt versprochen hat, trinkt {Schlucke}!
+{Spieler1} muss einen Witz erzählen. Lacht niemand, trinkt er {Schlucke}!
+{Spieler1} muss ein Tiergeräusch machen. Erkennt {Spieler2} oder {Spieler3} es nicht, trinkt derjenige {Schlucke}!
+{Spieler1} muss {Spieler2} und {Spieler3} ein übertrieben nettes Kompliment machen. Falls es schlecht ist, trinkt er {Schlucke}!
+{Spieler1} muss einen Werbeslogan für sein Getränk erfinden und ihn überzeugend präsentieren!
+{Spieler1} muss ein Lied summen. Wer es zuerst errät, darf {Spieler1} eine Aufgabe geben!
+{Spieler1} muss eine epische Tanzeinlage hinlegen oder {Schlucke} trinken!
+{Spieler1} muss bis zur nächsten Runde nur noch mit den Händen reden!
+{Spieler1} muss {Spieler2} seine lustigste peinliche Geschichte erzählen!
+{Spieler1} muss so tun, als wäre er ein betrunkener Nachrichtensprecher!
+{Spieler1} muss sich einen neuen Namen geben, den er bis zur nächsten Aufgabe behalten muss!
+{Spieler1} muss eine Szene aus einem bekannten Film nachspielen. Erkennt {Spieler2} oder {Spieler3} ihn nicht, trinken sie {Schlucke}!
+{Spieler1} muss mit {Spieler2} ein Armdrücken-Duell machen. Der Verlierer trinkt {Schlucke}!
+{Spieler1} muss das Alphabet rückwärts aufsagen. Jeder Fehler bedeutet {Schlucke} trinken!
+{Spieler1} muss {Spieler2} eine Verschwörungstheorie erklären, die total absurd ist!
+{Spieler1} muss {Spieler2} und {Spieler3} eine Fake-Liebeserklärung machen!
+{Spieler1} muss einen Schuh auf den Kopf setzen und eine Runde so sitzen bleiben!
+{Spieler1} muss {Spieler2} eine verrückte Superkraft ausdenken und ihm erklären, wie sie funktioniert!
+{Spieler1} muss versuchen, {Spieler2} mit einem schlechten Witz zum Lachen zu bringen! Falls er es nicht schafft, trinkt er {Schlucke}!
+{Spieler1} muss eine ernste politische Rede über den Sinn von Pizza halten!
+{Spieler1} muss sich einen Songtitel aussuchen und ihn mit nur einem Wort beschreiben!
+{Spieler1} muss {Spieler2} eine "Beleidigung" zuflüstern, die aber nett klingen muss!
+{Spieler1} muss {Spieler2} und {Spieler3} mit einem einzigen Wort beschreiben!
+{Spieler1} muss {Spieler2} eine schockierende "Wahrheit" über sich erzählen – ob sie wahr ist oder nicht!
+{Spieler1} muss eine peinliche Geschichte erzählen, die ihm wirklich passiert ist oder sich eine ausdenken!
+{Spieler1} muss einen Gegenstand im Raum als "heiligen Gral" erklären und eine Rede darüber halten!
+{Spieler1} muss einen lustigen Spitznamen für {Spieler2} und {Spieler3} erfinden!
+{Spieler1} muss für die nächsten 3 Aufgaben eine neue Stimme ausdenken!
+{Spieler1} muss einen völlig sinnlosen Sport erfinden und erklären, warum er olympisch werden sollte!
+{Spieler1} muss mit einem unsichtbaren Mikrofon eine Rap-Performance hinlegen!
+{Spieler1} muss versuchen, eine Person aus der Runde mit Blicken zu hypnotisieren!
+{Spieler1} muss ein geheimnisvolles Ritual für das Spiel erfinden!
+{Spieler1} muss einen Schluck nehmen und dabei ein dramatisches "Mmmmhh!" von sich geben!
+{Spieler1} muss so tun, als wäre er ein Star auf dem roten Teppich und von {Spieler2} interviewt werden!
+{Spieler1} muss {Spieler2} eine peinliche Wahrheit über sich selbst sagen!
+{Spieler1} muss ein imaginäres Telefongespräch führen, das alle zum Lachen bringt!
+{Spieler1} muss in 10 Sekunden so viele Tiergeräusche machen wie möglich!
+{Spieler1} muss versuchen, {Spieler2} mit einem ernst gemeinten Kompliment zum Weinen zu bringen!
+{Spieler1} muss {Spieler2} oder {Spieler3} eine Frage stellen, die keiner erwartet!
+{Spieler1} muss versuchen, ein anderes Getränk gegen sein eigenes einzutauschen!
+Alle Spieler, die in den letzten 5 Minuten ihr Handy in der Hand hatten, trinken {Schlucke}!
+Alle Spieler, die heute bereits Wasser getrunken haben, dürfen einen Schluck weitergeben!
+Alle Spieler, die heute Kaffee getrunken haben, trinken {Schlucke}!
+Alle, die schonmal in einer Karaoke-Bar gesungen haben, trinken {Schlucke}!
+Alle, die sich in den letzten 10 Minuten durch die Haare gefahren sind, trinken {Schlucke}!
+Alle, die ein schwarzes Kleidungsstück tragen, trinken {Schlucke}!
+Alle mit blonden Haaren trinken {Schlucke}!
+Alle, die schon mal eine Fake-Nummer weitergegeben haben, trinken {Schlucke}!
+Alle, die sich jemals betrunken verliebt haben, trinken {Schlucke}!
+Alle, die beim letzten Mal spielen als erstes betrunken waren, trinken {Schlucke}!
+Alle, die jemals einen peinlichen Liebesbrief geschrieben haben, trinken {Schlucke}!
+Alle, die schon mal betrunken Nachrichten geschrieben haben, trinken {Schlucke}!
+Alle, die heute schon gelogen haben, trinken {Schlucke}!
+Alle, die aktuell verliebt sind, trinken {Schlucke}!
+Alle, die in den letzten 5 Minuten gelacht haben, trinken {Schlucke}!
+Alle, die jemals in einem Club getanzt haben, trinken {Schlucke}!
+Alle, die jemals von der Polizei angesprochen wurden, trinken {Schlucke}!
+Alle, die unter 1,70m groß sind, trinken {Schlucke}!
+Alle, die über 1,80m groß sind, trinken {Schlucke}!
+Alle, die in der Schule mal eine 6 hatten, trinken {Schlucke}!
+{Spieler1} muss seinen Getränkebecher in der Hand balancieren, bis die nächste Aufgabe kommt. Schafft er es nicht, trinkt er {Schlucke}!  
+{Spieler1} muss einen Gegenstand aus dem Raum als Haustier adoptieren und ihm einen Namen geben! Falls er sich weigert, trinkt er {Schlucke}!  
+{Spieler1} muss {Spieler2} eine fiese, aber lustige Fake-Beschwerde erzählen. Falls {Spieler2} ernst bleibt, trinkt {Spieler1} {Schlucke}!  
+{Spieler1} muss {Spieler2} einen epischen Ritterschlag mit einer Flasche verleihen! Falls er es nicht dramatisch genug macht, trinkt er {Schlucke}!  
+{Spieler1} muss eine dramatische Seifenoper-Szene mit {Spieler2} und {Spieler3} spielen. Wer es am schlechtesten macht, trinkt {Schlucke}!  
+{Spieler1} muss so tun, als wäre er ein strenger Lehrer und {Spieler2} muss auf dumme Fragen antworten. Wer zuerst lacht, trinkt {Schlucke}!  
+{Spieler1} muss sein Getränk schlürfen, als wäre es das beste, was er jemals getrunken hat! Falls jemand lacht, trinkt er {Schlucke}!  
+{Spieler1} muss die Runde mit einer Motivationsrede überzeugen, dass Trinken wichtig ist! Falls niemand klatscht, trinkt er {Schlucke}!  
+{Spieler1} muss {Spieler2} mit einem Blatt Papier ein Geschenk basteln. Falls es hässlich ist, trinkt {Spieler1} {Schlucke}!  
+{Spieler1} muss {Spieler2} einen Spitznamen geben, den er bis zum Spielende behalten muss! Falls er sich weigert, trinkt er {Schlucke}!  
+{Spieler1} muss eine Stand-up-Comedy über {Spieler2} improvisieren! Falls niemand lacht, trinkt {Spieler1} {Schlucke}!  
+{Spieler1} muss die Stimme eines berühmten Charakters nachmachen, während er trinkt! Erkennt {Spieler2} oder {Spieler3} die Figur nicht, trinken sie {Schlucke}!  
+{Spieler1} muss seinen Schuh ausziehen und ihn für eine Runde als Telefon benutzen. Falls er sich weigert, trinkt er {Schlucke}!  
+{Spieler1} muss eine dramatische Liebeserklärung an sein Getränk machen. Falls es nicht überzeugend genug ist, trinkt er {Schlucke}!  
+{Spieler1} muss bis zur nächsten Runde alles so tun, als wäre er in Zeitlupe. Falls er es vergisst, trinkt er {Schlucke}!  
+{Spieler1} muss so tun, als wäre er ein DJ in einem Club. Falls er es langweilig macht, trinkt er {Schlucke}!  
+{Spieler1} muss {Spieler2} ein selbst ausgedachtes Geheimnis erzählen. Falls es nicht absurd genug ist, trinkt er {Schlucke}!  
+{Spieler1} muss {Spieler2} in einer erfundenen Sprache anschreien. Falls niemand versteht, was er will, trinkt er {Schlucke}!  
+{Spieler1} muss für {Spieler2} eine neue Nationalhymne erfinden und singen. Falls er den Text vergisst, trinkt er {Schlucke}!  
+{Spieler1} muss eine dramatische Trennungsszene mit {Spieler2} nachspielen. Falls niemand gerührt ist, trinkt er {Schlucke}!  
+{Spieler1} muss {Spieler2} eine Beleidigung zuflüstern, die aber nett klingen muss! Falls {Spieler2} nicht beleidigt wirkt, trinkt {Spieler1} {Schlucke}!  
+{Spieler1} muss eine spontane Laudatio über {Spieler2} halten! Falls er es langweilig macht, trinkt er {Schlucke}!  
+{Spieler1} muss sich für den Rest der Runde einen imaginären Freund ausdenken. Falls er es vergisst, trinkt er {Schlucke}!  
+{Spieler1} muss einen peinlichen Tanz aufführen. Falls er sich weigert, trinkt er {Schlucke}!  
+{Spieler1} muss eine Rede halten, als wäre er Präsident eines absurden Landes. Falls niemand lacht, trinkt er {Schlucke}!  
+{Spieler1} muss eine Minute lang in der Luft Fahrrad fahren. Falls er es nicht durchhält, trinkt er {Schlucke}!  
+{Spieler1} muss {Spieler2} mit ernstem Gesicht sagen: "Ich wusste es!" Falls {Spieler2} nicht verwirrt ist, trinkt {Spieler1} {Schlucke}!  
+{Spieler1} muss für {Spieler2} eine Horrorgeschichte erfinden. Falls sie nicht gruselig ist, trinkt {Spieler1} {Schlucke}!  
+{Spieler1} muss ein Tiergeräusch machen. Falls {Spieler2} oder {Spieler3} es nicht erraten, trinken sie {Schlucke}!  
+{Spieler1} muss eine Szene aus einer Reality-Show nachspielen! Falls niemand errät, welche, trinkt er {Schlucke}!  
+{Spieler1} muss {Spieler2} eine völlig absurde Zukunft voraussagen! Falls sie nicht verrückt genug ist, trinkt {Spieler1} {Schlucke}!  
+{Spieler1} muss einen Becher auf seinem Kopf balancieren. Falls er ihn fallen lässt, trinkt er {Schlucke}!  
+{Spieler1} muss so tun, als würde er einem unsichtbaren Hund Befehle geben! Falls der Hund nicht gehorcht, trinkt er {Schlucke}!  
+{Spieler1} muss ein Interview geben, als wäre er ein Superstar. Falls er langweilig ist, trinkt er {Schlucke}!  
+{Spieler1} muss {Spieler2} so lange mit Komplimenten überhäufen, bis {Spieler2} lacht. Falls nicht, trinkt {Spieler1} {Schlucke}!  
+{Spieler1} muss {Spieler2} die schlimmste Pickup-Line sagen, die ihm einfällt! Falls {Spieler2} nicht angewidert reagiert, trinkt er {Schlucke}!  
+{Spieler1} muss {Spieler2} und {Spieler3} eine Fake-Nachricht zeigen! Falls sie ihm glauben, trinkt {Spieler1} {Schlucke}!  
+{Spieler1} muss einen unsichtbaren Ball zu {Spieler2} werfen. Falls {Spieler2} ihn nicht fängt, trinkt er {Schlucke}!  
+{Spieler1} muss für eine Runde lang nur noch in Reimen sprechen. Falls er es vergisst, trinkt er {Schlucke}!  
+{Spieler1} muss eine spontane Oper über das heutige Spiel singen! Falls es nicht episch genug ist, trinkt er {Schlucke}!  
+{Spieler1} muss eine Runde lang wie ein Cowboy sprechen! Falls er es vergisst, trinkt er {Schlucke}!  
+{Spieler1} muss einen Schluck trinken und danach dramatisch "Wow, das war das Beste!" sagen! Falls niemand lacht, trinkt er nochmal {Schlucke}!  
+{Spieler1} muss tanzen! Falls nicht, trinkt {Spieler2} {Schlucke}!
+{Spieler1} muss {Spieler2} ein Kompliment machen. Falls es schlecht ist, trinkt {Spieler1} {Schlucke}!
+{Spieler1} muss ein Tiergeräusch machen. Erkennt {Spieler2} es nicht, trinkt {Spieler2} {Schlucke}!
+{Fahrer1} verteilt {Schlucke} an zwei Spieler seiner Wahl!
+Wer hat zuletzt eine WhatsApp-Nachricht geschrieben? Diese Person trinkt {Schlucke}!
+Wer einen schwarzen Gegenstand trägt, trinkt {Schlucke}!
+{Spieler1} darf bestimmen, wer trinken muss!
+Wer sich zuletzt versprochen hat, trinkt {Schlucke}!
+{Spieler1} muss einen Witz erzählen. Lacht niemand, trinkt er {Schlucke}!
+{Spieler1} muss ein Tiergeräusch machen. Erkennt {Spieler2} oder {Spieler3} es nicht, trinkt derjenige {Schlucke}!
+{Spieler1} muss {Spieler2} und {Spieler3} ein übertrieben nettes Kompliment machen. Falls es schlecht ist, trinkt er {Schlucke}!
+{Spieler1} muss einen Werbeslogan für sein Getränk erfinden und ihn überzeugend präsentieren!
+{Spieler1} muss ein Lied summen. Wer es zuerst errät, darf {Spieler1} eine Aufgabe geben!
+{Spieler1} muss eine epische Tanzeinlage hinlegen oder {Schlucke} trinken!
+{Spieler1} muss eine peinliche Geschichte erzählen. Falls niemand lacht, trinkt er {Schlucke}!
+{Spieler1} muss ein Emoji mit den Lippen nachmachen. Wenn {Spieler2} es errät, muss {Spieler1} trinken!
+{Spieler1} muss den Namen eines Films nennen. Wer ihn nicht kennt, trinkt {Schlucke}!
+{Spieler1} muss eine Runde lang das Wort „Ja“ immer mit „Natürlich!“ beantworten. Bei einem Versprecher muss er {Schlucke} trinken!
+{Spieler1} muss einen Gegenstand in seiner Nähe beschreiben, ohne ihn zu nennen. Wenn jemand errät, trinkt {Spieler1}!
+{Spieler1} muss einen Highscore in einem Spiel erzielen, ansonsten trinkt er {Schlucke}!
+{Spieler1} muss sich für 30 Sekunden im Kreis drehen. Falls er stürzt, trinkt er {Schlucke}!
+{Spieler1} muss einen kreativen Satz mit einem zufälligen Wort aus dem Raum bilden. Wer lacht, trinkt {Schlucke}!
+{Spieler1} muss drei Namen von Tieren nennen. Wer einen Fehler macht, trinkt {Schlucke}!
+{Spieler1} muss sich mit dem Rücken zu den anderen setzen. Wer ihn mit einer Hand berührt, darf ihm eine Frage stellen. Wenn er darauf nicht antwortet, trinkt er {Schlucke}!
+{Spieler1} muss 10 Sekunden lang wie ein Roboter gehen. Bei Fehlern trinkt er {Schlucke}!
+{Spieler1} muss ein Produkt vorstellen, das niemand braucht. Wenn es niemand kaufen möchte, trinkt {Schlucke}!
+{Spieler1} muss ein Zungenbrecher sagen. Wenn er einen Fehler macht, trinkt er {Schlucke}!
+{Spieler1} muss während der nächsten Runde in Reimen sprechen, ansonsten trinkt er {Schlucke}!
+{Spieler1} muss ein Tier imitieren. Wenn jemand es errät, trinkt {Spieler1}!
+{Spieler1} muss so schnell wie möglich 10 Zahlen von 1 bis 100 sagen. Bei einem Fehler trinkt er {Schlucke}!
+{Spieler1} muss einen imaginären Ball fangen und ihn zu {Spieler2} werfen. Wenn er daneben geht, trinkt er {Schlucke}!
+{Spieler1} muss 10 Sekunden lang nur mit den Augen blinzeln. Wenn er lacht, trinkt er {Schlucke}!
+{Spieler1} muss eine Melodie summen. Wer errät, trinkt {Schlucke}!
+{Spieler1} muss eine Person in der Runde nachmachen. Wenn niemand es errät, trinkt er {Schlucke}!
+{Spieler1} muss eine Handstand-Position für 5 Sekunden halten. Bei einem Sturz trinkt er {Schlucke}!
+{Spieler1} muss 3 bekannte Prominente nennen, deren Namen mit dem gleichen Buchstaben beginnen. Wenn er es nicht schafft, trinkt er {Schlucke}!
+{Spieler1} muss einen Witz erzählen. Wenn niemand lacht, trinkt er {Schlucke}!
+{Spieler1} muss mit den Fingern tippen, als ob er auf einer Tastatur schreibt. Wenn er einen Fehler macht, trinkt er {Schlucke}!
+{Spieler1} muss einen bekannten Songtext rückwärts singen. Wenn er es nicht hinbekommt, trinkt er {Schlucke}!
+{Spieler1} muss ein berühmtes Zitat nachsprechen. Wenn niemand errät, trinkt er {Schlucke}!
+{Spieler1} muss so tun, als ob er sich in einem Fahrstuhl befindet und eine peinliche Situation nachspielen. Wenn niemand lacht, trinkt er {Schlucke}!
+{Spieler1} muss so viele Tiere wie möglich nennen, die mit „B“ anfangen. Bei einem Fehler trinkt er {Schlucke}!
+{Spieler1} muss eine Runde lang mit geschlossenen Augen sprechen. Wenn er es nicht hinbekommt, trinkt er {Schlucke}!
+{Spieler1} muss sich für 10 Sekunden so schnell wie möglich im Kreis drehen. Wenn er dabei umfällt, trinkt er {Schlucke}!
+{Spieler1} muss sich als Superheld verkleiden und seine Superkraft erklären. Wenn es niemandem gefällt, trinkt er {Schlucke}!
+{Spieler1} muss mit einem imaginären Stift etwas auf den Tisch schreiben. Wer es errät, darf eine Frage stellen. Wenn er nichts schreibt, trinkt er {Schlucke}!
+{Spieler1} muss während der nächsten Runde in einer ruhigen Stimme sprechen. Wenn er laut wird, trinkt er {Schlucke}!
+{Spieler1} muss einen Knoten in einem Tuch machen. Wenn er es nicht hinbekommt, trinkt er {Schlucke}!
+{Spieler1} muss 5 verschiedene Bewegungen tanzen. Bei einem Fehler trinkt er {Schlucke}!
+{Spieler1} muss mit den Händen eine Tierform nachahmen. Wenn es niemand erkennt, trinkt er {Schlucke}!
+{Spieler1} muss ein Gedicht über das Trinkspiel vortragen. Wenn es niemandem gefällt, trinkt er {Schlucke}!
+{Spieler1} muss „Schlafzimmer“ buchstabieren. Bei einem Fehler trinkt er {Schlucke}!
+{Spieler1} muss in einem Akzent sprechen. Wenn es niemandem gefällt, trinkt er {Schlucke}!
+{Spieler1} muss 5 Wörter nennen, die mit „Z“ anfangen. Wenn er es nicht schafft, trinkt er {Schlucke}!
+{Spieler1} muss während der nächsten Runde mit den Armen wie ein Flugzeug fliegen. Wenn er es nicht tut, trinkt er {Schlucke}!
+{Spieler1} muss mit einem Kissen auf dem Kopf laufen. Wenn es runterfällt, trinkt er {Schlucke}!
+{Spieler1} muss so schnell wie möglich 10 Hauptstädte nennen. Bei einem Fehler trinkt er {Schlucke}!
+{Spieler1} muss mit den Füßen ein imaginäres Bild malen. Wenn er es nicht hinbekommt, trinkt er {Schlucke}!
+{Spieler1} muss 10 Sekunden lang stillhalten. Wenn er sich bewegt, trinkt er {Schlucke}!
+{Spieler1} muss so tun, als ob er eine Nachricht in einem alten Telegrammstil schreibt. Wenn es niemandem gefällt, trinkt er {Schlucke}!
+{Spieler1} muss in einem sehr ernsten Ton einen lustigen Witz erzählen. Wenn niemand lacht, trinkt er {Schlucke}!
+{Spieler1} muss einen Handstand machen. Wenn er dabei umkippt, trinkt er {Schlucke}!
+{Spieler1} muss sich für 10 Sekunden mit den Händen die Ohren zuhalten. Wenn er lacht, trinkt er {Schlucke}!
+{Spieler1} muss so schnell wie möglich 5 Städte nennen, die auf „S“ beginnen. Bei einem Fehler trinkt er {Schlucke}!
+{Spieler1} muss den Namen eines bekannten Tieres rückwärts sagen. Wenn er es nicht schafft, trinkt er {Schlucke}!
+{Spieler1} muss sich selbst in einem Spiegel nachahmen. Wenn niemand es erkennt, trinkt er {Schlucke}!
+{Spieler1} muss einen „Lippenstift“ auf den Händen zeichnen. Wenn es niemanden stört, trinkt er {Schlucke}!
+{Spieler1} muss 10 Sekunden lang auf einem Bein stehen. Wenn er umfällt, trinkt er {Schlucke}!
+{Spieler1} muss so viele Obstsorten wie möglich in 10 Sekunden nennen. Bei einem Fehler trinkt er {Schlucke}!
+{Spieler1} muss eine bekannte Person imitieren. Wenn niemand es errät, trinkt er {Schlucke}!
+{Spieler1} muss ein Bild aus der Luft malend beschreiben. Wenn niemand es versteht, trinkt er {Schlucke}!
+{Spieler1} muss 3 Tiere beschreiben, ohne sie zu benennen. Wenn jemand sie errät, trinkt {Spieler1}!
+{Spieler1} muss sich als Superheld mit einer erfundenen Superkraft vorstellen. Wenn es niemandem gefällt, trinkt er {Schlucke}!
+{Spieler1} muss 30 Sekunden lang wie ein Vogel fliegen. Bei einem Fehler trinkt er {Schlucke}!
+{Spieler1} muss mit einer hohen Stimme sprechen. Wenn er versagt, trinkt er {Schlucke}!
+{Spieler1} muss einen Rhythmus klatschen. Wenn er sich vertut, trinkt er {Schlucke}!
+{Spieler1} muss etwas in einer fantasievollen Sprache sagen. Wenn niemand es versteht, trinkt er {Schlucke}!
+{Spieler1} muss ein Nahrungsmittel beschreiben, ohne es zu nennen. Wenn niemand es errät, trinkt er {Schlucke}!
+{Spieler1} muss so schnell wie möglich 5 verschiedene Länder nennen. Bei einem Fehler trinkt er {Schlucke}!
+{Spieler1} muss in einer Runde etwas sehr Leises sagen. Wenn es niemand hört, trinkt er {Schlucke}!
+{Spieler1} muss 10 Sekunden lang nur mit den Augen blinzeln. Wenn er zu viel spricht, trinkt er {Schlucke}!
+{Spieler1} muss etwas über ein falsches Tier erzählen. Wenn jemand es merkt, trinkt er {Schlucke}!
+{Spieler1} muss sich in 30 Sekunden 10 Mal drehen. Wenn er umfällt, trinkt er {Schlucke}!
+{Spieler1} muss einen Rollenspielcharakter imitieren. Wenn jemand errät, darf {Spieler1} eine Frage stellen. Andernfalls trinkt er {Schlucke}!
+{Spieler1} muss 5 schnelle Bewegungen machen. Bei einem Fehler trinkt er {Schlucke}!
+{Spieler1} muss ein Rätsel stellen. Wenn niemand es löst, trinkt er {Schlucke}!
+{Spieler1} muss eine wilde Tanzbewegung machen. Wenn niemand tanzt, trinkt er {Schlucke}!
+{Spieler1} muss ein Lied auf einer Melodie singen. Wenn es niemand kennt, trinkt er {Schlucke}!
+{Spieler1} muss 10 Sekunden lang eine verrückte Grimasse ziehen. Wenn er lacht, trinkt er {Schlucke}!
+{Spieler1} muss 10 verschiedene Adjektive nennen. Wenn er es nicht schafft, trinkt er {Schlucke}!
+{Spieler1} muss mit einem Lächeln sprechen. Wenn er den Ausdruck verliert, trinkt er {Schlucke}!
+{Spieler1} muss während der nächsten Runde das Wort „sehr“ immer mit „unglaublich“ ersetzen. Wenn er es vergisst, trinkt er {Schlucke}!
+{Spieler1} muss einen improvisierten Witz erzählen. Wenn niemand lacht, trinkt er {Schlucke}!
+{Spieler1} muss 10 verschiedene Tiere in einem Satz nennen. Wenn es niemanden beeindruckt, trinkt er {Schlucke}!
+{Spieler1} muss 10 Sekunden lang in Zeitlupe gehen. Wenn es zu schnell geht, trinkt er {Schlucke}!
+{Spieler1} muss ein Glas Wasser mit den Händen hinter dem Rücken trinken. Wenn er es verschüttet, trinkt er {Schlucke}!
+{Spieler1} muss eine Handstand-Position mit einer speziellen Geste machen. Wenn er es versäumt, trinkt er {Schlucke}!
+{Spieler1} muss in einem lustigen Akzent sprechen. Wenn niemand es erkennt, trinkt er {Schlucke}!
+{Spieler1} muss eine Geschichte ohne „und“ erzählen. Wenn er es vergisst, trinkt er {Schlucke}!
+{Spieler1} muss mit den Augen geschlossen 10 verschiedene Gerüche nennen. Wenn er es nicht hinbekommt, trinkt er {Schlucke}!
+{Spieler1} muss einen Handstand auf einem Bein machen. Wenn er umfällt, trinkt er {Schlucke}!
+{Spieler1} muss das Alphabet rückwärts sagen. Bei einem Fehler trinkt er {Schlucke}!
+{Spieler1} muss etwas tun, was niemand erwartet. Wenn es niemandem gefällt, trinkt er {Schlucke}!
+Alle BMW-Fahrer trinken {Schlucke}, diese Flitzer!
+Alle BVB-Fans verteilen {Schlucke}, diese Armen!
+Alle Vegetarier trinken {Schlucke}, die grüne Welle!
+Alle, die schon mal in Paris waren, trinken {Schlucke}, diese Touristen!
+Alle, die heute schon Kaffee getrunken haben, trinken {Schlucke}, die Wachmacher!
+Alle, die eine Brille tragen, verteilen {Schlucke}, die Scharfsehenden!
+Alle, die auf dem Land wohnen, trinken {Schlucke}, diese Landeier!
+Alle, die ein Haustier haben, trinken {Schlucke}, diese Tierfreunde!
+Alle, die im Ausland leben, trinken {Schlucke}, diese Weltenbummler!
+Alle, die ein Tattoo haben, verteilen {Schlucke}, diese Tintenmeister!
+Alle, die einen grünen Daumen haben, trinken {Schlucke}, diese Pflanzenfreunde!
+Alle, die gerne Süßes essen, trinken {Schlucke}, diese Zuckerjunkies!
+Alle, die schon mal im Stadion waren, trinken {Schlucke}, diese Sportfreaks!
+Alle, die eine Uhr tragen, verteilen {Schlucke}, diese Zeitmesser!
+Alle, die keinen Fernseher besitzen, trinken {Schlucke}, diese Offline-Gurus!
+Alle, die gerne reisen, trinken {Schlucke}, diese Weltenbummler!
+Alle, die schon einmal nach Italien gereist sind, verteilen {Schlucke}, diese Pizza-Liebhaber!
+Alle, die einen Roller fahren, trinken {Schlucke}, diese Flitzer!
+Alle, die eine Sonnenbrille tragen, verteilen {Schlucke}, diese coolen Typen!
+Alle, die gerne Bücher lesen, trinken {Schlucke}, diese Lesemäuse!
+Alle, die ein Auto haben, trinken {Schlucke}, diese Autofahrer!
+Alle, die ein Fitnessstudio besuchen, verteilen {Schlucke}, diese Muskelmänner!
+Alle, die ein Fahrrad haben, trinken {Schlucke}, diese Radler!
+Alle, die einen langen Arbeitsweg haben, trinken {Schlucke}, diese Pendler!
+Alle, die ein Smartphone besitzen, verteilen {Schlucke}, diese Technik-Freaks!
+Alle, die viel lachen, trinken {Schlucke}, diese Spaßvögel!
+Alle, die keinen Kaffee mögen, trinken {Schlucke}, diese Teetrinker!
+Alle, die schon mal etwas verloren haben, trinken {Schlucke}, diese Sucher!
+Alle, die einen Hut tragen, verteilen {Schlucke}, diese Hutmacher!
+Alle, die gerne kochen, trinken {Schlucke}, diese Küchenchefs!
+Alle, die eine Jahreskarte im Zoo haben, trinken {Schlucke}, diese Tierfreunde!
+Alle, die einen Rucksack tragen, verteilen {Schlucke}, diese Abenteurer!
+Alle, die ein Fahrrad repariert haben, trinken {Schlucke}, diese Schrauber!
+Alle, die schon mal beim Friseur waren, trinken {Schlucke}, diese Haargurus!
+Alle, die ein Lieblingsrestaurant haben, verteilen {Schlucke}, diese Feinschmecker!
+Alle, die schon mal einen Stau erlebt haben, trinken {Schlucke}, diese Geduldigen!
+Alle, die in der letzten Woche ein neues Paar Schuhe gekauft haben, trinken {Schlucke}, diese Schuhliebhaber!
+Alle, die gerne tanzen, verteilen {Schlucke}, diese Dance-Moves!
+Alle, die ein Haustier im Bett haben, trinken {Schlucke}, diese Tierfreunde!
+Alle, die ein neues Handy besitzen, verteilen {Schlucke}, diese Technikjunkies!
+Alle, die bereits in einem Freizeitpark waren, trinken {Schlucke}, diese Adrenalinjunkies!
+Alle, die gerne Zocken, verteilen {Schlucke}, diese Gamer!
+Alle, die im Regen spazieren gehen, trinken {Schlucke}, diese Wasserliebhaber!
+Alle, die schon mal einen Reifen gewechselt haben, verteilen {Schlucke}, diese Reifenwechsler!
+Alle, die ein Netflix-Abo haben, trinken {Schlucke}, diese Serienjunkies!
+Alle, die eine alte Kamera besitzen, verteilen {Schlucke}, diese Fotofreaks!
+Alle, die einen Lieblingssänger haben, trinken {Schlucke}, diese Musikliebhaber!
+Alle, die einen Grill haben, verteilen {Schlucke}, diese Grillmeister!
+Alle, die regelmäßig joggen, trinken {Schlucke}, diese Ausdauerprofis!
+Alle, die noch nie einen Unfall hatten, trinken {Schlucke}, diese Glückspilze!
+Alle, die in den letzten 30 Tagen in einem Restaurant gegessen haben, verteilen {Schlucke}, diese Restaurant-Gänger!
+Alle, die nie im Kino waren, trinken {Schlucke}, diese Filmabstinenzler!
+Alle, die ein eigenes Zimmer haben, verteilen {Schlucke}, diese Raum-Herren!
+Alle, die gerne spazieren gehen, trinken {Schlucke}, diese Naturfreunde!
+Alle, die eine Reise planen, verteilen {Schlucke}, diese Abenteuerlustigen!
+Alle, die gerne Pizza essen, trinken {Schlucke}, diese Pizzafans!
+Alle, die ein altes Auto fahren, verteilen {Schlucke}, diese Oldtimer-Fans!
+Alle, die viel reisen, trinken {Schlucke}, diese Globetrotter!
+Alle, die eine Sprache lernen, verteilen {Schlucke}, diese Sprachkünstler!
+Alle, die ein neues Möbelstück gekauft haben, trinken {Schlucke}, diese Einrichtungsprofis!
+Alle, die ein Heimkino besitzen, verteilen {Schlucke}, diese Filmgenießer!
+Alle, die schon mal auf einem Festival waren, trinken {Schlucke}, diese Festival-Gänger!
+Alle, die in einem Haus wohnen, verteilen {Schlucke}, diese Hausbesitzer!
+Alle, die die Sonne genießen, trinken {Schlucke}, diese Sonnenanbeter!
+Alle, die einen Hund besitzen, verteilen {Schlucke}, diese Hundebesitzer!
+Alle, die eine Brille aufhaben, trinken {Schlucke}, diese Scharfsehenden!
+Alle, die einen Kaffee trinken, verteilen {Schlucke}, diese Koffeinliebhaber!
+Alle, die eine Sammlung haben, trinken {Schlucke}, diese Sammler!
+Alle, die die Nacht zum Tag machen, verteilen {Schlucke}, diese Nachteulen!
+Alle, die einen langen Schlaf haben, trinken {Schlucke}, diese Schlafmützen!
+Alle, die nie zu spät kommen, trinken {Schlucke}, diese Pünktlichen!
+Alle, die einen Sprachfehler haben, trinken {Schlucke}, diese Zungenbrecher!
+Alle, die regelmäßig frühstücken, verteilen {Schlucke}, diese Morgenesser!
+Alle, die eine Armbanduhr tragen, trinken {Schlucke}, diese Zeitbewussten!
+Alle, die eine Sonnenbrille tragen, verteilen {Schlucke}, diese Coolen!
+Alle, die viel reisen, trinken {Schlucke}, diese Weltentdecker!
+Schon einmal in einer Bar gekotzt? Trink {Schlucke}!
+Schon einmal aus einem Club geflogen? Trink {Schlucke}!
+Schon einmal zu viel getrunken und nichts mehr erinnert? Trink {Schlucke}!
+Schon einmal beim Feiern den Ausweis vergessen? Trink {Schlucke}!
+Schon einmal den letzten Zug verpasst? Trink {Schlucke}!
+Schon einmal auf der Tanzfläche gestolpert? Trink {Schlucke}!
+Schon einmal einen Kater gehabt und trotzdem gefeiert? Trink {Schlucke}!
+Schon einmal laut gesungen, obwohl du nicht singen kannst? Trink {Schlucke}!
+Schon einmal jemanden im Club wieder getroffen, den du nicht mehr kanntest? Trink {Schlucke}!
+Schon einmal in einem Club jemandem dein Getränk versehentlich umgeschüttet? Trink {Schlucke}!
+Schon einmal das letzte Taxi genommen? Trink {Schlucke}!
+Schon einmal an einem „Katerfrühstück“ teilgenommen? Trink {Schlucke}!
+Schon einmal jemanden nach einer Party nach Hause begleitet? Trink {Schlucke}!
+Schon einmal den DJ im Club gebeten, ein Lied zu spielen? Trink {Schlucke}!
+Schon einmal das falsche Getränk bestellt? Trink {Schlucke}!
+Schon einmal deinen Freunden gesagt „Ich muss gleich gehen“ und dann doch noch länger geblieben? Trink {Schlucke}!
+Schon einmal das Handy im Club verloren? Trink {Schlucke}!
+Schon einmal einen peinlichen Moment in der Bar erlebt? Trink {Schlucke}!
+Schon einmal in einer Bar oder im Club von jemandem ausgefragt worden? Trink {Schlucke}!
+Schon einmal auf einem Festival im Matsch gestanden? Trink {Schlucke}!
+Schon einmal jemanden auf einer Party angelogen? Trink {Schlucke}!
+Schon einmal etwas Dummes gesagt, weil du zu viel getrunken hast? Trink {Schlucke}!
+Schon einmal mitten in der Nacht noch ein Fastfood-Restaurant besucht? Trink {Schlucke}!
+Schon einmal das letzte Glas Wein im Club ausgetrunken? Trink {Schlucke}!
+Schon einmal mit deinen Freunden zusammen das gleiche Outfit getragen? Trink {Schlucke}!
+Schon einmal eine peinliche Nachricht an die falsche Person geschickt? Trink {Schlucke}!
+Schon einmal beim Feiern aus Versehen die falsche Person umarmt? Trink {Schlucke}!
+Schon einmal beim Tanzen versehentlich jemanden gestoßen? Trink {Schlucke}!
+Schon einmal den letzten Bus verpasst und zu Fuß nach Hause gegangen? Trink {Schlucke}!
+Schon einmal in der Bar ein Getränk umgestoßen und nicht hingeschaut? Trink {Schlucke}!
+Schon einmal jemanden aus einem Club rausgeschmissen gesehen? Trink {Schlucke}!
+Schon einmal in einer Bar den letzten Drink umsonst bekommen? Trink {Schlucke}!
+Schon einmal auf einem Konzert mitten im Song aus dem Takt geraten? Trink {Schlucke}!
+Schon einmal mitten in der Nacht das Handy ausgeschaltet? Trink {Schlucke}!
+Schon einmal auf einer Party völlig falsche Gespräche geführt? Trink {Schlucke}!
+Schon einmal jemandem in der Bar zugeschaut, wie er ausgerutscht ist? Trink {Schlucke}!
+Schon einmal einen Drink nachbestellt, obwohl du kaum noch stehen konntest? Trink {Schlucke}!
+Schon einmal das Handy in der Tasche vergessen und die Party verpasst? Trink {Schlucke}!
+Schon einmal im Club den Überblick verloren und dich einfach irgendwo hingesetzt? Trink {Schlucke}!
+Schon einmal in einer Bar ein Spiel gespielt? Trink {Schlucke}!
+Schon einmal mitten in der Nacht das Bier kaltgestellt? Trink {Schlucke}!
+Schon einmal eine Party verlassen, weil der DJ schlecht war? Trink {Schlucke}!
+Schon einmal zu laut gelacht und alle haben dich angesehen? Trink {Schlucke}!
+Schon einmal bei einer Party lautstark gesungen? Trink {Schlucke}!
+Schon einmal etwas verloren und es dann später wiedergefunden? Trink {Schlucke}!
+Schon einmal nach einem Festival einen „Hangover-Tag“ gehabt? Trink {Schlucke}!
+Schon einmal jemanden aus dem Club geschickt, weil er nervte? Trink {Schlucke}!
+Schon einmal eine Party abgebrochen, weil sie nicht gut war? Trink {Schlucke}!
+Schon einmal auf einem Konzert auf die falsche Uhrzeit geschaut? Trink {Schlucke}!
+Schon einmal auf einer Party aufgewacht und keine Ahnung gehabt, wie du dort hingekommen bist? Trink {Schlucke}!
+Schon einmal jemanden im Club nach einem Drink gefragt und dann doch nicht getrunken? Trink {Schlucke}!
+Schon einmal zu viel getrunken und sich dann noch in der Bar hinsetzt? Trink {Schlucke}!
+Schon einmal im Club jemanden über den Haufen gerannt? Trink {Schlucke}!
+Schon einmal beim Feiern ein neues Getränk ausprobiert und dann bereut? Trink {Schlucke}!
+Schon einmal einen schnellen Drink genommen und dich dabei erwischt, wie du zu schnell bist? Trink {Schlucke}!
+Schon einmal den Boden im Club geküsst? Trink {Schlucke}!
+Schon einmal in einer Bar gelacht, aber niemand hat verstanden warum? Trink {Schlucke}!
+Schon einmal jemanden in der Bar nach einem Drink gefragt und dann verschollen? Trink {Schlucke}!
+Schon einmal mit einem Drink in der Hand aus dem Club gegangen? Trink {Schlucke}!
