@@ -44,7 +44,7 @@ public class TaskManager : MonoBehaviour
         LoadPlayers();
         LoadAllTasks();
         SetDrinkRange();
-        maxTasks = Random.Range(30, 50);
+        maxTasks = Random.Range(80, 150);
         ShowNextTask();
     }
 
@@ -154,7 +154,7 @@ public class TaskManager : MonoBehaviour
             }
         }
 
-        if (Random.value < 0.25f) // 25% Chance für Special-Aufgabe
+        if (Random.value < 0.10f) // 10% Chance für Special-Aufgabe
         {
             ShowSpecialTask();
             return;
@@ -185,6 +185,7 @@ public class TaskManager : MonoBehaviour
         List<string> taskPool;
         string titleText = "";
         Color backgroundColor = defaultColor;
+        string selectedTask = "";
 
         switch (specialType)
         {
@@ -204,7 +205,23 @@ public class TaskManager : MonoBehaviour
                 backgroundColor = Color.yellow;
                 ruleActive = true;
                 ruleCountdown = Random.Range(10, 20);
-                currentRulePlayer = GetUniqueNonDriver();
+
+                if (taskPool.Count > 0)
+                {
+                    selectedTask = taskPool[Random.Range(0, taskPool.Count)];
+
+                    if (selectedTask.Contains("{Spieler1}"))
+                    {
+                        currentRulePlayer = GetUniqueNonDriver();
+                        selectedTask = selectedTask.Replace("{Spieler1}", currentRulePlayer);
+                    }
+                    else
+                    {
+                        currentRulePlayer = "";
+                    }
+
+                    ReplacePlaceholders(ref selectedTask); // Hier wird {Schlucke} korrekt ersetzt
+                }
                 break;
             case SpecialTaskType.Runde:
                 taskPool = rundeTasks;
@@ -236,11 +253,16 @@ public class TaskManager : MonoBehaviour
         title.text = titleText;
         mainCamera.backgroundColor = backgroundColor;
 
-        string selectedTask = taskPool[Random.Range(0, taskPool.Count)];
-        ReplacePlaceholders(ref selectedTask);
+        if (string.IsNullOrEmpty(selectedTask))
+        {
+            selectedTask = taskPool[Random.Range(0, taskPool.Count)];
+            ReplacePlaceholders(ref selectedTask);
+        }
+
         taskText.text = selectedTask;
         tasksCompleted++;
     }
+
 
     private void ShowRuleEnd()
     {
@@ -248,11 +270,20 @@ public class TaskManager : MonoBehaviour
         title.text = "REGEL ENDE";
         mainCamera.backgroundColor = Color.yellow;
 
-        string ruleEndText = $"{currentRulePlayer}, deine Regel ist vorbei!";
-        taskText.text = ruleEndText;
+        if (!string.IsNullOrEmpty(currentRulePlayer))
+        {
+            taskText.text = $"{currentRulePlayer}, deine Regel ist vorbei!";
+        }
+        else
+        {
+            taskText.text = "Eure Regel ist zu Ende!";
+        }
 
         ruleActive = false;
+        currentRulePlayer = "";
     }
+
+
 
     private void ReplacePlaceholders(ref string taskDescription)
     {
