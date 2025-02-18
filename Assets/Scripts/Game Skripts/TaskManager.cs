@@ -38,6 +38,7 @@ public class TaskManager : MonoBehaviour
     private string currentRulePlayer = "";
     private List<string> usedTasks = new List<string>(); // Liste für bereits gespielte Aufgaben
     private bool lastDrinkEventShown = false; // Prüft, ob das letzte Event bereits angezeigt wurde
+    public string gameMode; // Modi: Normal, Hardcore, Bar (erweiterbar)
 
     private enum SpecialTaskType { Exen, Regel, Runde, Duell, Lieber }
 
@@ -97,20 +98,24 @@ public class TaskManager : MonoBehaviour
 
     private void LoadAllTasks()
     {
-        normalTasks = LoadTasksFromFile("normal.txt");
-        exTasks = LoadTasksFromFile("ex.txt");
-        duellTasks = LoadTasksFromFile("duell.txt");
-        regelTasks = LoadTasksFromFile("regel.txt");
-        rundeTasks = LoadTasksFromFile("runde.txt");
-        lieberTasks = LoadTasksFromFile("lieber.txt");
+        string folderPath = Path.Combine(Application.streamingAssetsPath, gameMode);
+        normalTasks = LoadTasksFromFile(Path.Combine(folderPath, "normal.txt"));
+        exTasks = LoadTasksFromFile(Path.Combine(folderPath, "ex.txt"));
+        duellTasks = LoadTasksFromFile(Path.Combine(folderPath, "duell.txt"));
+        regelTasks = LoadTasksFromFile(Path.Combine(folderPath, "regel.txt"));
+        rundeTasks = LoadTasksFromFile(Path.Combine(folderPath, "runde.txt"));
+        lieberTasks = LoadTasksFromFile(Path.Combine(folderPath, "lieber.txt"));
+        lastDrinkTasks = LoadTasksFromFile(Path.Combine(folderPath, "letzterschluck.txt"));
     }
 
-    private List<string> LoadTasksFromFile(string fileName)
+    private List<string> LoadTasksFromFile(string filePath)
     {
-        string filePath = Path.Combine(Application.streamingAssetsPath, fileName);
-        return File.Exists(filePath) ? File.ReadAllLines(filePath).ToList() : new List<string>();
+        if (File.Exists(filePath))
+            return File.ReadAllLines(filePath).ToList();
+        else
+            Debug.LogError($"❌ Datei '{Path.GetFileName(filePath)}' nicht gefunden im Modus {gameMode}!");
+        return new List<string>();
     }
-
     private void SetDrinkRange()
     {
         string selectedDifficulty = PlayerPrefs.GetString("SelectedDifficulty", "Easy");

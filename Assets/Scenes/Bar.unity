@@ -1041,7 +1041,7 @@ PrefabInstance:
       objectReference: {fileID: 160652012}
     - target: {fileID: 7330338080721203658, guid: 1c16476e182ad13438992fb2e35bdc7a, type: 3}
       propertyPath: gameMode
-      value: normal
+      value: bar
       objectReference: {fileID: 0}
     - target: {fileID: 7330338080721203658, guid: 1c16476e182ad13438992fb2e35bdc7a, type: 3}
       propertyPath: taskText

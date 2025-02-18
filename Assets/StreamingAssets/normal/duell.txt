@@ -1,0 +1,130 @@
+{Spieler1} und {Spieler2} spielen Schere-Stein-Papier. Der Verlierer trinkt {Schlucke}!
+{Spieler1} und {Spieler2} müssen eine Minute lang Augenkontakt halten. Wer zuerst lacht, trinkt {Schlucke}!
+{Spieler1} und {Spieler2} müssen einen Handstand versuchen. Wer es nicht schafft, trinkt {Schlucke}!
+{Spieler1} und {Spieler2} rufen einen Zungenbrecher auf Zeit. Der Langsamere trinkt {Schlucke}!
+{Spieler1} und {Spieler2} müssen sich in die Augen sehen und so lange "Miau" sagen, bis einer lacht. Der Verlierer trinkt {Schlucke}!
+{Spieler1} und {Spieler2} spielen "Wer bin ich?" und der Verlierer trinkt {Schlucke}!
+{Spieler1} und {Spieler2} müssen eine Minute lang tanzen. Wer aufhört, trinkt {Schlucke}!
+{Spieler1} und {Spieler2} balancieren einen Stift auf der Nase. Wer ihn fallen lässt, trinkt {Schlucke}!
+{Spieler1} und {Spieler2} versuchen sich gegenseitig zum Lachen zu bringen, ohne zu lachen. Wer zuerst lacht, trinkt {Schlucke}!
+{Spieler1} und {Spieler2} müssen sich gegenseitig einen Zopf flechten. Wer langsamer ist, trinkt {Schlucke}!
+{Spieler1} und {Spieler2} werfen eine Münze. Der Verlierer trinkt {Schlucke}!
+{Spieler1} und {Spieler2} müssen sich 30 Sekunden lang in die Augen starren. Wer blinzelt, trinkt {Schlucke}!
+{Spieler1} und {Spieler2} machen jeweils eine Grimasse. Wer als erstes aufhört, trinkt {Schlucke}!
+{Spieler1} und {Spieler2} müssen ein "Air Guitar"-Solo spielen. Wer nicht die beste Performance liefert, trinkt {Schlucke}!
+{Spieler1} und {Spieler2} machen ein Tanzbattle. Der schlechteste Tänzer trinkt {Schlucke}!
+{Spieler1} und {Spieler2} erzählen sich einen Witz. Wer den anderen zuerst zum Lachen bringt, trinkt {Schlucke}!
+{Spieler1} und {Spieler2} spielen „Wer kann länger die Zunge draußen lassen?“. Wer aufgibt, trinkt {Schlucke}!
+{Spieler1} und {Spieler2} rufen „Bier“ so laut wie möglich. Der ruhigere trinkt {Schlucke}!
+{Spieler1} und {Spieler2} halten einen Ballon in der Luft, ohne ihn fallen zu lassen. Der Verlierer trinkt {Schlucke}!
+{Spieler1} und {Spieler2} versuchen, mit ihren Füßen zu schreiben. Wer langsamer ist, trinkt {Schlucke}!
+{Spieler1} und {Spieler2} müssen auf einem Bein hüpfen. Wer aufhört, trinkt {Schlucke}!
+{Spieler1} und {Spieler2} versuchen, ein Geräusch zu imitieren. Der schlechtere Nachahmer trinkt {Schlucke}!
+{Spieler1} und {Spieler2} machen einen "Stille-Post"-Witz. Wer das lustigste Geräusch macht, trinkt {Schlucke}!
+{Spieler1} und {Spieler2} singen ein Karaoke-Lied. Wer mehr falsch singt, trinkt {Schlucke}!
+{Spieler1} und {Spieler2} machen ein Rennen mit einem Ei auf einem Löffel. Wer es fallen lässt, trinkt {Schlucke}!
+{Spieler1} und {Spieler2} müssen sich gegenseitig einen Knoten in ein Stück Schnur machen. Wer es nicht schafft, trinkt {Schlucke}!
+{Spieler1} und {Spieler2} balancieren ein Glas Wasser auf dem Kopf. Der Verlierer trinkt {Schlucke}!
+{Spieler1} und {Spieler2} spielen "Der Körperteil, der zuerst bewegt wird, verliert". Der Verlierer trinkt {Schlucke}!
+{Spieler1} und {Spieler2} versuchen, eine Handvoll Erbsen mit einem Strohhalm aufzusaugen. Wer es langsamer schafft, trinkt {Schlucke}!
+{Spieler1} und {Spieler2} müssen einen lustigen Hut tragen. Wer sich als erstes darüber lustig macht, trinkt {Schlucke}!
+{Spieler1} und {Spieler2} müssen sich ein lustiges Lied ausdenken. Wer schneller fertig ist, trinkt {Schlucke}!
+{Spieler1} und {Spieler2} spielen "Kopf, Schulter, Knie, Zeh" mit einem Twist. Der Verlierer trinkt {Schlucke}!
+{Spieler1} und {Spieler2} machen einen „Chubby Bunny“-Wettbewerb. Wer aufgibt, trinkt {Schlucke}!
+{Spieler1} und {Spieler2} machen ein „Lächel-Duell“. Wer zuerst aufhört zu grinsen, trinkt {Schlucke}!
+{Spieler1} und {Spieler2} müssen sich gegenseitig umarmen. Wer aufhört, trinkt {Schlucke}!
+{Spieler1} und {Spieler2} müssen sich wie Tiere bewegen. Der weniger überzeugende Darsteller trinkt {Schlucke}!
+{Spieler1} und {Spieler2} spielen „Wer kann länger das Wort ‚Superkalifragilistischexpialigetisch‘ sagen?“ Der Verlierer trinkt {Schlucke}!
+{Spieler1} und {Spieler2} müssen eine Minute lang ein Picknick-Szenario nachspielen. Der schlechtere Darsteller trinkt {Schlucke}!
+{Spieler1} und {Spieler2} spielen „Wer hat den besseren Grimassenwettbewerb?“ Der weniger grimmige trinkt {Schlucke}!
+{Spieler1} und {Spieler2} machen ein "Tierschnappen". Wer mehr Tiere nachahmt, trinkt {Schlucke}!
+{Spieler1} und {Spieler2} müssen so schnell wie möglich eine „Kettenreaktion“ auslösen. Der langsamerer Spieler trinkt {Schlucke}!
+{Spieler1} und {Spieler2} machen ein "Löffelwerfen". Wer den Löffel zuerst verliert, trinkt {Schlucke}!
+{Spieler1} und {Spieler2} spielen „Tanz ohne Musik“. Der schlechtere Tänzer trinkt {Schlucke}!
+{Spieler1} und {Spieler2} nehmen sich jeweils 30 Sekunden Zeit, um ein super albernes Geräusch zu machen. Der weniger interessante Laut trinkt {Schlucke}!
+{Spieler1} und {Spieler2} rufen gleichzeitig einen Witz. Der weniger gelachte trinkt {Schlucke}!
+{Spieler1} und {Spieler2} versuchen, sich zu ducken und aufzustehen. Wer langsamer ist, trinkt {Schlucke}!
+{Spieler1} und {Spieler2} werfen einen Ball in einen Eimer. Der, der daneben zielt, trinkt {Schlucke}!
+{Spieler1} und {Spieler2} singen im Duett. Der schlechtere Sänger trinkt {Schlucke}!
+{Spieler1} und {Spieler2} versuchen, mit ihren Füßen zu schreiben. Wer es langsamer macht, trinkt {Schlucke}!
+{Spieler1} und {Spieler2} versuchen, gleichzeitig einen Ball zu fangen. Wer es nicht schafft, trinkt {Schlucke}!
+{Spieler1} und {Spieler2} stellen sich auf ein Bein. Wer zuerst das Gleichgewicht verliert, trinkt {Schlucke}!
+{Spieler1} und {Spieler2} spielen „Kuss oder Umarmung“. Der Verlierer trinkt {Schlucke}!
+{Spieler1} und {Spieler2} versuchen, sich gegenseitig zu kitzeln. Wer zuerst aufgibt, trinkt {Schlucke}!
+{Spieler1} und {Spieler2} müssen ein Gedicht schreiben. Der schlechtere Dichter trinkt {Schlucke}!
+{Spieler1} und {Spieler2} spielen „Buchstabenrätsel“. Der Verlierer trinkt {Schlucke}!
+{Spieler1} und {Spieler2} versuchen, wie ein Vogel zu fliegen. Der schlechtere Flieger trinkt {Schlucke}!
+{Spieler1} und {Spieler2} müssen sich ein super cooles High-Five ausdenken. Der schlechteste High-Fiver trinkt {Schlucke}!
+Wer sieht besser aus? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer hat das coolere Outfit? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer ist besser im Tanzen? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer ist besoffener? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer hat die cooleren Schuhe? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer hat die besseren Witze? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer kann mehr trinken? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer ist der bessere Fahrer? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer ist der bessere Koch? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer ist der bessere Lügner? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer hat den besseren Humor? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer kann mehr Alkohol vertragen? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer ist romantischer? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer ist schneller im Laufen? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer hat das coolere Auto? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer hat die besseren Geschichten? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer ist schneller im Rechnen? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer hat die bessere Stimme? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer ist der bessere Sänger? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer ist die größere Nervensäge? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer spricht mehr? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer ist lauter? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer ist der größere Partylöwe? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer ist der bessere Schauspieler? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer hat mehr Freunde? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer hat das größere Ego? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer ist kreativer? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer hat die besseren Sprüche auf Lager? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer ist der bessere Verlierer? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer hat das schönere Lächeln? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer hat mehr Geduld? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer ist der größere Romantiker? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer ist mutiger? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer hat den besseren Geschmack? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer kann schneller laufen? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer kann länger die Luft anhalten? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer hat mehr Freunde auf Facebook? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer hat die besseren Handys? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer hat die größere Sammlung an Spielen? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer ist schneller im Erklären? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer hat die besseren Ideen? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer hat die cooleren Hobbys? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer ist der bessere Zuhörer? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer ist der größere Sportler? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer kann länger tanzen? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer kann besser klettern? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer ist der bessere Spieler? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer ist witziger? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer kann besser mit Geld umgehen? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer ist der größere Fuchs? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer hat das schönere Zuhause? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer kann besser auf den Punkt kommen? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer ist der bessere Liebhaber? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer hat den besseren Job? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer kann besser Schach spielen? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer ist der größere Abenteurer? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer hat die besseren Pläne? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer hat mehr Glück? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer hat die cooleren Accessoires? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer hat mehr Charisma? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer hat das bessere Gedächtnis? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer kann besser jonglieren? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer ist der bessere Geschichtenerzähler? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer hat die tolleren Hobbys? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer hat den besseren Riecher? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer kann besser mit Tieren umgehen? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer hat die cooleren Freunde? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer hat die besseren Beziehungen? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer ist der größere Feinschmecker? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer hat die spannendere Geschichte zu erzählen? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer ist der bessere Teamplayer? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+Wer ist der größere Abenteurer? {Spieler1} oder {Spieler2}? Der Verlierer trinkt {Schlucke}!
+

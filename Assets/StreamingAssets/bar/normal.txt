@@ -1,0 +1,43 @@
+{Spieler1} bestellt einen Drink für {Spieler2}. Falls er sich weigert, trinkt {Spieler1} {Schlucke}!
+{Spieler1} muss {Spieler2} ein peinliches Geständnis zuflüstern. Wenn {Spieler2} lacht, trinkt {Spieler1} {Schlucke}!
+{Spieler1} und {Spieler2} machen ein Wettrinken. Der Verlierer trinkt noch einmal {Schlucke}!
+{Spieler1} muss den nächsten Drink für die Runde aussuchen. Falls es jemandem nicht schmeckt, trinkt {Spieler1} {Schlucke}!
+{Spieler1} muss {Spieler2} ein Lied vorsingen. Wenn {Spieler2} nicht mitmacht, trinkt er {Schlucke}!
+{Spieler1} muss einen Trinkspruch erfinden. Falls niemand klatscht, trinkt er {Schlucke}!
+{Spieler1} muss {Spieler2} ein übertriebenes Kompliment machen. Ist es zu schlecht, trinkt {Spieler1} {Schlucke}!
+{Spieler1} würfelt, {Spieler2} trinkt so viele {Schlucke}, wie die Zahl zeigt!
+{Spieler1} und {Spieler2} müssen 30 Sekunden lang tanzen. Wer aufhört, trinkt {Schlucke}!
+{Spieler1} muss {Spieler2} einen Drink empfehlen. Lehnt {Spieler2} ab, trinkt er {Schlucke}!
+{Spieler1} muss {Spieler2} ein Geheimnis verraten. Ist es langweilig, trinkt {Spieler1} {Schlucke}!
+{Spieler1} muss {Spieler2} eine peinliche Frage stellen. Antwortet {Spieler2} nicht, trinkt er {Schlucke}!
+{Spieler1} muss einen Schluck aus {Spieler2}s Drink nehmen. Wenn er es nicht macht, trinkt {Spieler1} {Schlucke}!
+{Spieler1} muss {Spieler2} mit einem Flirtspruch ansprechen. Reagiert {Spieler2} nicht, trinkt {Spieler1} {Schlucke}!
+{Spieler1} darf bestimmen, wer den nächsten Drink exen muss. Falls {Spieler1} niemanden wählt, trinkt er selbst {Schlucke}!
+{Spieler1} muss {Spieler2} ein Getränk bringen. Weigert er sich, trinkt {Spieler1} {Schlucke}!
+{Spieler1} muss {Spieler2} ein Tiergeräusch ins Ohr flüstern. Errät {Spieler2} es nicht, trinkt er {Schlucke}!
+{Spieler1} muss {Spieler2} ein Liedtitel zuflüstern. Errät {Spieler2} es nicht, trinkt er {Schlucke}!
+{Spieler1} muss {Spieler2} mit einem Fake-Akzent ansprechen. Lacht {Spieler2} nicht, trinkt {Spieler1} {Schlucke}!
+{Spieler1} und {Spieler2} spielen Schere-Stein-Papier. Der Verlierer trinkt {Schlucke}!
+{Spieler1} muss {Spieler2} sagen, was sein peinlichster Bar-Moment war. Verweigert er es, trinkt er {Schlucke}!
+{Spieler1} muss {Spieler2} ein Getränk erklären, als wäre er Barkeeper. Gelingt es nicht, trinkt {Spieler1} {Schlucke}!
+{Spieler1} muss {Spieler2} ein peinliches Spitzname geben. Lehnt {Spieler2} ab, trinkt er {Schlucke}!
+{Spieler1} muss {Spieler2} zu einem imaginären Tanz auffordern. Macht {Spieler2} nicht mit, trinkt er {Schlucke}!
+{Spieler1} muss {Spieler2} fragen, was sein Lieblingsgetränk ist. Antwortet er nicht, trinkt {Spieler2} {Schlucke}!
+{Spieler1} muss so tun, als wäre er Barkeeper und {Spieler2} beraten. Ist er zu schlecht, trinkt {Spieler1} {Schlucke}!
+{Spieler1} muss {Spieler2} eine „Bar-Wahrheit“ erzählen. Klingt sie gelogen, trinkt {Spieler1} {Schlucke}!
+{Spieler1} und {Spieler2} müssen gleichzeitig trinken. Wer als letzter absetzt, trinkt noch {Schlucke}!
+{Spieler1} muss {Spieler2} erklären, warum sein Getränk das beste ist. Überzeugt er nicht, trinkt {Spieler1} {Schlucke}!
+{Spieler1} muss {Spieler2} mit „Hey Barkeeper!“ ansprechen. Lacht {Spieler2} nicht, trinkt {Spieler1} {Schlucke}!
+{Spieler1} muss {Spieler2} ein Fake-Lob für sein Getränk geben. Findet {Spieler2} es nicht lustig, trinkt {Spieler1} {Schlucke}!
+{Spieler1} muss {Spieler2} sagen, welches Getränk er nie bestellen würde. Sind sich beide einig, trinkt die ganze Runde {Schlucke}!
+{Spieler1} muss {Spieler2} zu einem „Wer trinkt schneller“-Duell herausfordern. Der Verlierer trinkt noch {Schlucke}!
+{Spieler1} muss {Spieler2} ein Wort zuflüstern, das ihn zum Lachen bringt. Gelingt es nicht, trinkt {Spieler1} {Schlucke}!
+{Spieler1} muss {Spieler2} fragen, was sein schlimmster Bar-Moment war. Antwortet er nicht, trinkt {Spieler2} {Schlucke}!
+{Spieler1} muss {Spieler2} ein Drink-Rezept erfinden. Klingt es eklig, trinkt {Spieler1} {Schlucke}!
+{Spieler1} muss {Spieler2} eine absurde Bestellung vorspielen. Lacht {Spieler2} nicht, trinkt {Spieler1} {Schlucke}!
+{Spieler1} muss {Spieler2} mit einem Songtitel ansprechen. Errät {Spieler2} ihn nicht, trinkt er {Schlucke}!
+{Spieler1} muss {Spieler2} ein Fake-Liebesgeständnis machen. Ist es zu schlecht, trinkt {Spieler1} {Schlucke}!
+{Spieler1} muss {Spieler2} fragen, was sein seltsamster Drink war. Antwortet er nicht, trinkt {Spieler2} {Schlucke}!
+{Spieler1} muss {Spieler2} mit einem absurden Getränk vergleichen. Lacht {Spieler2} nicht, trinkt {Spieler1} {Schlucke}!
+{Spieler1} muss {Spieler2} zu einem „Lustigster Drink-Name“-Battle herausfordern. Der Verlierer trinkt {Schlucke}!
+
