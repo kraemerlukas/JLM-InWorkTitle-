@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Tasks/Hardcore.unity
     guid: 5e62d2369d1541e49bc80497f04fa863
+  - enabled: 1
+    path: Assets/Scenes/Cards/Horse.unity
+    guid: 39ce7ae361e3fa243be23bced0220ead
   m_configObjects:
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 445657dfb7062074c86cf6718daf1b2c, type: 2}
   m_UseUCBPForAssetBundles: 0

@@ -8,4 +8,9 @@ public class StartButton : MonoBehaviour
         Screen.orientation = ScreenOrientation.LandscapeLeft;
         SceneManager.LoadScene(PlayerPrefs.GetString("mode"));
     }
+    public void LoadHorse()
+    {
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
+        SceneManager.LoadScene("Horse");
+    }
 }

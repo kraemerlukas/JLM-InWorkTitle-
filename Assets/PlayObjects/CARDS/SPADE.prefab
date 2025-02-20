@@ -123,8 +123,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d42cdc91e61c6a6438db873a880c32a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frontImage: {fileID: 0}
-  backImage: {fileID: 0}
+  frontImage: {fileID: 8812420972352417218}
+  backImage: {fileID: 1003739707222078087}
   flipSpeed: 0.5
   suit: Spade
 --- !u!222 &3141785704124023372
