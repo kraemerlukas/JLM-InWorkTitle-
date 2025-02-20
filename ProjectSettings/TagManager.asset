@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
+  serializedVersion: 3
   tags:
   - RuleTask
   layers:
@@ -42,3 +42,11 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: UI
+    uniqueID: 2277320899
+    locked: 0
+  - name: Text
+    uniqueID: 3983794593
+    locked: 0
+  m_RenderingLayers:
+  - Default
