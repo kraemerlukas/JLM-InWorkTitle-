@@ -6,12 +6,6 @@ using TMPro;
 
 public class HorseRaceGame : MonoBehaviour
 {
-    public GameObject[] cardPrefabs; // Liste aller Karten-Prefabs im Ordner
-    public Transform cardSpawnPoint; // Wo die gezogene Karte angezeigt wird
-    public Transform deckPosition; // Position des Kartenstapels
-    public Transform discardPilePosition; // Ablagestapel-Position
-    public Image deckDisplay; // UI-Element für den Kartenstapel (Rückseite)
-    public Image drawnCardDisplay; // UI-Element zur Anzeige der gezogenen Karte
     public GameObject[] horses; // Die Ass-Karten, die sich bewegen
     public Transform[] heartTrack;
     public Transform[] diamondTrack;
@@ -21,8 +15,13 @@ public class HorseRaceGame : MonoBehaviour
     public Button drawCardButton; // Button zum Ziehen einer Karte
     public float moveSpeed = 2.0f; // Geschwindigkeit für den smoothen Übergang
 
-    private GameObject lastDrawnCard; // Speichert die zuletzt gezogene Karte
-    private List<GameObject> discardPile = new List<GameObject>(); // Liste für abgelegte Karten
+    public GameObject[] cardPrefabs; // Liste aller Karten-Prefabs
+    public Transform cardSpawnPoint; // Position, an der die Karte erscheinen soll
+    private GameObject lastDrawnCard;
+
+    public Transform[] fieldCardPositions; // Positionen für die Karten über den Feldern
+    private GameObject[] fieldCards; // Karten, die über den Feldern liegen
+    private bool[] fieldCardFlipped; // Merkt sich, ob eine Feldkarte schon einmal umgedreht wurde
     private Dictionary<string, int> horsePositions = new Dictionary<string, int>()
     {
         {"Heart", 0},
@@ -36,39 +35,43 @@ public class HorseRaceGame : MonoBehaviour
         Screen.orientation = ScreenOrientation.LandscapeLeft; // Setzt die Bildschirm-Ausrichtung
         winnerText.text = "";
         drawCardButton.onClick.AddListener(DrawCard); // Button-Klick registrieren
+        fieldCardFlipped = new bool[fieldCardPositions.Length]; // Initialisiert das Tracking für Kartenflip
+        fieldCards = new GameObject[fieldCardPositions.Length];
+        SpawnFieldCards();
+    }
+
+    void SpawnFieldCards()
+    {
+        for (int i = 0; i < fieldCardPositions.Length; i++)
+        {
+            fieldCards[i] = Instantiate(cardPrefabs[Random.Range(0, cardPrefabs.Length)], fieldCardPositions[i].position, Quaternion.identity);
+            fieldCards[i].transform.SetParent(fieldCardPositions[i], false);
+            fieldCards[i].transform.localPosition = Vector3.zero; // Exakte Position
+        }
     }
 
     public void DrawCard()
     {
         if (CheckWin()) return;
 
-        // Letzte gezogene Karte zum Ablagestapel verschieben
+        // Letzte gezogene Karte löschen
         if (lastDrawnCard != null)
         {
-            lastDrawnCard.transform.SetParent(discardPilePosition, false);
-            lastDrawnCard.transform.localPosition = new Vector3(discardPile.Count * 10, 0, 0); // Stapelaufbau
-            discardPile.Add(lastDrawnCard);
+            Destroy(lastDrawnCard);
         }
 
-        // Zufällige Karte aus dem Prefab-Ordner auswählen
+        // Zufällige Karte aus dem Prefab-Ordner auswählen und an fester Position spawnen
         int randomIndex = Random.Range(0, cardPrefabs.Length);
-        GameObject newCard = Instantiate(cardPrefabs[randomIndex], deckPosition);
-        newCard.transform.SetParent(cardSpawnPoint, false); // Stellt sicher, dass die Karte korrekt spawnt
-        newCard.transform.localPosition = Vector3.zero; // Setzt die Karte an den exakten Spawnpunkt
-        lastDrawnCard = newCard; // Speichert die neue Karte als letzte gezogene Karte
-
-        // Kartenbild in UI anzeigen
-        Image cardImage = newCard.GetComponent<Image>();
-        if (cardImage != null && drawnCardDisplay != null)
-        {
-            drawnCardDisplay.sprite = cardImage.sprite;
-        }
+        lastDrawnCard = Instantiate(cardPrefabs[randomIndex], cardSpawnPoint);
+        lastDrawnCard.transform.SetParent(cardSpawnPoint, false);
+        lastDrawnCard.transform.localPosition = Vector3.zero;
 
         // Kartenwert überprüfen
-        Card card = newCard.GetComponent<Card>();
+        Card card = lastDrawnCard.GetComponent<Card>();
         if (card != null)
         {
             MoveHorse(card.suit);
+            CheckFieldCards();
         }
     }
 
@@ -89,6 +92,67 @@ public class HorseRaceGame : MonoBehaviour
         if (horsePositions[suit] == 7)
         {
             winnerText.text = "Gewinner: " + suit;
+        }
+    }
+
+    void CheckFieldCards()
+    {
+        for (int i = 0; i < fieldCards.Length; i++)
+        {
+            if (fieldCardFlipped[i]) continue; // Falls diese Karte bereits einmal geflippt wurde, nichts tun
+
+            bool allHorsesHere = true;
+            foreach (var position in horsePositions.Values)
+            {
+                if (position <= i)
+                {
+                    allHorsesHere = false;
+                    break;
+                }
+            }
+
+            if (allHorsesHere)
+            {
+                fieldCardFlipped[i] = true; // Karte als bereits geflippt markieren
+                StartCoroutine(FlipFieldCard(i));
+            }
+        }
+    }
+
+    IEnumerator FlipFieldCard(int index)
+    {
+        float elapsedTime = 0;
+        Quaternion startRotation = fieldCards[index].transform.rotation;
+        Quaternion endRotation = Quaternion.Euler(0, 180, 0);
+
+        while (elapsedTime < 0.5f)
+        {
+            fieldCards[index].transform.rotation = Quaternion.Lerp(startRotation, endRotation, elapsedTime / 0.5f);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        fieldCards[index].transform.rotation = endRotation;
+
+        // Bestrafung: Pferd zurückziehen, aber nur beim ersten Mal
+        Card fieldCardComponent = fieldCards[index].GetComponent<Card>();
+        if (fieldCardComponent != null)
+        {
+            MoveHorseBack(fieldCardComponent.suit);
+        }
+    }
+
+    void MoveHorseBack(string suit)
+    {
+        if (horsePositions.ContainsKey(suit) && horsePositions[suit] > 0)
+        {
+            int horseIndex = GetHorseIndex(suit);
+            horsePositions[suit]--;
+
+            Transform[] track = GetTrack(suit);
+            if (track != null)
+            {
+                StartCoroutine(SmoothMove(horses[horseIndex], track[horsePositions[suit]].position));
+            }
         }
     }
 
@@ -118,9 +182,9 @@ public class HorseRaceGame : MonoBehaviour
     {
         switch (suit)
         {
-            case "Heart": return 0;
+            case "Heart": return 2;
             case "Diamond": return 1;
-            case "Spade": return 2;
+            case "Spade": return 0;
             case "Club": return 3;
             default: return -1;
         }
@@ -138,3 +202,4 @@ public class HorseRaceGame : MonoBehaviour
         }
     }
 }
+
