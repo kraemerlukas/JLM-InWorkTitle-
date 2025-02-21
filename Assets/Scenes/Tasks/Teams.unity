@@ -766,7 +766,7 @@ PrefabInstance:
     - target: {fileID: 528052565406241452, guid: 39d6b647e307f0c47997a40eb64863ea, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: f7236831783ea2148a5cd8aa04d48279, type: 2}
+      objectReference: {fileID: 11400000, guid: a598ae83803a60d418ad60793f88fdd3, type: 2}
     - target: {fileID: 528052565406241452, guid: 39d6b647e307f0c47997a40eb64863ea, type: 3}
       propertyPath: m_fontSizeBase
       value: 80
@@ -774,7 +774,15 @@ PrefabInstance:
     - target: {fileID: 528052565406241452, guid: 39d6b647e307f0c47997a40eb64863ea, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: -4668815492213683804, guid: f7236831783ea2148a5cd8aa04d48279, type: 2}
+      objectReference: {fileID: 4311966877685437447, guid: a598ae83803a60d418ad60793f88fdd3, type: 2}
+    - target: {fileID: 528052565406241452, guid: 39d6b647e307f0c47997a40eb64863ea, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 528052565406241452, guid: 39d6b647e307f0c47997a40eb64863ea, type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
+      objectReference: {fileID: 0}
     - target: {fileID: 1844210475615526104, guid: 39d6b647e307f0c47997a40eb64863ea, type: 3}
       propertyPath: m_Name
       value: Aufgabe

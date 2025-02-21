@@ -44,6 +44,8 @@ public class TaskManager : MonoBehaviour
 
     private void Start()
     {
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
+
         defaultColor = mainCamera.backgroundColor;
         LoadPlayers();
         LoadAllTasks();
@@ -327,29 +329,9 @@ public class TaskManager : MonoBehaviour
 
     private void ReplacePlaceholders(ref string taskDescription)
     {
-        int totalPlayers = playerNames.Count;    // Alle Spieler inkl. Fahrer
-        int normalPlayers = nonDriverPlayers.Count; // Nur Spieler ohne Fahrer
+        int normalPlayers = nonDriverPlayers.Count;
         int driverCount = driverNames.Count;
-        string player1 = GetUniqueNonDriver();
-        string player2;
-        if (nonDriverPlayers.Count < 2)
-        {
-            // Falls nicht genug Spieler vorhanden sind, denselben Spieler verwenden oder eine alternative Logik einbauen
-            player2 = player1;
-        }
-        else
-        {
-            do
-            {
-                player2 = GetUniqueNonDriver();
-            } while (player1 == player2);
-        }
 
-
-        taskDescription = taskDescription.Replace("{Spieler1}", player1);
-        taskDescription = taskDescription.Replace("{Spieler2}", player2);
-
-        // Falls nicht genug normale Spieler für die Aufgabe vorhanden sind, skippen
         if ((taskDescription.Contains("{Spieler3}") && normalPlayers < 3) ||
             (taskDescription.Contains("{Spieler4}") && normalPlayers < 4))
         {
@@ -357,39 +339,48 @@ public class TaskManager : MonoBehaviour
             return;
         }
 
-        // Falls eine Fahrer-Aufgabe kommt, aber keine Fahrer existieren, skippen
         if (taskDescription.Contains("{Fahrer1}") && driverCount == 0)
         {
             ShowNextTask();
             return;
         }
 
-        // Ersetze Spieler-Platzhalter mit tatsächlichen normalen Spielern (keine Fahrer)
         if (taskDescription.Contains("{Spieler1}"))
-            taskDescription = taskDescription.Replace("{Spieler1}", GetUniqueNonDriver());
+        {
+            string name = GetColoredName(GetUniqueNonDriver());
+            taskDescription = taskDescription.Replace("{Spieler1}", name);
+        }
 
         if (taskDescription.Contains("{Spieler2}"))
-            taskDescription = taskDescription.Replace("{Spieler2}", GetUniqueNonDriver());
+        {
+            string name = GetColoredName(GetUniqueNonDriver());
+            taskDescription = taskDescription.Replace("{Spieler2}", name);
+        }
 
         if (taskDescription.Contains("{Spieler3}") && normalPlayers >= 3)
-            taskDescription = taskDescription.Replace("{Spieler3}", GetUniqueNonDriver());
+        {
+            string name = GetColoredName(GetUniqueNonDriver());
+            taskDescription = taskDescription.Replace("{Spieler3}", name);
+        }
 
         if (taskDescription.Contains("{Spieler4}") && normalPlayers >= 4)
-            taskDescription = taskDescription.Replace("{Spieler4}", GetUniqueNonDriver());
+        {
+            string name = GetColoredName(GetUniqueNonDriver());
+            taskDescription = taskDescription.Replace("{Spieler4}", name);
+        }
 
-        // Ersetze Fahrer-Platzhalter mit tatsächlichen Fahrern
         if (taskDescription.Contains("{Fahrer1}") && driverCount > 0)
-            taskDescription = taskDescription.Replace("{Fahrer1}", GetUniqueDriver());
+        {
+            string name = GetColoredName(GetUniqueDriver());
+            taskDescription = taskDescription.Replace("{Fahrer1}", name);
+        }
 
-        // Ersetze {Schlucke} mit einer zufälligen Anzahl
         if (taskDescription.Contains("{Schlucke}"))
         {
             int randomDrinks = Random.Range(minDrinks, maxDrinks + 1);
             taskDescription = taskDescription.Replace("{Schlucke}", randomDrinks.ToString());
         }
     }
-
-
     private string GetUniqueNonDriver()
     {
         if (nonDriverPlayers.Count == 0) return "Niemand";
@@ -439,6 +430,41 @@ public class TaskManager : MonoBehaviour
         mainCamera.backgroundColor = Color.black; // Farbe anpassen (z. B. Schwarz für das Finale)
 
         taskText.text = selectedTask;
+    }
+    private Color GetRandomContrastingColor(Color backgroundColor)
+    {
+        List<Color> candidateColors = new List<Color>
+    {
+        Color.red,
+        Color.green,
+        new Color(1f, 0.65f, 0f), // Orange
+        Color.yellow,
+        Color.blue
+    };
+
+        candidateColors = candidateColors.OrderBy(c => Random.value).ToList();
+
+        foreach (Color candidate in candidateColors)
+        {
+            if (HasSufficientContrast(candidate, backgroundColor))
+                return candidate;
+        }
+        return candidateColors[0];
+    }
+
+    private bool HasSufficientContrast(Color textColor, Color backgroundColor)
+    {
+        float textLuminance = 0.299f * textColor.r + 0.587f * textColor.g + 0.114f * textColor.b;
+        float bgLuminance = 0.299f * backgroundColor.r + 0.587f * backgroundColor.g + 0.114f * backgroundColor.b;
+        return Mathf.Abs(textLuminance - bgLuminance) >= 0.5f;
+    }
+
+    private string GetColoredName(string name)
+    {
+        Color bg = mainCamera.backgroundColor;
+        Color chosenColor = GetRandomContrastingColor(bg);
+        string hexColor = ColorUtility.ToHtmlStringRGB(chosenColor);
+        return $"<color=#{hexColor}>{name}</color>";
     }
 
 
