@@ -21,6 +21,7 @@ public class MainMenuSwitcher : MonoBehaviour
     {
         ModePanel.gameObject.SetActive(false);
         PlayerPrefs.SetString("mode", _mode);
+        Debug.Log("mode");
     }
 
     public void BackButton()

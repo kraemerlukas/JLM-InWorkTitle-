@@ -332,10 +332,19 @@ public class TaskManager : MonoBehaviour
         int driverCount = driverNames.Count;
         string player1 = GetUniqueNonDriver();
         string player2;
-        do
+        if (nonDriverPlayers.Count < 2)
         {
-            player2 = GetUniqueNonDriver();
-        } while (player1 == player2); // Sicherstellen, dass Spieler1 ≠ Spieler2
+            // Falls nicht genug Spieler vorhanden sind, denselben Spieler verwenden oder eine alternative Logik einbauen
+            player2 = player1;
+        }
+        else
+        {
+            do
+            {
+                player2 = GetUniqueNonDriver();
+            } while (player1 == player2);
+        }
+
 
         taskDescription = taskDescription.Replace("{Spieler1}", player1);
         taskDescription = taskDescription.Replace("{Spieler2}", player2);
