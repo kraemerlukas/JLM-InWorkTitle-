@@ -48,7 +48,10 @@ public class TaskManager : MonoBehaviour
 
         defaultColor = mainCamera.backgroundColor;
         LoadPlayers();
-        LoadAllTasks();
+        normalTasks = LoadTasksFromTextAsset("Tasks/normal");
+        exTasks = LoadTasksFromTextAsset("Tasks/ex");
+        duellTasks = LoadTasksFromTextAsset("Tasks/duell");
+
         SetDrinkRange();
         maxTasks = Random.Range(80, 120);
         ShowNextTask();
@@ -98,26 +101,23 @@ public class TaskManager : MonoBehaviour
         }
     }
 
-    private void LoadAllTasks()
+    private List<string> LoadTasksFromTextAsset(string assetPath)
     {
-        string folderPath = Path.Combine(Application.streamingAssetsPath, gameMode);
-        normalTasks = LoadTasksFromFile(Path.Combine(folderPath, "normal.txt"));
-        exTasks = LoadTasksFromFile(Path.Combine(folderPath, "ex.txt"));
-        duellTasks = LoadTasksFromFile(Path.Combine(folderPath, "duell.txt"));
-        regelTasks = LoadTasksFromFile(Path.Combine(folderPath, "regel.txt"));
-        rundeTasks = LoadTasksFromFile(Path.Combine(folderPath, "runde.txt"));
-        lieberTasks = LoadTasksFromFile(Path.Combine(folderPath, "lieber.txt"));
-        lastDrinkTasks = LoadTasksFromFile(Path.Combine(folderPath, "letzterschluck.txt"));
+        // assetPath z. B. "Tasks/normal" ohne Dateiendung
+        TextAsset textAsset = Resources.Load<TextAsset>(assetPath);
+        if (textAsset != null)
+        {
+            // Splitte den Text in einzelne Zeilen
+            return textAsset.text.Split(new[] { "\r\n", "\r", "\n" }, System.StringSplitOptions.None).ToList();
+        }
+        else
+        {
+            Debug.LogError($"❌ TextAsset '{assetPath}' nicht gefunden!");
+            return new List<string>();
+        }
     }
 
-    private List<string> LoadTasksFromFile(string filePath)
-    {
-        if (File.Exists(filePath))
-            return File.ReadAllLines(filePath).ToList();
-        else
-            Debug.LogError($"❌ Datei '{Path.GetFileName(filePath)}' nicht gefunden im Modus {gameMode}!");
-        return new List<string>();
-    }
+
     private void SetDrinkRange()
     {
         string selectedDifficulty = PlayerPrefs.GetString("SelectedDifficulty", "Easy");
@@ -411,7 +411,8 @@ public class TaskManager : MonoBehaviour
     }
     private void LoadLastDrinkTasks()
     {
-        lastDrinkTasks = LoadTasksFromFile("letzterschluck.txt"); // Lädt die Datei
+        lastDrinkTasks = LoadTasksFromTextAsset("Tasks/letzterschluck");
+      
     }
     private void ShowLastDrinkEvent()
     {
