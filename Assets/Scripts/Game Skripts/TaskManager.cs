@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class TaskManager : MonoBehaviour
 {
@@ -45,7 +46,7 @@ public class TaskManager : MonoBehaviour
     private void Start()
     {
         Screen.orientation = ScreenOrientation.LandscapeLeft;
-
+        title.gameObject.SetActive(true);
         defaultColor = mainCamera.backgroundColor;
         LoadPlayers();
         normalTasks = LoadTasksFromTextAsset("Tasks/normal");
@@ -57,21 +58,23 @@ public class TaskManager : MonoBehaviour
         ShowNextTask();
         LoadLastDrinkTasks();
     }
-
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
+            // Falls der Touch auf einem UI-Button stattfindet, überspringe die weitere Verarbeitung.
+            if (UIInputBlocker.Instance != null && UIInputBlocker.Instance.IsPointerOverUIButton())
+                return;
+
+            // Normale Spiel-Logik: z.B. nächsten Task anzeigen oder Runde beenden.
             if (gameEnded)
-            {
-                EndRound(); // Jetzt wird das Menü geöffnet
-            }
+                EndRound();
             else
-            {
                 ShowNextTask();
-            }
         }
     }
+
+
 
     private void LoadPlayers()
     {
@@ -171,7 +174,8 @@ public class TaskManager : MonoBehaviour
             return;
         }
 
-        title.gameObject.SetActive(false);
+        title.gameObject.SetActive(true);
+        title.text = "Aufgabe";
         mainCamera.backgroundColor = defaultColor;
 
         if (Random.value < 0.25f) // 25% Chance für Special-Aufgabe
@@ -179,7 +183,7 @@ public class TaskManager : MonoBehaviour
             ShowSpecialTask();
             return;
         }
-
+       
         if (normalTasks.Count == 0)
         {
             taskText.text = "❌ Keine Aufgaben verfügbar!";
@@ -187,6 +191,7 @@ public class TaskManager : MonoBehaviour
         }
 
         // Wähle eine einzigartige Aufgabe aus der Liste
+        title.text = "Aufgabe";
         string selectedTask = GetNextUniqueTask(normalTasks);
         ReplacePlaceholders(ref selectedTask);
         taskText.text = selectedTask;
