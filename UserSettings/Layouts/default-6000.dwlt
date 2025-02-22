@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 989
   m_ShowMode: 4
-  m_Title: Simulator
+  m_Title: Hierarchy
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -300,8 +300,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Scene\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 612
-    y: 24
+    x: 611
+    y: 79
     width: 818
     height: 601
   m_SerializedDataModeController:
@@ -900,9 +900,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: -9.635417, y: 0.16666666, z: 90}
+    m_Target: {x: 1.1703969, y: 0.25928155, z: 89.96566}
     speed: 2
-    m_Value: {x: 0, y: 0, z: 90}
+    m_Value: {x: 1.1703969, y: 0.25928155, z: 89.96566}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -950,15 +950,15 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: -0.006309687, y: -0.0009024668, z: 0.0000057667116, w: -0.9999782}
     speed: 2
-    m_Value: {x: 0, y: 0, z: 0, w: 1}
+    m_Value: {x: -0.0063096965, y: -0.00090246816, z: 0.0000057667203, w: -0.9999797}
   m_Size:
-    m_Target: 1.699433
+    m_Target: 7.2889442
     speed: 2
-    m_Value: 10.868946
+    m_Value: 7.2889442
   m_Ortho:
     m_Target: 0
     speed: 2
-    m_Value: 1
+    m_Value: 0
   m_CameraSettings:
     m_Speed: 0.060969945
     m_SpeedNormalized: 0.029999973
@@ -972,7 +972,7 @@ MonoBehaviour:
     m_FarClip: 10000
     m_DynamicClip: 1
     m_OcclusionCulling: 0
-  m_LastSceneViewRotation: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
+  m_LastSceneViewRotation: {x: -0.006309687, y: -0.0009024668, z: 0.0000057667116, w: -0.9999782}
   m_LastSceneViewOrtho: 0
   m_Viewpoint:
     m_SceneView: {fileID: 12}
@@ -1010,7 +1010,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 24
+    y: 79
     width: 610
     height: 601
   m_SerializedDataModeController:
@@ -1029,21 +1029,21 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: e4f7ffff0cfbffff109b0000
+      m_ExpandedIDs: e6a1feffeaa1feffeea1fefff2a1fefff6a1fefffaa1fefffea1feffa4a3feffa8a3feffaca3feffb0a3feffb4a3feffb8a3feffbea3feffeea4feff98abfefffcabfeffa2affeff0cb0feff72b0feffd8b0feff42d2feff9ae1feff0e16ffff9416ffffba81ffffa082ffffd082ffff2e83ffffd2c1ffffd2c3ffff98c4ffffdacbffff6cccffffe0cdffff30d3fffff6f8ffffb8faffffdafaffff06fbfffffaac0000c8b00000eeb1000028be000082f00000c23c0100ea3c01007a3d01007e3d0100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: GameObject
+        m_OriginalName: GameObject
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: -89178
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 4
         m_IsRenamingFilename: 0
         m_TrimLeadingAndTrailingWhitespace: 0
         m_ClientGUIView: {fileID: 8}
@@ -1076,7 +1076,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 651
+    y: 706
     width: 1430
     height: 280
   m_SerializedDataModeController:
@@ -1101,7 +1101,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs/UI
+    - Assets/Added Things/UiRoundedCorners
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1111,30 +1111,30 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prefabs/UI
+  - Assets/Added Things/UiRoundedCorners
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\Programming\Unity\Private Projekte\JLM-InWorkTitle-
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 620}
-    m_SelectedIDs: 209c0000
-    m_LastClickedID: 39968
-    m_ExpandedIDs: 00000000389c00003a9c00003c9c00003e9c0000409c0000429c0000449c0000469c0000489c00004a9c00004c9c00004e9c0000509c0000529c0000549c0000569c0000589c00005a9c0000
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 7e9d0000
+    m_LastClickedID: 40318
+    m_ExpandedIDs: 00000000389c00003a9c00003c9c00003e9c0000429c0000449c0000469c0000489c00004a9c00004c9c00004e9c0000549c0000589c00005a9c0000649d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: Icon
+      m_OriginalName: Icon
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 40016
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_TrimLeadingAndTrailingWhitespace: 0
       m_ClientGUIView: {fileID: 10}
@@ -1178,7 +1178,7 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c6230000f6c1feff58a0000024a40000b2920000806700002299000000000000f6bb000026de00000ac50000d69c0000e4c3000022a3000060a00000a49b0000d09b0000
+    m_ExpandedInstanceIDs: c6230000f6c1feff58a0000024a40000b2920000806700002299000000000000f6bb000026de00000ac50000d69c0000e4c3000022a3000060a00000a49b0000d09b0000ee9b0000ea9e000008f30000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1264,8 +1264,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Inspector\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1432
-    y: 24
+    x: 1431
+    y: 79
     width: 488
     height: 907
   m_SerializedDataModeController:
@@ -1279,8 +1279,9 @@ MonoBehaviour:
     m_SaveData: []
     m_ContainerData: []
     m_OverlaysVisible: 1
-  m_ObjectsLockedBeforeSerialization: []
-  m_InstanceIDsLockedBeforeSerialization: 
+  m_ObjectsLockedBeforeSerialization:
+  - {fileID: 0}
+  m_InstanceIDsLockedBeforeSerialization: 543d0100
   m_PreviewResizer:
     m_CachedPref: -160
     m_ControlHash: -371814159
@@ -1290,7 +1291,7 @@ MonoBehaviour:
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
-    m_IsLocked: 0
+    m_IsLocked: 1
   m_PreviewWindow: {fileID: 0}
 --- !u!114 &17
 MonoBehaviour:
@@ -1344,7 +1345,7 @@ MonoBehaviour:
   m_UseMipMap: 0
   m_SimulatorState:
     controlPanelVisible: 0
-    controlPanelWidth: NaN
+    controlPanelWidth: 0
     controlPanelFoldoutKeys:
     - UnityEditor.AdaptivePerformance.Editor.AdaptivePerformanceUIExtension
     - UnityEditor.DeviceSimulation.ApplicationSettingsPlugin
@@ -1355,7 +1356,7 @@ MonoBehaviour:
     pluginStates:
     - '{"m_SerializationStates":{"thermalFoldout":false,"performanceFoldout":false,"developerFoldout":false,"indexerFoldout":false,"scalersFoldout":false,"deviceSettingsFoldout":false}}'
     - '{}'
-    scale: 24
+    scale: 26
     fitToScreenEnabled: 0
     rotationDegree: 270
     highlightSafeAreaEnabled: 0
