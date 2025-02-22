@@ -3,14 +3,13 @@ using UnityEngine.SceneManagement;
 
 public class StartButton : MonoBehaviour
 {
-    public void StartGame()
+    public void StartGame(string _mode)
     {
-        Screen.orientation = ScreenOrientation.LandscapeLeft;
-        SceneManager.LoadScene(PlayerPrefs.GetString("mode"));
+        SceneManager.LoadScene(_mode);
     }
-    public void LoadHorse()
+   public void NormalGame()
     {
-        Screen.orientation = ScreenOrientation.LandscapeLeft;
-        SceneManager.LoadScene("Horse");
+        SceneManager.LoadScene("Normal");
     }
+   
 }

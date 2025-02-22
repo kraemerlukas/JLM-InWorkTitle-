@@ -10,6 +10,7 @@ public class MainMenuSwitcher : MonoBehaviour
     [SerializeField] private RectTransform ModePanel;
     [SerializeField] private RectTransform TeamPanel;
     [SerializeField] private RectTransform ShopPanel;
+    [SerializeField] private RectTransform CardsPanel;
 
     public void StartButton()
     {
@@ -32,6 +33,7 @@ public class MainMenuSwitcher : MonoBehaviour
         OptionsPanel.gameObject.SetActive(false);
         TeamPanel.gameObject.SetActive(false);
         ShopPanel.gameObject.SetActive(false);
+        CardsPanel.gameObject.SetActive(false);
 
     }
 
@@ -41,6 +43,11 @@ public class MainMenuSwitcher : MonoBehaviour
         TeamPanel.gameObject.SetActive(true);
     }
 
+    public void CardModus()
+    {
+        ModePanel.gameObject.SetActive(false);
+        CardsPanel.gameObject.SetActive(true);
+    }
     public void InfoButton()
     {
         StartPanel.gameObject.SetActive(false);
