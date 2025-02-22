@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
@@ -51,14 +51,19 @@ public class HorseRaceGame : MonoBehaviour
 
     void Update()
     {
+        // PrÃ¼fe, ob der Klick auf ein UI-Element erfolgt â€“ falls ja, ignoriere den Input
+        if (Input.GetMouseButtonDown(0) && UIInputBlocker.Instance != null && UIInputBlocker.Instance.IsPointerOverUIButton())
+            return;
+
         // Reagiere auf Touch bzw. Mausklick, falls Eingaben gerade erlaubt sind
         if (Input.GetMouseButtonDown(0) && canDrawCard)
         {
-            // Verberge das Panel und starte den Karten-Zieh-Prozess
+            // Verberge das Instruction-Panel und starte den Karten-Zieh-Prozess
             instructionPanel.SetActive(false);
             DrawCard();
         }
     }
+
 
     public void DrawCard()
     {
@@ -78,13 +83,13 @@ public class HorseRaceGame : MonoBehaviour
             Destroy(lastDrawnCard);
         }
 
-        // Wähle zufällig eine Karte und instanziiere sie
+        // WÃ¤hle zufÃ¤llig eine Karte und instanziiere sie
         int randomIndex = Random.Range(0, cardPrefabs.Length);
         lastDrawnCard = Instantiate(cardPrefabs[randomIndex], cardSpawnPoint);
         lastDrawnCard.transform.SetParent(cardSpawnPoint, false);
         lastDrawnCard.transform.localPosition = Vector3.zero;
 
-        // Zeige die Karte initial mit Rückseite an
+        // Zeige die Karte initial mit RÃ¼ckseite an
         Card card = lastDrawnCard.GetComponent<Card>();
         if (card != null)
         {
@@ -106,7 +111,7 @@ public class HorseRaceGame : MonoBehaviour
         // Warte, bis die Flip-Animation abgeschlossen ist
         yield return new WaitForSeconds(card.flipSpeed * 2);
 
-        // Bewege das Pferd gemäß dem Kartenwert
+        // Bewege das Pferd gemÃ¤ÃŸ dem Kartenwert
         yield return StartCoroutine(MoveHorse(card.suit));
 
         // Warte auf alle Fieldcard-Flips (falls welche starten)
@@ -115,7 +120,7 @@ public class HorseRaceGame : MonoBehaviour
         // Instruction-Panel mit passendem Text wieder einblenden:
         if (gameFinished)
         {
-            instructionText.text = "Runde Vorbei: Gewinner ist " + winnerSuit + ", Touch für neues Spiel!";
+            instructionText.text = "Runde Vorbei: Gewinner ist " + winnerSuit + ", Touch fÃ¼r neues Spiel!";
         }
         else
         {
@@ -123,7 +128,7 @@ public class HorseRaceGame : MonoBehaviour
         }
         instructionPanel.SetActive(true);
 
-        // Nun sind wieder Eingaben möglich
+        // Nun sind wieder Eingaben mÃ¶glich
         canDrawCard = true;
     }
 
@@ -153,10 +158,10 @@ public class HorseRaceGame : MonoBehaviour
     {
         for (int i = 0; i < fieldCards.Length; i++)
         {
-            // Falls diese Karte schon einmal geflippt wurde, überspringen
+            // Falls diese Karte schon einmal geflippt wurde, Ã¼berspringen
             if (fieldCardFlipped[i]) continue;
 
-            // Prüfe, ob alle Pferde diese Position bereits passiert haben
+            // PrÃ¼fe, ob alle Pferde diese Position bereits passiert haben
             bool allHorsesHere = true;
             foreach (var pos in horsePositions.Values)
             {
@@ -167,7 +172,7 @@ public class HorseRaceGame : MonoBehaviour
                 }
             }
 
-            // Falls die Bedingungen erfüllt sind, starte und warte auf den Flip
+            // Falls die Bedingungen erfÃ¼llt sind, starte und warte auf den Flip
             if (allHorsesHere)
             {
                 fieldCardFlipped[i] = true; // Verhindert mehrfaches Flippen
@@ -198,7 +203,7 @@ public class HorseRaceGame : MonoBehaviour
             fieldCards[i].transform.SetParent(fieldCardPositions[i], false);
             fieldCards[i].transform.localPosition = Vector3.zero;
 
-            // Setze Feldkarte initial auf Rückseite
+            // Setze Feldkarte initial auf RÃ¼ckseite
             Card cardComponent = fieldCards[i].GetComponent<Card>();
             if (cardComponent != null)
             {
@@ -241,7 +246,7 @@ public class HorseRaceGame : MonoBehaviour
         Quaternion midRotation = Quaternion.Euler(cardTransform.eulerAngles.x, cardTransform.eulerAngles.y + 90, cardTransform.eulerAngles.z);
         Quaternion endRotation = Quaternion.Euler(cardTransform.eulerAngles.x, cardTransform.eulerAngles.y + 180, cardTransform.eulerAngles.z);
 
-        // Erste Hälfte der Drehung: 0 bis 90 Grad
+        // Erste HÃ¤lfte der Drehung: 0 bis 90 Grad
         while (elapsedTime < flipSpeed)
         {
             cardTransform.rotation = Quaternion.Lerp(startRotation, midRotation, elapsedTime / flipSpeed);
@@ -250,7 +255,7 @@ public class HorseRaceGame : MonoBehaviour
         }
         cardTransform.rotation = midRotation;
 
-        // Beim Erreichen von 90° den Bildwechsel durchführen
+        // Beim Erreichen von 90Â° den Bildwechsel durchfÃ¼hren
         Card cardComponent = fieldCards[index].GetComponent<Card>();
         if (cardComponent != null)
         {
@@ -258,7 +263,7 @@ public class HorseRaceGame : MonoBehaviour
             cardComponent.frontImage.gameObject.SetActive(true);
         }
 
-        // Zweite Hälfte der Drehung: 90 bis 180 Grad
+        // Zweite HÃ¤lfte der Drehung: 90 bis 180 Grad
         elapsedTime = 0;
         while (elapsedTime < flipSpeed)
         {
@@ -268,7 +273,7 @@ public class HorseRaceGame : MonoBehaviour
         }
         cardTransform.rotation = endRotation;
 
-        // Strafaktion: Pferd zurückbewegen und auf diese Bewegung warten
+        // Strafaktion: Pferd zurÃ¼ckbewegen und auf diese Bewegung warten
         if (cardComponent != null)
         {
             yield return StartCoroutine(MoveHorseBack(cardComponent.suit));
@@ -323,7 +328,7 @@ public class HorseRaceGame : MonoBehaviour
         instructionPanel.SetActive(true);
         canDrawCard = true;
 
-        // Zurücksetzen der Pferdepositionen
+        // ZurÃ¼cksetzen der Pferdepositionen
         horsePositions["Heart"] = 0;
         horsePositions["Diamond"] = 0;
         horsePositions["Spade"] = 0;
