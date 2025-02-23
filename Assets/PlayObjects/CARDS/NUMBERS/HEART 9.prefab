@@ -16,7 +16,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &5000481930637239890
 RectTransform:
@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 77202bde798ef9241a53716b210fbd4e, type: 3}
+  m_Texture: {fileID: 2800000, guid: 6561daa10eb56e944b19b882914ba2ad, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -84,7 +84,7 @@ GameObject:
   - component: {fileID: 3657791759523078621}
   - component: {fileID: 3141785704124023372}
   m_Layer: 5
-  m_Name: DIAMOND
+  m_Name: HEART 9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -126,7 +126,7 @@ MonoBehaviour:
   frontImage: {fileID: 8812420972352417218}
   backImage: {fileID: 1003739707222078087}
   flipSpeed: 0.5
-  suit: Diamond
+  suit: Heart
 --- !u!222 &3141785704124023372
 CanvasRenderer:
   m_ObjectHideFlags: 0

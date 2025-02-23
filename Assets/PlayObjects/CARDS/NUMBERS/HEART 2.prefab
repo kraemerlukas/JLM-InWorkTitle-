@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 8dfedddf2799c7b4d82bed3b2f9bd03c, type: 3}
+  m_Texture: {fileID: 2800000, guid: e5537e23e6fdde94db19f34a73419df4, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -84,7 +84,7 @@ GameObject:
   - component: {fileID: 3657791759523078621}
   - component: {fileID: 3141785704124023372}
   m_Layer: 5
-  m_Name: HEART
+  m_Name: HEART 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
