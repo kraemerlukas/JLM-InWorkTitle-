@@ -26,11 +26,13 @@ public class TeamTaskManager : MonoBehaviour
 
     private void Start()
     {
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
+
         defaultColor = mainCamera.backgroundColor;
         LoadPlayerData();
         LoadTasksFromFile();
         SetDrinkRange();
-        maxTasks = Random.Range(5, 8);
+        maxTasks = Random.Range(80, 150);
         ShowNextTask();
     }
 
