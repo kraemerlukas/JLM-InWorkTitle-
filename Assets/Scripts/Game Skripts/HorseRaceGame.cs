@@ -203,6 +203,20 @@ public class HorseRaceGame : MonoBehaviour
             fieldCards[i].transform.SetParent(fieldCardPositions[i], false);
             fieldCards[i].transform.localPosition = Vector3.zero;
 
+            // Hole den RectTransform der Karte und des Parent-Objekts
+            RectTransform cardRT = fieldCards[i].GetComponent<RectTransform>();
+            RectTransform parentRT = fieldCardPositions[i].GetComponent<RectTransform>();
+            if (cardRT != null && parentRT != null)
+            {
+                // Setze den Anker und Pivot auf die Mitte
+                cardRT.anchorMin = new Vector2(0.5f, 0.5f);
+                cardRT.anchorMax = new Vector2(0.5f, 0.5f);
+                cardRT.pivot = new Vector2(0.5f, 0.5f);
+                // Positioniere zentral und setze die Größe exakt auf die des Parent-Objekts
+                cardRT.anchoredPosition = Vector2.zero;
+                cardRT.sizeDelta = parentRT.rect.size;
+            }
+
             // Setze Feldkarte initial auf Rückseite
             Card cardComponent = fieldCards[i].GetComponent<Card>();
             if (cardComponent != null)
@@ -212,6 +226,8 @@ public class HorseRaceGame : MonoBehaviour
             }
         }
     }
+
+
 
     void CheckFieldCards()
     {
