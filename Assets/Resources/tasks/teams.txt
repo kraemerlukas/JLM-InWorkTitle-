@@ -1,0 +1,184 @@
+﻿{Team1} gegen {Team2} – wer hat den besseren Witz? Der Verlierer trinkt {Schlucke}!
+Alle mit braunen Haaren in {Team1} trinken {Schlucke}!
+{Team1:Spieler} vs {Team2:Spieler} – wer kann am schnellsten ein Glas leeren? Der Verlierer trinkt {Schlucke}!
+{Team1} vs {Team2} – wer ist mutiger? Der Verlierer trinkt {Schlucke}!
+Alle in {Team1} mit Brille trinken {Schlucke}!
+{Team1:Spieler} vs {Team2:Spieler} – wer kann länger still sitzen? Der Verlierer trinkt {Schlucke}!
+{Team1} gegen {Team2} – wer kann mehr Liegestütze machen? Der Verlierer trinkt {Schlucke}!
+Alle unter 30 Jahren in {Team1} nehmen {Schlucke}!
+{Team1:Spieler} vs {Team2:Spieler} – wer lacht zuerst? Der Verlierer trinkt {Schlucke}!
+{Team1} gegen {Team2} – wer hat den besten Humor? Der Verlierer trinkt {Schlucke}!
+Alle in {Team1} mit einem Hut trinken {Schlucke}!
+{Team1:Spieler} vs {Team2:Spieler} – wer hat den besseren Tanz? Der Verlierer trinkt {Schlucke}!
+Alle, die heute Kaffee getrunken haben, trinken {Schlucke}!
+{Team1} vs {Team2} – wer kann mehr Zungenbrecher aussprechen? Der Verlierer trinkt {Schlucke}!
+Alle in {Team1} mit einer Uhr am Handgelenk trinken {Schlucke}!
+{Team1:Spieler} vs {Team2:Spieler} – wer kann die meisten Wörter in 30 Sekunden sagen? Der Verlierer trinkt {Schlucke}!
+{Team1} gegen {Team2} – wer kennt mehr Filme aus den 90ern? Der Verlierer trinkt {Schlucke}!
+Alle in {Team1} mit einer Sonnenbrille trinken {Schlucke}!
+{Team1:Spieler} vs {Team2:Spieler} – wer kann schneller ein Glas füllen? Der Verlierer trinkt {Schlucke}!
+{Team1} vs {Team2} – wer verliert schneller bei einem Handspiel? Der Verlierer trinkt {Schlucke}!
+Alle in {Team1} mit roten Schuhen nehmen {Schlucke}!
+{Team1:Spieler} vs {Team2:Spieler} – wer kann den längsten Satz ohne Fehler sagen? Der Verlierer trinkt {Schlucke}!
+{Team1} gegen {Team2} – wer kann mehr Fakten über Tiere nennen? Der Verlierer trinkt {Schlucke}!
+{Team1:Spieler} vs {Team2:Spieler} – wer kann den besten Zaubertrick machen? Der Verlierer trinkt {Schlucke}!
+Alle, die einen Ring tragen, trinken {Schlucke}!
+{Team1} vs {Team2} – wer hat mehr Mut beim Anrufen von Fremden? Der Verlierer trinkt {Schlucke}!
+{Team1:Spieler} vs {Team2:Spieler} – wer kann schneller auf einem Bein stehen? Der Verlierer trinkt {Schlucke}!
+{Team1} gegen {Team2} – wer kann mehr Länder nennen? Der Verlierer trinkt {Schlucke}!
+Alle, die einen Namen mit „A“ haben, trinken {Schlucke}!
+{Team1:Spieler} vs {Team2:Spieler} – wer kann mehr Liedtexte auswendig singen? Der Verlierer trinkt {Schlucke}!
+{Team1} gegen {Team2} – wer kennt sich besser mit Superhelden aus? Der Verlierer trinkt {Schlucke}!
+{Team1:Spieler} vs {Team2:Spieler} – wer kann mehr Jonglierbälle fangen? Der Verlierer trinkt {Schlucke}!
+Alle, die heute ein rotes Kleidungsstück tragen, trinken {Schlucke}!
+{Team1} vs {Team2} – wer kann mehr Gebirgsländer aufzählen? Der Verlierer trinkt {Schlucke}!
+{Team1:Spieler} vs {Team2:Spieler} – wer kann den besten Geräuschemacher? Der Verlierer trinkt {Schlucke}!
+{Team1} gegen {Team2} – wer hat mehr Haustiere? Der Verlierer trinkt {Schlucke}!
+Alle, die in der letzten Woche Urlaub hatten, trinken {Schlucke}!
+{Team1:Spieler} vs {Team2:Spieler} – wer kann mehr Zahlen rückwärts sagen? Der Verlierer trinkt {Schlucke}!
+{Team1} gegen {Team2} – wer hat den besseren Muskelkater? Der Verlierer trinkt {Schlucke}!
+{Team1:Spieler} vs {Team2:Spieler} – wer ist schneller im Gedächtnis? Der Verlierer trinkt {Schlucke}!
+Alle, die eine Netflix-Serie zuletzt geschaut haben, trinken {Schlucke}!
+{Team1} gegen {Team2} – wer kennt mehr Marvel-Filme? Der Verlierer trinkt {Schlucke}!
+{Team1:Spieler} vs {Team2:Spieler} – wer kann die meisten Matheaufgaben in einer Minute lösen? Der Verlierer trinkt {Schlucke}!
+{Team1} gegen {Team2} – wer weiß mehr über berühmte Künstler? Der Verlierer trinkt {Schlucke}!
+Alle in {Team1} mit blauen Augen trinken {Schlucke}!
+{Team1:Spieler} vs {Team2:Spieler} – wer kann mehr Tiere nachahmen? Der Verlierer trinkt {Schlucke}!
+{Team1} gegen {Team2} – wer hat den kreativsten Bastelvorschlag? Der Verlierer trinkt {Schlucke}!
+{Team1:Spieler} vs {Team2:Spieler} – wer kann die meisten Bücher nennen? Der Verlierer trinkt {Schlucke}!
+{Team1} gegen {Team2} – wer kann schneller ein Puzzle lösen? Der Verlierer trinkt {Schlucke}!
+Alle, die mehr als drei Geschwister haben, trinken {Schlucke}!
+{Team1:Spieler} vs {Team2:Spieler} – wer kann den besten Lächel-Wettbewerb gewinnen? Der Verlierer trinkt {Schlucke}!
+{Team1} gegen {Team2} – wer hat den besten Tanzmove? Der Verlierer trinkt {Schlucke}!
+Alle in {Team1}, die gerne kochen, trinken {Schlucke}!
+{Team1:Spieler} vs {Team2:Spieler} – wer kann mehr Buchstaben auf einmal nennen? Der Verlierer trinkt {Schlucke}!
+{Team1} gegen {Team2} – wer kennt sich besser mit Geschichte aus? Der Verlierer trinkt {Schlucke}!
+{Team1:Spieler} vs {Team2:Spieler} – wer kann den längsten Satz in einer Fremdsprache sagen? Der Verlierer trinkt {Schlucke}!
+Alle in {Team1}, die sich für Sport interessieren, trinken {Schlucke}!
+{Team1} gegen {Team2} – wer kann schneller eine Frage beantworten? Der Verlierer trinkt {Schlucke}!
+{Team1:Spieler} vs {Team2:Spieler} – wer kann die meisten Filme in 10 Sekunden nennen? Der Verlierer trinkt {Schlucke}!
+{Team1} gegen {Team2} – wer kennt mehr Präsidenten? Der Verlierer trinkt {Schlucke}!
+{Team1:Spieler} vs {Team2:Spieler} – wer hat den besseren Witz? Der Verlierer trinkt {Schlucke}!
+{Team1} gegen {Team2} – wer kann schneller den Namen des anderen raten? Der Verlierer trinkt {Schlucke}!
+Alle in {Team1}, die gerne tanzen, trinken {Schlucke}!
+{Team1:Spieler} vs {Team2:Spieler} – wer kann die meisten Gegensätze nennen? Der Verlierer trinkt {Schlucke}!
+{Team1} gegen {Team2} – wer kennt mehr Wissenschaftler? Der Verlierer trinkt {Schlucke}!
+{Team1:Spieler} vs {Team2:Spieler} – wer kann schneller ein Gedicht aufsagen? Der Verlierer trinkt {Schlucke}!
+{Team1} gegen {Team2} – wer kennt mehr berühmte Musiker? Der Verlierer trinkt {Schlucke}!
+Alle in {Team1} mit einer Katze zu Hause trinken {Schlucke}!
+{Team1:Spieler} vs {Team2:Spieler} – wer kann mehr Spitznamen finden? Der Verlierer trinkt {Schlucke}!
+{Team1} gegen {Team2} – wer hat die beste Ausrede für das Verpassen eines Termins? Der Verlierer trinkt {Schlucke}!
+{Team1:Spieler} vs {Team2:Spieler} – wer hat den besseren Tanzschritt? Der Verlierer trinkt {Schlucke}!
+{Team1} gegen {Team2} – wer kann am schnellsten ein Puzzle legen? Der Verlierer trinkt {Schlucke}!
+Alle in {Team1}, die einen Hund haben, trinken {Schlucke}!
+{Team1:Spieler} vs {Team2:Spieler} – wer kann mehr Fremdwörter sagen? Der Verlierer trinkt {Schlucke}!
+{Team1} gegen {Team2} – wer kennt mehr Modebegriffe? Der Verlierer trinkt {Schlucke}!
+{Team1:Spieler} vs {Team2:Spieler} – wer hat den besseren Trick auf Lager? Der Verlierer trinkt {Schlucke}!
+Alle in {Team1}, die gerne reisen, trinken {Schlucke}!
+{Team1} gegen {Team2} – wer kann den längeren Film-Namen sagen? Der Verlierer trinkt {Schlucke}!
+{Team1:Spieler} vs {Team2:Spieler} – wer hat die besten Tanzschritte? Der Verlierer trinkt {Schlucke}!
+{Team1} gegen {Team2} – wer hat die beste Sammlung an Filmen? Der Verlierer trinkt {Schlucke}!
+{Team1:Spieler} vs {Team2:Spieler} – wer kann mehr Länder auf der Weltkarte nennen? Der Verlierer trinkt {Schlucke}!
+{Team1} gegen {Team2} – wer kann mehr Produkte im Supermarkt aufzählen? Der Verlierer trinkt {Schlucke}!
+Alle, die schon einmal in einem anderen Land waren, trinken {Schlucke}!
+{Team1:Spieler} vs {Team2:Spieler} – wer kann den besten Trick vorführen? Der Verlierer trinkt {Schlucke}!
+{Team1} gegen {Team2} – wer kennt mehr Spiele? Der Verlierer trinkt {Schlucke}!
+{Team1:Spieler} vs {Team2:Spieler} – wer kann mehr Tiere in einem Satz nennen? Der Verlierer trinkt {Schlucke}!
+{Team1} gegen {Team2} – wer hat den besten Witz über Tiere? Der Verlierer trinkt {Schlucke}!
+{Team1:Spieler} vs {Team2:Spieler} – wer kann besser auf den Kopf stehen? Der Verlierer trinkt {Schlucke}!
+{Team1} gegen {Team2} – wer weiß mehr über Naturkatastrophen? Der Verlierer trinkt {Schlucke}!
+{Team1:Spieler} vs {Team2:Spieler} – wer kennt mehr Städte weltweit? Der Verlierer trinkt {Schlucke}!
+{Team1} gegen {Team2} – wer hat mehr kreative Ideen? Der Verlierer trinkt {Schlucke}!
+{Team1:Spieler} vs {Team2:Spieler} – wer kann mehr Redewendungen sagen? Der Verlierer trinkt {Schlucke}!
+{Team1} gegen {Team2} – wer kann schneller einen Trick lernen? Der Verlierer trinkt {Schlucke}!
+Alle in {Team1} mit blonden Haaren nehmen {Schlucke}!
+{Team1:Spieler} vs {Team2:Spieler} – wer kann schneller einen Witz erzählen? Der Verlierer trinkt {Schlucke}!
+{Team1} gegen {Team2} – wer kennt mehr Apps auf dem Smartphone? Der Verlierer trinkt {Schlucke}!
+{Team1:Spieler} vs {Team2:Spieler} – wer kann mehr Liedertexte nachsingen? Der Verlierer trinkt {Schlucke}!
+{Team1} gegen {Team2} – wer hat mehr handwerkliche Fähigkeiten? Der Verlierer trinkt {Schlucke}!
+Alle in {Team1}, die mit dem linken Fuß aufgestanden sind, trinken {Schlucke}!
+{Team1:Spieler} vs {Team2:Spieler} – wer hat den besseren Spruch auf Lager? Der Verlierer trinkt {Schlucke}!
+{Team1:Spieler} trinkt {Schlucke}!
+{Team1} vs {Team2} Wettrennen! Der Verlierer trinkt {Schlucke}!
+Im Kreis! Beste Sänger {Team1} beginnt! Der Verlierer trinkt {Schlucke}!
+{Team1:Spieler} trinkt {Schlucke}, weil er so schnell ist!
+{Team1} gegen {Team2} – wer kann das Alphabet rückwärts sagen? Der Verlierer trinkt {Schlucke}!
+{Team1:Spieler} muss {Schlucke} trinken, weil er der mutigste ist!
+Im Kreis! Wer den besten Witz erzählt, gewinnt – der Verlierer trinkt {Schlucke}!
+{Team1} vs {Team2} – Wer hat das schönste Lächeln? Der Verlierer trinkt {Schlucke}!
+{Team1:Spieler} muss {Schlucke} trinken, weil er den längsten Atem hat!
+Alle im Kreis – jeder mit einem Hut trinkt {Schlucke}!
+{Team1} gegen {Team2} – wer kann das schnellste Zungenbrecher sagen? Der Verlierer trinkt {Schlucke}!
+{Team1:Spieler} muss {Schlucke} trinken, weil er so charmant ist!
+{Team1} vs {Team2} – Wer kann mehr Geheimnisse erzählen? Der Verlierer trinkt {Schlucke}!
+Im Kreis! Jeder mit einem Smartphone trinkt {Schlucke}!
+{Team1:Spieler} trinkt {Schlucke} und zeigt, dass er den besten Sinn für Humor hat!
+{Team1} gegen {Team2} – wer kann besser tanzen? Der Verlierer trinkt {Schlucke}!
+Im Kreis! Wer das kreativste Geräusch macht, gewinnt – der Verlierer trinkt {Schlucke}!
+{Team1:Spieler} trinkt {Schlucke}, weil er der schnellste Denker ist!
+{Team1} gegen {Team2} – Wer hat die besseren Ausreden? Der Verlierer trinkt {Schlucke}!
+Im Kreis! Alle, die schon mal ein Tier gerettet haben, trinken {Schlucke}!
+{Team1:Spieler} muss {Schlucke} trinken, weil er der beste Ratgeber ist!
+{Team1} gegen {Team2} – Wer hat das beste Gedächtnis? Der Verlierer trinkt {Schlucke}!
+{Team1:Spieler} trinkt {Schlucke}, weil er so fleißig ist!
+Im Kreis! Wer sich heute besonders gut vorbereitet hat, trinkt {Schlucke}!
+{Team1} vs {Team2} – Wer kann besser im Kreis tanzen? Der Verlierer trinkt {Schlucke}!
+{Team1:Spieler} trinkt {Schlucke}, weil er der schnellste Runner ist!
+Im Kreis! Wer den kreativsten Witz erzählt, darf entscheiden, wer trinkt {Schlucke}!
+{Team1} vs {Team2} – Wer kann schneller die Wahrheit sagen? Der Verlierer trinkt {Schlucke}!
+{Team1:Spieler} trinkt {Schlucke}, weil er die besten Geschichten erzählt!
+{Team1} gegen {Team2} – Wer ist besser im Raten von Filmtiteln? Der Verlierer trinkt {Schlucke}!
+Im Kreis! Wer das verrückteste Dance-Move zeigt, entscheidet, wer {Schlucke} trinken muss!
+{Team1:Spieler} trinkt {Schlucke}, weil er der beste im Reimen ist!
+{Team1} gegen {Team2} – Wer hat mehr Mut? Der Verlierer trinkt {Schlucke}!
+Im Kreis! Alle, die in den letzten 3 Tagen etwas Neues gelernt haben, trinken {Schlucke}!
+{Team1:Spieler} trinkt {Schlucke}, weil er die beste Lache hat!
+{Team1} gegen {Team2} – Wer kann mehr Länder aufzählen? Der Verlierer trinkt {Schlucke}!
+{Team1:Spieler} muss {Schlucke} trinken, weil er die coolsten Moves drauf hat!
+Im Kreis! Alle, die gerne reisen, trinken {Schlucke}!
+{Team1} gegen {Team2} – Wer hat die besseren Ausreden für das Zuspätkommen? Der Verlierer trinkt {Schlucke}!
+{Team1:Spieler} trinkt {Schlucke}, weil er der entschlossenste Spieler ist!
+{Team1} vs {Team2} – Wer kann schneller die Augen schließen und wieder öffnen? Der Verlierer trinkt {Schlucke}!
+{Team1:Spieler} trinkt {Schlucke}, weil er der lustigste Spieler ist!
+{Team1} gegen {Team2} – Wer hat den besten Songgeschmack? Der Verlierer trinkt {Schlucke}!
+Im Kreis! Wer die meiste Energie hat, entscheidet, wer trinkt {Schlucke}!
+{Team1:Spieler} muss {Schlucke} trinken, weil er so sportlich ist!
+{Team1} vs {Team2} – Wer kennt sich besser mit Kunst aus? Der Verlierer trinkt {Schlucke}!
+Im Kreis! Jeder, der schon mal in einem Konzert war, trinkt {Schlucke}!
+{Team1:Spieler} trinkt {Schlucke}, weil er der klügste Spieler ist!
+{Team1} gegen {Team2} – Wer kann mehr Zahlen in einer Sekunde sagen? Der Verlierer trinkt {Schlucke}!
+Im Kreis! Wer sich am schnellsten bewegt, entscheidet, wer trinkt {Schlucke}!
+{Team1:Spieler} trinkt {Schlucke}, weil er die besten Ideen hat!
+{Team1} gegen {Team2} – Wer hat den coolsten Lifestyle? Der Verlierer trinkt {Schlucke}!
+Im Kreis! Wer das kreativste Wort erfindet, bestimmt, wer trinkt {Schlucke}!
+{Team1:Spieler} trinkt {Schlucke}, weil er der charmanteste ist!
+{Team1:Spieler} muss ein Lied summen, die anderen im {Team1} müssen es erraten. Bei jedem Fehler trinkt {Schlucke}. Beim ersten richtigen erraten, trinkt {Team2} {Schlucke}!
+{Team1:Spieler} muss eine bekannte Persönlichkeit pantomimisch darstellen, die anderen im {Team1} müssen sie erraten. Bei jedem Fehler trinkt {Schlucke}. Beim ersten richtigen erraten, trinkt {Team2} {Schlucke}!
+{Team1:Spieler} muss einen Film mit Gesten darstellen, das Team {Team1} muss erraten, welcher Film es ist. Bei jedem Fehler trinkt {Schlucke}. Wenn der Film erraten wird, trinkt {Team2} {Schlucke}!
+{Team1:Spieler} muss einen berühmten Songtext singen, die anderen im {Team1} müssen den Song erraten. Bei jedem Fehler trinkt {Schlucke}. Beim ersten richtigen erraten, trinkt {Team2} {Schlucke}!
+{Team1:Spieler} muss pantomimisch ein Tier darstellen, die anderen im {Team1} müssen es erraten. Bei jedem Fehler trinkt {Schlucke}. Wenn es erraten wird, trinkt {Team2} {Schlucke}!
+{Team1:Spieler} muss ein berühmtes Zitat nachspielen, das Team {Team1} muss es erraten. Bei jedem Fehler trinkt {Schlucke}. Beim ersten richtigen erraten, trinkt {Team2} {Schlucke}!
+{Team1:Spieler} muss ein Märchen pantomimisch darstellen, die anderen im {Team1} müssen es erraten. Bei jedem Fehler trinkt {Schlucke}. Beim ersten richtigen erraten, trinkt {Team2} {Schlucke}!
+{Team1:Spieler} muss einen Gegenstand beschreiben, ohne ihn zu zeigen, die anderen im {Team1} müssen erraten, was es ist. Bei jedem Fehler trinkt {Schlucke}. Wenn es erraten wird, trinkt {Team2} {Schlucke}!
+{Team1:Spieler} muss ein berühmtes Tanzmove nachahmen, die anderen im {Team1} müssen erraten, welcher Tanz es ist. Bei jedem Fehler trinkt {Schlucke}. Wenn es erraten wird, trinkt {Team2} {Schlucke}!
+{Team1:Spieler} muss eine berühmte Filmzene nachspielen, das Team {Team1} muss den Film erraten. Bei jedem Fehler trinkt {Schlucke}. Beim ersten richtigen erraten, trinkt {Team2} {Schlucke}!
+{Team1:Spieler} muss eine berühmte TV-Show nachspielen, die anderen im {Team1} müssen erraten, um welche Show es sich handelt. Bei jedem Fehler trinkt {Schlucke}. Beim ersten richtigen erraten, trinkt {Team2} {Schlucke}!
+{Team1:Spieler} muss ein Tiergeräusch nachahmen, die anderen im {Team1} müssen erraten, welches Tier es ist. Bei jedem Fehler trinkt {Schlucke}. Beim ersten richtigen erraten, trinkt {Team2} {Schlucke}!
+{Team1:Spieler} muss einen berühmten Schauspieler imitieren, die anderen im {Team1} müssen erraten, um welchen Schauspieler es sich handelt. Bei jedem Fehler trinkt {Schlucke}. Beim ersten richtigen erraten, trinkt {Team2} {Schlucke}!
+{Team1:Spieler} muss ein Märchen mit Pantomime darstellen, die anderen im {Team1} müssen erraten, um welches Märchen es sich handelt. Bei jedem Fehler trinkt {Schlucke}. Beim ersten richtigen erraten, trinkt {Team2} {Schlucke}!
+{Team1:Spieler} muss einen berühmten Tanz nachahmen, die anderen im {Team1} müssen erraten, welcher Tanz es ist. Bei jedem Fehler trinkt {Schlucke}. Beim ersten richtigen erraten, trinkt {Team2} {Schlucke}!
+{Team1:Spieler} muss einen Songtext mit Pantomime darstellen, die anderen im {Team1} müssen den Song erraten. Bei jedem Fehler trinkt {Schlucke}. Beim ersten richtigen erraten, trinkt {Team2} {Schlucke}!
+{Team1:Spieler} muss ein Pop-Idol imitieren, die anderen im {Team1} müssen erraten, um welches Idol es sich handelt. Bei jedem Fehler trinkt {Schlucke}. Beim ersten richtigen erraten, trinkt {Team2} {Schlucke}!
+{Team1:Spieler} muss ein Filmtitel pantomimisch darstellen, die anderen im {Team1} müssen den Titel erraten. Bei jedem Fehler trinkt {Schlucke}. Beim ersten richtigen erraten, trinkt {Team2} {Schlucke}!
+{Team1:Spieler} muss eine bekannte Werbung nachspielen, die anderen im {Team1} müssen erraten, welche Werbung es ist. Bei jedem Fehler trinkt {Schlucke}. Beim ersten richtigen erraten, trinkt {Team2} {Schlucke}!
+{Team1:Spieler} muss ein Instrument pantomimisch spielen, die anderen im {Team1} müssen erraten, welches Instrument es ist. Bei jedem Fehler trinkt {Schlucke}. Beim ersten richtigen erraten, trinkt {Team2} {Schlucke}!
+{Team1:Spieler} muss ein Comic-Charakter nachspielen, die anderen im {Team1} müssen erraten, welcher es ist. Bei jedem Fehler trinkt {Schlucke}. Beim ersten richtigen erraten, trinkt {Team2} {Schlucke}!
+{Team1:Spieler} muss einen berühmten Schauspieler nachmachen, die anderen im {Team1} müssen erraten, um welchen Schauspieler es sich handelt. Bei jedem Fehler trinkt {Schlucke}. Beim ersten richtigen erraten, trinkt {Team2} {Schlucke}!
+{Team1:Spieler} muss ein Tiergeräusch nachmachen, die anderen im {Team1} müssen erraten, um welches Tier es sich handelt. Bei jedem Fehler trinkt {Schlucke}. Beim ersten richtigen erraten, trinkt {Team2} {Schlucke}!
+{Team1:Spieler} muss eine Werbung mit Stimmen nachahmen, die anderen im {Team1} müssen erraten, welche es ist. Bei jedem Fehler trinkt {Schlucke}. Beim ersten richtigen erraten, trinkt {Team2} {Schlucke}!
+{Team1:Spieler} muss einen bekannten Politiker pantomimisch darstellen, die anderen im {Team1} müssen erraten, um welchen Politiker es sich handelt. Bei jedem Fehler trinkt {Schlucke}. Beim ersten richtigen erraten, trinkt {Team2} {Schlucke}!
+{Team1:Spieler} muss eine berühmte Filmfigur imitieren, die anderen im {Team1} müssen erraten, um welche Figur es sich handelt. Bei jedem Fehler trinkt {Schlucke}. Beim ersten richtigen erraten, trinkt {Team2} {Schlucke}!
+{Team1:Spieler} muss ein Geräusch aus der Natur nachahmen, die anderen im {Team1} müssen erraten, welches es ist. Bei jedem Fehler trinkt {Schlucke}. Beim ersten richtigen erraten, trinkt {Team2} {Schlucke}!
+{Team1:Spieler} muss ein bekanntes Zitat sagen, die anderen im {Team1} müssen erraten, aus welchem Film es stammt. Bei jedem Fehler trinkt {Schlucke}. Beim ersten richtigen erraten, trinkt {Team2} {Schlucke}!
+{Team1:Spieler} muss mit einem Handzeichen einen berühmten Songtitel darstellen, die anderen im {Team1} müssen den Song erraten. Bei jedem Fehler trinkt {Schlucke}. Beim ersten richtigen erraten, trinkt {Team2} {Schlucke}!
+{Team1:Spieler} muss eine berühmte Szene aus einem Musical darstellen, die anderen im {Team1} müssen erraten, aus welchem Musical es stammt. Bei jedem Fehler trinkt {Schlucke}. Beim ersten richtigen erraten, trinkt {Team2} {Schlucke}!

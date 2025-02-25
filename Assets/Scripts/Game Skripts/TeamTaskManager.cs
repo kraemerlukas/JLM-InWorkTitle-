@@ -1,5 +1,4 @@
-﻿using System.IO;
-using System.Linq;
+﻿using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -27,10 +26,10 @@ public class TeamTaskManager : MonoBehaviour
     private void Start()
     {
         Screen.orientation = ScreenOrientation.LandscapeLeft;
-
         defaultColor = mainCamera.backgroundColor;
+        title.gameObject.SetActive(true);
         LoadPlayerData();
-        LoadTasksFromFile();
+        LoadTasksFromTextAsset();
         SetDrinkRange();
         maxTasks = Random.Range(80, 150);
         ShowNextTask();
@@ -65,16 +64,17 @@ public class TeamTaskManager : MonoBehaviour
         }
     }
 
-    private void LoadTasksFromFile()
+    // Lädt die Aufgaben aus Resources/Tasks/teams.txt
+    private void LoadTasksFromTextAsset()
     {
-        string filePath = Path.Combine(Application.streamingAssetsPath, "team.txt");
-        if (File.Exists(filePath))
+        TextAsset textAsset = Resources.Load<TextAsset>("Tasks/teams");
+        if (textAsset != null)
         {
-            teamTasks = File.ReadAllLines(filePath).ToList();
+            teamTasks = textAsset.text.Split(new[] { "\r\n", "\r", "\n" }, System.StringSplitOptions.RemoveEmptyEntries).ToList();
         }
         else
         {
-            Debug.LogError("❌ Datei 'team.txt' nicht gefunden!");
+            Debug.LogError("❌ TextAsset 'Tasks/teams' nicht gefunden!");
             teamTasks = new List<string>();
         }
     }
@@ -121,7 +121,11 @@ public class TeamTaskManager : MonoBehaviour
 
     private string GetNextUniqueTask()
     {
-        if (usedTasks.Count >= teamTasks.Count) usedTasks.Clear();
+        if (teamTasks.Count == 0)
+            return "Keine Aufgaben verfügbar!";
+
+        if (usedTasks.Count >= teamTasks.Count)
+            usedTasks.Clear();
 
         string task;
         do
@@ -133,19 +137,37 @@ public class TeamTaskManager : MonoBehaviour
         return task;
     }
 
+    // Hier wird bei jedem Task zufällig entschieden, ob die Teamzuordnung getauscht wird.
+    // Die Spieler bleiben in ihrem Team, aber die Platzhalter werden je nach Zufall getauscht.
     private void ReplacePlaceholders(ref string taskDescription)
     {
+        bool swapTeams = Random.value < 0.5f; // 50% Chance, dass die Teams getauscht werden
+
+        // Hole die Teamnamen aus den PlayerPrefs
+        string team1Name = PlayerPrefs.GetString("Team1Name", "Team 1");
+        string team2Name = PlayerPrefs.GetString("Team2Name", "Team 2");
+
+        // Bei getauschten Teams, tauschen wir die Namen
+        if (swapTeams)
+        {
+            string temp = team1Name;
+            team1Name = team2Name;
+            team2Name = temp;
+        }
+
         if (taskDescription.Contains("{Team1}"))
-            taskDescription = taskDescription.Replace("{Team1}", PlayerPrefs.GetString("Team1Name", "Team 1"));
+            taskDescription = taskDescription.Replace("{Team1}", team1Name);
 
         if (taskDescription.Contains("{Team2}"))
-            taskDescription = taskDescription.Replace("{Team2}", PlayerPrefs.GetString("Team2Name", "Team 2"));
+            taskDescription = taskDescription.Replace("{Team2}", team2Name);
 
+        // Wenn Teams getauscht sind, werden die Spieler entsprechend ausgetauscht,
+        // sodass die Spieler in ihrem ursprünglichen Team bleiben.
         if (taskDescription.Contains("{Team1:Spieler}"))
-            taskDescription = taskDescription.Replace("{Team1:Spieler}", GetRandomPlayer(team1Players));
+            taskDescription = taskDescription.Replace("{Team1:Spieler}", GetRandomPlayer(swapTeams ? team2Players : team1Players));
 
         if (taskDescription.Contains("{Team2:Spieler}"))
-            taskDescription = taskDescription.Replace("{Team2:Spieler}", GetRandomPlayer(team2Players));
+            taskDescription = taskDescription.Replace("{Team2:Spieler}", GetRandomPlayer(swapTeams ? team1Players : team2Players));
 
         if (taskDescription.Contains("{Schlucke}"))
         {
@@ -158,7 +180,6 @@ public class TeamTaskManager : MonoBehaviour
     {
         if (teamPlayers.Count > 0)
             return teamPlayers[Random.Range(0, teamPlayers.Count)];
-
         return "Kein Spieler verfügbar";
     }
 
@@ -167,3 +188,4 @@ public class TeamTaskManager : MonoBehaviour
         SceneManager.LoadScene("Menu");
     }
 }
+
