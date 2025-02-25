@@ -152,14 +152,12 @@ public class TaskManager : MonoBehaviour
     {
         usedPlayers.Clear();
 
-        // Falls die Runde beendet wurde und das letzte Event bereits gezeigt wurde, Menü öffnen
         if (gameEnded && lastDrinkEventShown)
         {
             EndRound();
             return;
         }
 
-        // Falls die maximale Anzahl an Aufgaben erreicht ist, Letzter-Schluck-Event auslösen
         if (tasksCompleted >= maxTasks && !lastDrinkEventShown)
         {
             ShowLastDrinkEvent();
@@ -167,7 +165,6 @@ public class TaskManager : MonoBehaviour
             return;
         }
 
-        // Falls die letzte Aufgabe bereits gezeigt wurde, jetzt auf den finalen Klick warten
         if (lastDrinkEventShown)
         {
             gameEnded = true;
@@ -178,25 +175,43 @@ public class TaskManager : MonoBehaviour
         title.text = "Aufgabe";
         mainCamera.backgroundColor = defaultColor;
 
-        if (Random.value < 0.25f) // 25% Chance für Special-Aufgabe
+        // Special-Aufgabe?
+        if (Random.value < 0.25f)
         {
             ShowSpecialTask();
             return;
         }
-       
+
         if (normalTasks.Count == 0)
         {
             taskText.text = "❌ Keine Aufgaben verfügbar!";
             return;
         }
 
-        // Wähle eine einzigartige Aufgabe aus der Liste
-        title.text = "Aufgabe";
-        string selectedTask = GetNextUniqueTask(normalTasks);
+        // Versuche, eine gültige Aufgabe auszuwählen (maximal 100 Versuche)
+        string selectedTask = "";
+        int attempts = 0;
+        bool validTaskFound = false;
+
+        while (attempts < 100 && !validTaskFound)
+        {
+            selectedTask = GetNextUniqueTask(normalTasks);
+            if (IsTaskValid(selectedTask))
+                validTaskFound = true;
+            attempts++;
+        }
+
+        if (!validTaskFound)
+        {
+            taskText.text = "❌ Keine passenden Aufgaben verfügbar!";
+            return;
+        }
+
         ReplacePlaceholders(ref selectedTask);
         taskText.text = selectedTask;
         tasksCompleted++;
     }
+
 
 
 
@@ -225,7 +240,7 @@ public class TaskManager : MonoBehaviour
 
         if (specialType == SpecialTaskType.Regel && ruleActive)
         {
-            ShowNextTask(); // Falls eine Regel aktiv ist, keine neue Regel starten
+            ShowNextTask();
             return;
         }
 
@@ -237,7 +252,7 @@ public class TaskManager : MonoBehaviour
         switch (specialType)
         {
             case SpecialTaskType.Exen:
-                if (Random.value > 0.01f) // 1% Wahrscheinlichkeit für EX
+                if (Random.value > 0.01f)
                 {
                     ShowNextTask();
                     return;
@@ -267,7 +282,8 @@ public class TaskManager : MonoBehaviour
                         currentRulePlayer = "";
                     }
 
-                    ReplacePlaceholders(ref selectedTask); // Hier wird {Schlucke} korrekt ersetzt
+                    // Hier werden weitere Platzhalter ersetzt
+                    ReplacePlaceholders(ref selectedTask);
                 }
                 break;
             case SpecialTaskType.Runde:
@@ -296,20 +312,26 @@ public class TaskManager : MonoBehaviour
             return;
         }
 
-        title.gameObject.SetActive(true);
-        title.text = titleText;
-        mainCamera.backgroundColor = backgroundColor;
-
+        // Falls im Spezialfall noch keine Aufgabe festgelegt wurde
         if (string.IsNullOrEmpty(selectedTask))
         {
             selectedTask = taskPool[Random.Range(0, taskPool.Count)];
             ReplacePlaceholders(ref selectedTask);
         }
 
+        // Letzte Validierung der Aufgabe (z. B. {Fahrer1} oder {Spieler3} vorhanden?)
+        if (!IsTaskValid(selectedTask))
+        {
+            ShowNextTask();
+            return;
+        }
+
+        title.gameObject.SetActive(true);
+        title.text = titleText;
+        mainCamera.backgroundColor = backgroundColor;
         taskText.text = selectedTask;
         tasksCompleted++;
     }
-
 
     private void ShowRuleEnd()
     {
@@ -334,22 +356,6 @@ public class TaskManager : MonoBehaviour
 
     private void ReplacePlaceholders(ref string taskDescription)
     {
-        int normalPlayers = nonDriverPlayers.Count;
-        int driverCount = driverNames.Count;
-
-        if ((taskDescription.Contains("{Spieler3}") && normalPlayers < 3) ||
-            (taskDescription.Contains("{Spieler4}") && normalPlayers < 4))
-        {
-            ShowNextTask();
-            return;
-        }
-
-        if (taskDescription.Contains("{Fahrer1}") && driverCount == 0)
-        {
-            ShowNextTask();
-            return;
-        }
-
         if (taskDescription.Contains("{Spieler1}"))
         {
             string name = GetColoredName(GetUniqueNonDriver());
@@ -362,19 +368,19 @@ public class TaskManager : MonoBehaviour
             taskDescription = taskDescription.Replace("{Spieler2}", name);
         }
 
-        if (taskDescription.Contains("{Spieler3}") && normalPlayers >= 3)
+        if (taskDescription.Contains("{Spieler3}"))
         {
             string name = GetColoredName(GetUniqueNonDriver());
             taskDescription = taskDescription.Replace("{Spieler3}", name);
         }
 
-        if (taskDescription.Contains("{Spieler4}") && normalPlayers >= 4)
+        if (taskDescription.Contains("{Spieler4}"))
         {
             string name = GetColoredName(GetUniqueNonDriver());
             taskDescription = taskDescription.Replace("{Spieler4}", name);
         }
 
-        if (taskDescription.Contains("{Fahrer1}") && driverCount > 0)
+        if (taskDescription.Contains("{Fahrer1}"))
         {
             string name = GetColoredName(GetUniqueDriver());
             taskDescription = taskDescription.Replace("{Fahrer1}", name);
@@ -386,6 +392,7 @@ public class TaskManager : MonoBehaviour
             taskDescription = taskDescription.Replace("{Schlucke}", randomDrinks.ToString());
         }
     }
+
     private string GetUniqueNonDriver()
     {
         if (nonDriverPlayers.Count == 0) return "Niemand";
@@ -471,6 +478,23 @@ public class TaskManager : MonoBehaviour
         Color chosenColor = GetRandomContrastingColor(bg);
         string hexColor = ColorUtility.ToHtmlStringRGB(chosenColor);
         return $"<color=#{hexColor}>{name}</color>";
+    }
+
+    private bool IsTaskValid(string taskDescription)
+    {
+        int normalPlayers = nonDriverPlayers.Count;
+        int driverCount = driverNames.Count;
+
+        // Falls Aufgaben Platzhalter für zusätzliche Spieler enthalten, diese aber nicht verfügbar sind
+        if (taskDescription.Contains("{Spieler3}") && normalPlayers < 3)
+            return false;
+        if (taskDescription.Contains("{Spieler4}") && normalPlayers < 4)
+            return false;
+        // Falls ein Fahrer-Platzhalter enthalten ist, aber gar keine Fahrer vorhanden sind
+        if (taskDescription.Contains("{Fahrer1}") && driverCount == 0)
+            return false;
+
+        return true;
     }
 
 
