@@ -52,6 +52,9 @@ public class TaskManager : MonoBehaviour
         normalTasks = LoadTasksFromTextAsset("Tasks/normal");
         exTasks = LoadTasksFromTextAsset("Tasks/ex");
         duellTasks = LoadTasksFromTextAsset("Tasks/duell");
+        regelTasks = LoadTasksFromTextAsset("Tasks/regel");
+        rundeTasks = LoadTasksFromTextAsset("Tasks/runde");
+        lieberTasks = LoadTasksFromTextAsset("Tasks/lieber");
 
         SetDrinkRange();
         maxTasks = Random.Range(80, 120);
